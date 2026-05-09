@@ -1,0 +1,40 @@
+import BlobBackground from './BlobBackground';
+import Badge from './Badge';
+import AnimatedHeading from './AnimatedHeading';
+import Reveal from './Reveal';
+
+export default function PageHero({ eyebrow, title, description, badge, children }) {
+  return (
+    <section className="relative overflow-hidden">
+      <BlobBackground />
+      <div className="container-page relative pt-2xl pb-xl md:pt-[108px] md:pb-[72px]">
+        {badge ? (
+          <Reveal>
+            <Badge icon={badge.icon} variant={badge.variant || 'primary'}>
+              {badge.label}
+            </Badge>
+          </Reveal>
+        ) : eyebrow ? (
+          <Reveal>
+            <p className="text-label-sm uppercase tracking-widest text-primary font-semibold mb-2">
+              {eyebrow}
+            </p>
+          </Reveal>
+        ) : null}
+        <div className="mt-md max-w-3xl">
+          <AnimatedHeading as="h1" className="text-display text-balance">
+            {title}
+          </AnimatedHeading>
+        </div>
+        {description ? (
+          <Reveal delay={0.2}>
+            <p className="mt-md text-body-lg text-on-surface-variant max-w-2xl">
+              {description}
+            </p>
+          </Reveal>
+        ) : null}
+        {children ? <div className="mt-lg">{children}</div> : null}
+      </div>
+    </section>
+  );
+}

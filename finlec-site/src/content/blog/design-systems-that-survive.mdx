@@ -1,0 +1,21 @@
+---
+title: "Design systems that survive a hundred PRs"
+slug: "design-systems-that-survive"
+date: "2026-03-22"
+author: "Finlec Team"
+tags: ["Design", "Frontend"]
+cover: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1600&q=80&auto=format&fit=crop"
+excerpt: "Tokens, naming, and the politics of making a design system that engineers actually want to use."
+---
+
+# Design systems that survive a hundred PRs
+
+Most design systems rot. Eighteen months in, the Figma library and the codebase have drifted. Buttons have nine variants. Colours are hardcoded in three places.
+
+## Three rules
+
+1. **Tokens are the API.** Never reference a hex value outside the token file.
+2. **One source of truth.** Codify the system in code; let Figma read from it.
+3. **Make the right thing the easy thing.** Lint for hardcoded values.
+
+A system that can't be enforced won't be.

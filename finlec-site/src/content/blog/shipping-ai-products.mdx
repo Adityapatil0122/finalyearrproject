@@ -1,0 +1,26 @@
+---
+title: "Shipping AI products that don't embarrass you"
+slug: "shipping-ai-products"
+date: "2026-04-12"
+author: "Finlec Team"
+tags: ["AI", "Engineering"]
+cover: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&q=80&auto=format&fit=crop"
+excerpt: "A field guide to evals, guardrails, and production wiring for LLM-powered features."
+---
+
+# Shipping AI products that don't embarrass you
+
+Building an AI demo is easy. Shipping an AI **product** that doesn't hallucinate, leak data, or quietly burn $40 in tokens per session — that's the work.
+
+## What we always wire in
+
+- **Evals on day one.** A growing folder of golden conversations and adversarial prompts.
+- **Cost & latency budgets.** Per-route. Surfaced in dashboards, not just logs.
+- **Guardrails.** Input filtering, output validation, and a hard kill switch.
+- **Observability.** Every prompt, response, and tool call traced.
+
+## Why teams fail
+
+They demo on cherry-picked happy paths. They never write the eval. They forget that LLMs are non-deterministic systems running on someone else's GPU.
+
+The fix is unglamorous: treat your AI feature like a production database — capacity-planned, monitored, and tested.

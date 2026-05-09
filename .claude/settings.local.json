@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "WebFetch(domain:finlectechnologies.com)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(node scripts/build-knowledge.mjs)",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "WebFetch(domain:web.archive.org)",
+      "WebFetch(domain:www.google.com)"
+    ]
+  }
+}
