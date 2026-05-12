@@ -22,7 +22,7 @@ export default function ChatLauncher() {
         onFocus={() => setPrimed(true)}
         aria-label="Open Finlec AI chat"
         className={[
-          'group interactive-surface relative grid h-14 w-14 place-items-center rounded-full bg-primary text-white shadow-high hover:scale-105 active:scale-95 transition-transform',
+          'group interactive-surface relative grid h-12 w-12 place-items-center rounded-full bg-primary text-white shadow-high transition-transform hover:scale-105 active:scale-95 sm:h-14 sm:w-14',
           open ? 'opacity-0 pointer-events-none' : 'opacity-100',
         ].join(' ')}
       >

@@ -5,6 +5,7 @@ import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import GlassCard from '@/components/ui/GlassCard';
+import SiteCta from '@/components/ui/SiteCta';
 import { products } from '@/data/products';
 
 export default function Products() {
@@ -18,11 +19,11 @@ export default function Products() {
     <>
       <PageHero
         eyebrow="Product lab"
-        title="Product capabilities without unsupported claims."
-        description="The public reference site does not list a dedicated product catalog yet, so this page focuses on the product systems Finlec can design and build."
+        title="Study hall operations, productized."
+        description="The live Finlec catalog includes a coming-soon Study Room Management App, plus the AI, dashboard, and automation systems we can shape around real business workflows."
       />
 
-      <Section className="bg-surface !pt-md">
+      <Section id="study-room" className="bg-surface !pt-md">
         <div className="grid lg:grid-cols-2 gap-2xl items-center">
           <Reveal>
             <div>
@@ -120,6 +121,7 @@ export default function Products() {
                   'group interactive-surface surface-lift relative h-full rounded-3xl overflow-hidden border border-outline-variant bg-surface-container-lowest p-xl shadow-low transition-all duration-300',
                   r.large ? 'min-h-[378px]' : 'min-h-[198px]',
                 ].join(' ')}
+                id={r.id}
               >
                 {r.image ? (
                   <>
@@ -146,6 +148,7 @@ export default function Products() {
           ))}
         </div>
       </Section>
+      <SiteCta title="Ready to scope the product system your business needs?" />
     </>
   );
 }

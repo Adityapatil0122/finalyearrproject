@@ -12,6 +12,9 @@ export default function AnimatedHeading({
   useLayoutEffect(() => {
     if (prefersReducedMotion || !ref.current) return;
     const el = ref.current;
+    const isPhone =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(max-width: 767px)').matches;
     const text = el.textContent;
     el.innerHTML = '';
     const words = text.split(/(\s+)/);
@@ -33,9 +36,9 @@ export default function AnimatedHeading({
       {
         yPercent: 0,
         autoAlpha: 1,
-        duration: 0.9,
+        duration: isPhone ? 0.72 : 0.9,
         ease: 'power3.out',
-        stagger: 0.06,
+        stagger: isPhone ? 0.035 : 0.06,
         delay,
       }
     );

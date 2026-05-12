@@ -7,7 +7,7 @@ export default function Section({
   as: Tag = 'section',
 }) {
   return (
-    <Tag id={id} className={['relative py-2xl md:py-[86px]', className].join(' ')}>
+    <Tag id={id} className={['relative py-xl md:py-[86px]', className].join(' ')}>
       {bleed ? children : container ? <div className="container-page">{children}</div> : children}
     </Tag>
   );

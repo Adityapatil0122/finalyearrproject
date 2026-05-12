@@ -30,9 +30,10 @@ const services = [
   'Other',
 ];
 
-const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  siteConfig.address
-)}`;
+const officeLatitude = 18.4567815;
+const officeLongitude = 73.8496193;
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${officeLatitude},${officeLongitude}`;
+const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=73.82%2C18.43%2C73.88%2C18.48&layer=mapnik&marker=${officeLatitude}%2C${officeLongitude}`;
 
 const whatsappUrl = `https://wa.me/${(siteConfig.whatsapp || siteConfig.phone).replace(
   /[^\d]/g,
@@ -122,9 +123,9 @@ export default function Contact() {
     <div className="bg-surface">
       <section className="relative overflow-hidden border-b border-outline-variant bg-surface-container-low">
         <div className="absolute inset-0 signal-grid opacity-50" aria-hidden />
-        <div className="container-page relative grid gap-xl py-xl md:grid-cols-[1fr_auto] md:items-end md:py-2xl">
+        <div className="container-page relative py-xl text-center md:py-2xl">
           <Reveal>
-            <div className="max-w-4xl">
+            <div className="mx-auto max-w-4xl">
               <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
                 Let&apos;s Talk
               </p>
@@ -132,26 +133,14 @@ export default function Contact() {
                 Let&apos;s create the{' '}
                 <span className="italic text-primary">next big thing</span> together.
               </h1>
-              <p className="mt-md max-w-2xl text-body-lg text-on-surface-variant">
+              <p className="mx-auto mt-md max-w-2xl text-body-lg text-on-surface-variant">
                 Share your project goals, timeline, and the kind of digital system you
                 want to build. We will reply with a clear next step.
               </p>
             </div>
           </Reveal>
-
-          <Reveal delay={0.08}>
-            <div className="grid grid-cols-2 gap-sm rounded-2xl border border-outline-variant bg-surface-container-lowest p-sm shadow-low">
-              <div className="rounded-xl bg-primary/10 px-md py-sm">
-                <p className="text-label-sm text-on-surface-variant">Reply time</p>
-                <p className="text-h3 text-primary">24 hrs</p>
-              </div>
-              <div className="rounded-xl bg-secondary/10 px-md py-sm">
-                <p className="text-label-sm text-on-surface-variant">Location</p>
-                <p className="text-h3 text-secondary">Pune</p>
-              </div>
-            </div>
-          </Reveal>
         </div>
+
       </section>
 
       <section className="container-page py-2xl md:py-[92px]">
@@ -242,7 +231,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              <MapPanel />
             </aside>
           </Reveal>
 
@@ -366,45 +354,30 @@ export default function Contact() {
           </Reveal>
         </div>
       </section>
+      <Reveal delay={0.08}>
+        <section className="relative h-[340px] border-y border-outline-variant md:h-[420px]">
+          <iframe
+            title="Finlec Technologies location map"
+            src={mapEmbedUrl}
+            className="absolute inset-0 h-full w-full"
+            loading="lazy"
+          />
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface/90 px-md py-sm text-label-sm font-semibold text-on-surface shadow-low backdrop-blur-sm transition-all hover:border-primary hover:bg-primary hover:text-white"
+          >
+            <MapPin size={15} />
+            {siteConfig.shortAddress} - Open in Maps
+            <ExternalLink size={14} />
+          </a>
+        </section>
+      </Reveal>
     </div>
   );
 }
 
-function MapPanel() {
-  return (
-    <div className="overflow-hidden rounded-3xl border border-outline-variant bg-surface-container-lowest shadow-low">
-      <div className="flex flex-col gap-sm p-lg md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
-            Find us
-          </p>
-          <h2 className="mt-1 text-h3 text-on-surface">{siteConfig.shortAddress}</h2>
-          <p className="mt-1 max-w-md text-body-md text-on-surface-variant">
-            {siteConfig.address}
-          </p>
-        </div>
-        <a
-          href={mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 rounded-full border border-outline-variant px-md py-sm text-label-sm font-semibold text-on-surface transition-all hover:border-primary hover:bg-primary hover:text-white"
-        >
-          Open map
-          <ExternalLink size={16} />
-        </a>
-      </div>
-
-      <div className="relative h-[320px] border-t border-outline-variant md:h-[380px]">
-        <iframe
-          title="Finlec Technologies location map"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=73.78%2C18.45%2C73.98%2C18.64&amp;layer=mapnik&amp;marker=18.52%2C73.86"
-          className="absolute inset-0 h-full w-full"
-          loading="lazy"
-        />
-      </div>
-    </div>
-  );
-}
 
 function FloatingField({ as = 'input', label, className = '', ...props }) {
   const Tag = as;

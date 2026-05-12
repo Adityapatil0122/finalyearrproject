@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import { Code2, Layers3, Rocket } from 'lucide-react';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
-import { techStack } from '@/data/home';
 import { gsap } from '@/lib/gsap';
 
 const logoBase = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons';
@@ -28,27 +27,6 @@ const techLogos = {
   TypeScript: `${logoBase}/typescript/typescript-original.svg`,
 };
 
-const tileStyles = [
-  { rotate: '-4deg', y: '10px', scale: 1.06 },
-  { rotate: '3deg', y: '-6px', scale: 0.96 },
-  { rotate: '-2deg', y: '18px', scale: 1 },
-  { rotate: '5deg', y: '0px', scale: 1.08 },
-  { rotate: '4deg', y: '-10px', scale: 0.98 },
-  { rotate: '-5deg', y: '8px', scale: 1.04 },
-  { rotate: '2deg', y: '-2px', scale: 0.94 },
-  { rotate: '-3deg', y: '14px', scale: 1.02 },
-  { rotate: '6deg', y: '-8px', scale: 1 },
-  { rotate: '-2deg', y: '6px', scale: 0.96 },
-  { rotate: '3deg', y: '16px', scale: 1.08 },
-  { rotate: '-5deg', y: '-4px', scale: 1 },
-  { rotate: '2deg', y: '10px', scale: 0.96 },
-  { rotate: '-4deg', y: '-10px', scale: 1.02 },
-  { rotate: '5deg', y: '8px', scale: 0.98 },
-  { rotate: '-2deg', y: '-2px', scale: 1.06 },
-  { rotate: '4deg', y: '18px', scale: 0.94 },
-  { rotate: '-3deg', y: '4px', scale: 1 },
-];
-
 const featured = [
   { icon: Code2, label: 'Frontend systems' },
   { icon: Layers3, label: 'Cloud + data' },
@@ -58,7 +36,7 @@ const featured = [
 const orbitRings = [
   {
     className: 'tech-orbit tech-orbit-outer',
-    duration: '16s',
+    duration: '26s',
     items: [
       { tech: 'React', top: '2%', left: '50%' },
       { tech: 'Angular', top: '14%', left: '82%' },
@@ -72,7 +50,7 @@ const orbitRings = [
   },
   {
     className: 'tech-orbit tech-orbit-middle tech-orbit-reverse',
-    duration: '12s',
+    duration: '22s',
     items: [
       { tech: 'MongoDB', top: '4%', left: '50%' },
       { tech: 'AWS', top: '28%', left: '93%' },
@@ -83,7 +61,7 @@ const orbitRings = [
   },
   {
     className: 'tech-orbit tech-orbit-inner',
-    duration: '8s',
+    duration: '18s',
     items: [
       { tech: 'Jenkins', top: '4%', left: '50%' },
       { tech: 'Azure', top: '50%', left: '96%' },
@@ -141,8 +119,8 @@ export default function TechStack() {
       });
 
       gsap.to('.tech-orbit-node', {
-        scale: 1.14,
-        duration: 1.1,
+        scale: 1.08,
+        duration: 1.45,
         ease: 'sine.inOut',
         repeat: -1,
         yoyo: true,
@@ -150,9 +128,9 @@ export default function TechStack() {
       });
 
       gsap.to('.tech-logo-bouncer', {
-        y: -8,
-        rotation: 4,
-        duration: 0.85,
+        y: -5,
+        rotation: 2,
+        duration: 1.15,
         ease: 'sine.inOut',
         repeat: -1,
         yoyo: true,
@@ -160,8 +138,8 @@ export default function TechStack() {
       });
 
       gsap.to('.tech-core', {
-        scale: 1.07,
-        duration: 1.35,
+        scale: 1.04,
+        duration: 1.8,
         ease: 'sine.inOut',
         repeat: -1,
         yoyo: true,
@@ -222,7 +200,7 @@ export default function TechStack() {
         <Reveal delay={0.12}>
           <div
             ref={galaxyRef}
-            className="tech-galaxy interactive-surface signal-grid relative min-h-[620px] overflow-hidden rounded-3xl border border-outline-variant bg-surface-container-lowest shadow-med"
+            className="tech-orbit-stage relative min-h-[420px] overflow-visible md:min-h-[620px]"
           >
             <div className="tech-comet tech-comet-one" />
             <div className="tech-comet tech-comet-two" />
@@ -233,7 +211,7 @@ export default function TechStack() {
               <div className="tech-core mx-auto grid h-32 w-32 place-items-center rounded-full border border-primary/20 bg-white shadow-high">
                 <Rocket size={42} className="text-primary" />
               </div>
-              <p className="mt-md text-label-sm font-semibold uppercase tracking-widest text-on-surface-variant">
+              <p className="tech-core-label mx-auto mt-sm w-fit rounded-full border border-outline-variant bg-white/95 px-md py-2 text-label-sm font-semibold uppercase tracking-widest text-on-surface-variant shadow-low backdrop-blur-sm">
                 Build engine
               </p>
             </div>
@@ -268,21 +246,6 @@ export default function TechStack() {
               </div>
             ))}
 
-            <div className="pointer-events-none absolute inset-x-8 bottom-8 grid grid-cols-3 gap-sm opacity-85">
-              {techStack.slice(0, 9).map((tech, index) => {
-                const style = tileStyles[index % tileStyles.length];
-
-                return (
-                  <span
-                    key={tech}
-                    className="h-1.5 rounded-full bg-primary/20"
-                    style={{
-                      transform: `translateY(${style.y}) rotate(${style.rotate}) scaleX(${style.scale})`,
-                    }}
-                  />
-                );
-              })}
-            </div>
           </div>
         </Reveal>
       </div>

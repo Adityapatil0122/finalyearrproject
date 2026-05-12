@@ -1,21 +1,78 @@
 ---
 title: "When the WhatsApp Business API actually pays off"
 slug: "whatsapp-business-api"
-date: "2026-02-04"
+date: "2026-05-02"
 author: "Finlec Team"
-tags: ["Marketing", "Conversational"]
-cover: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=1600&q=80&auto=format&fit=crop"
-excerpt: "Most brands shouldn't bother. For the ones that should, here's the playbook."
+category: "WhatsApp API"
+readTime: "6 min read"
+featuredStat: "The customer service window lasts 24 hours after the user's last inbound message."
+source: "Twilio WhatsApp Platform concepts"
+tags: ["Marketing", "Conversational", "WhatsApp API"]
+cover: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=1600&q=80&auto=format&fit=crop"
+excerpt: "Most brands should not automate WhatsApp blindly. Here is when the API is worth it, and how to plan templates, opt-ins, and handoffs."
 ---
 
 # When the WhatsApp Business API actually pays off
 
-WhatsApp open rates are still 4–6× email. But the API is a chore: template approvals, opt-in mechanics, billing per conversation, and a dashboard that fights you.
+WhatsApp can feel like a shortcut to customer attention, but the API is not just a send button. It has opt-in rules, template approvals, customer service windows, pricing categories, and operational discipline.
 
-It's worth the chore when:
+It pays off when the channel supports an actual customer journey.
 
-- **Repeat purchase is high** (D2C, food, beauty).
-- **Service touch is frequent** (logistics, fintech, education).
-- **You already have CRM data** to segment by.
+## Where WhatsApp works well
 
-Otherwise, ship better email first.
+Use the API when customers need fast, personal, repeat communication:
+
+- Order confirmations and delivery updates.
+- Appointment reminders and rescheduling.
+- Education, clinic, and service follow-ups.
+- Lead qualification after an ad or website form.
+- Support triage where a human may need to step in.
+
+Avoid it when the only plan is to blast promotions. That usually creates opt-outs, template rejections, and poor brand trust.
+
+## The 24-hour rule
+
+When a user messages your business, a customer service window opens. Twilio's WhatsApp documentation explains that this window lasts 24 hours after the last inbound user message. Inside the window, businesses can send free-form replies. Outside the window, messages generally need approved templates.
+
+That single rule should shape the entire design:
+
+- Store the last inbound message time.
+- Show agents whether the conversation is inside or outside the window.
+- Prepare approved templates for follow-ups.
+- Keep template copy useful, specific, and compliant.
+
+## Templates need a strategy
+
+Templates are not just legal text. They are product surfaces. Strong templates are short, clear, and tied to a real customer action.
+
+Useful template categories include:
+
+- Utility: order status, reminders, account updates.
+- Authentication: OTPs and login verification.
+- Marketing: offers, announcements, and re-engagement.
+
+Keep marketing templates separate from service updates. Mixed intent can create approval and pricing problems.
+
+## A good WhatsApp flow
+
+A practical flow looks like this:
+
+1. Website form or ad captures consent.
+2. The first message confirms what the user asked for.
+3. A bot collects the missing detail.
+4. A human receives the lead when intent is high.
+5. Templates handle follow-up after the 24-hour window.
+
+## What to build before automation
+
+Before connecting the API, prepare:
+
+- Opt-in language and consent storage.
+- Template library with fallback copy.
+- CRM fields for source, stage, interest, and owner.
+- Agent handoff rules.
+- Reporting for response time, conversion, and opt-out rate.
+
+## Source used
+
+- [Twilio - Key concepts for WhatsApp Business Platform](https://www.twilio.com/docs/whatsapp/key-concepts)

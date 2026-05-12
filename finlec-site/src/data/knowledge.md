@@ -111,20 +111,20 @@ Industries served by AI pages: Enterprise, E-commerce, Healthcare, Financial Ser
 React, Angular, Vue.js, Node.js, Python, PHP, Java, MySQL, MongoDB, AWS, Docker, Kubernetes, Git, Jenkins, Azure, Firebase, GraphQL, TypeScript
 
 ## Product capabilities
-### Finlec Product Lab
-A focused space for digital products, AI workflows, and automation systems.
-The reference site does not publish a dedicated product catalog yet, so this page now presents product capabilities instead of unsupported product claims.
+### Study Room Management App
+A coming-soon SaaS system for Abhyasika and study halls.
+The live Finlec site lists a Study Room Management App for managing students, fees, seats, renewals, alerts, and admin operations in one place.
 Highlights:
-- AI-powered assistants and chatbot workflows
-- Customer dashboards, admin tools, and analytics portals
-- Website, app, and WhatsApp API systems that can grow into owned products
+- Student profile, attendance, and performance tracking
+- Fee collection, receipts, payment history, and renewal workflows
+- Seat allocation, automated reminders, notifications, and admin dashboard views
 Headline capabilities:
-- AI Assistants: Chatbots, support automation, custom training, and analytics for customer engagement.
-- Business Dashboards: Data visualization, performance metrics, and reporting interfaces for faster decisions.
-- API Products: Connected web apps, integrations, webhooks, and real-time processing across systems.
+- Student Management: Profiles, attendance, performance notes, and study hall records organized for daily operations.
+- Fee Management: Fee collection, receipt generation, due tracking, and renewal workflows with fewer manual steps.
+- Seat Management: Seat allocation, availability checks, reservation status, and capacity planning in one dashboard.
 Product tracks:
+- Study Room Management App: A complete study hall operations product with students, seats, fees, renewals, reminders, and admin control.
 - AI support products: Domain-trained assistants for support, lead capture, and internal operations.
-- Commerce systems: eCommerce flows, customer communication, and WhatsApp-powered engagement.
 - Analytics platforms: Dashboards, predictive insights, and business intelligence workflows.
 
 ## How we work
@@ -160,16 +160,48 @@ Rightspot, Media, Majha, Alpha Trekkers, IAS, Spyra Exim, Shivraj, Tested OK, Gu
 **How can I contact Finlec?** Call +91 9960756292, email contact@finlectechnologies.com, or use /contact.
 
 ## Blog posts
+### Preparing your website for AI Search without gimmicks
+What to fix before worrying about AI search: indexability, useful content, internal links, structured data, page experience, and conversion tracking.
+Full post URL: /blogs/ai-search-website-readiness
+
+### App launch checklist before App Store and Google Play review
+A practical pre-submit list for mobile apps: test tracks, demo accounts, metadata, privacy, crash checks, and release rollout planning.
+Full post URL: /blogs/app-launch-review-checklist
+
+### Core Web Vitals for business websites in 2026
+A plain-English checklist for faster websites: LCP, INP, CLS, image weight, scripts, hosting, and measurement.
+Full post URL: /blogs/core-web-vitals-business-sites
+
 ### Design systems that survive a hundred PRs
-Tokens, naming, and the politics of making a design system that engineers actually want to use.
+Tokens, naming, component rules, and governance patterns that keep a website or app from turning messy after launch.
 Full post URL: /blogs/design-systems-that-survive
 
-### Shipping AI products that don't embarrass you
-A field guide to evals, guardrails, and production wiring for LLM-powered features.
+### Checkout UX fixes that save ecommerce orders
+Practical ecommerce improvements for carts, checkout fields, payment trust, delivery clarity, and mobile conversion.
+Full post URL: /blogs/ecommerce-checkout-ux
+
+### GA4 events every lead-generation site should track
+A simple measurement plan for websites that need better leads, not just more traffic.
+Full post URL: /blogs/ga4-events-for-lead-generation
+
+### Local SEO starts with website structure
+A service-business checklist for clearer pages, stronger internal links, local trust signals, and better search visibility.
+Full post URL: /blogs/local-seo-website-structure
+
+### Shipping AI products that do not embarrass you
+A practical playbook for taking AI from demo to dependable product: evals, workflow fit, cost budgets, and guardrails.
 Full post URL: /blogs/shipping-ai-products
 
+### Website security basics small businesses should not skip
+The simple security layer every business website needs: updates, MFA, backups, access control, monitoring, and incident readiness.
+Full post URL: /blogs/small-business-website-security
+
+### A WCAG 2.2 checklist for modern redesigns
+Accessibility work that also improves everyday usability: contrast, keyboard flow, labels, touch targets, motion, and readable layouts.
+Full post URL: /blogs/wcag-22-redesign-checklist
+
 ### When the WhatsApp Business API actually pays off
-Most brands shouldn't bother. For the ones that should, here's the playbook.
+Most brands should not automate WhatsApp blindly. Here is when the API is worth it, and how to plan templates, opt-ins, and handoffs.
 Full post URL: /blogs/whatsapp-business-api
 
 ## Contact paths to recommend

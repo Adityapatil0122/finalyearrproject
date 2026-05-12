@@ -15,14 +15,19 @@ export default function Reveal({
 
   useLayoutEffect(() => {
     if (prefersReducedMotion || !ref.current) return;
+    const isPhone =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(max-width: 767px)').matches;
+    const mobileY = isPhone ? Math.min(y, 18) : y;
+    const blur = isPhone ? 'blur(5px)' : 'blur(10px)';
     const tween = gsap.fromTo(
       ref.current,
-      { autoAlpha: 0, y, filter: 'blur(10px)' },
+      { autoAlpha: 0, y: mobileY, filter: blur },
       {
         autoAlpha: 1,
         y: 0,
         filter: 'blur(0px)',
-        duration,
+        duration: isPhone ? Math.min(duration, 0.58) : duration,
         ease: 'power3.out',
         delay,
         scrollTrigger: { trigger: ref.current, start, once: true },

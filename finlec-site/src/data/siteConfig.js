@@ -19,11 +19,92 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: 'Home', to: '/' },
-  { label: 'Services', to: '/services' },
-  { label: 'AI Solutions', to: '/ai-solutions' },
-  { label: 'Products', to: '/products' },
+  {
+    label: 'Services',
+    to: '/services',
+    children: [
+      {
+        label: 'Website Development',
+        description: 'Custom, eCommerce, WordPress',
+        to: '/services#web',
+      },
+      {
+        label: 'App Development',
+        description: 'Custom, cross-platform, responsive',
+        to: '/services#app',
+      },
+      {
+        label: 'Digital Marketing',
+        description: 'SEO, social media, campaigns',
+        to: '/services#marketing',
+      },
+      {
+        label: 'WhatsApp Business API',
+        description: 'API setup, green tick, chatbots',
+        to: '/services#whatsapp',
+      },
+      {
+        label: 'UI / UX Design',
+        description: 'Research, wireframing, visual design',
+        to: '/services#uiux',
+      },
+      {
+        label: 'Graphics Designing',
+        description: 'Logos, social media, print',
+        to: '/services#graphics',
+      },
+    ],
+  },
+  {
+    label: 'AI Solutions',
+    to: '/ai-solutions',
+    children: [
+      {
+        label: 'AI-Powered Chatbots',
+        description: 'Intelligent conversational agents',
+        to: '/ai-solutions#chatbots',
+      },
+      {
+        label: 'Custom AI Solutions',
+        description: 'Tailored AI development',
+        to: '/ai-solutions#custom',
+      },
+      {
+        label: 'AI Integration & API',
+        description: 'Seamless platform integration',
+        to: '/ai-solutions#integration',
+      },
+      {
+        label: 'Data Analytics & Insights',
+        description: 'AI-driven analysis',
+        to: '/ai-solutions#analytics',
+      },
+    ],
+  },
+  {
+    label: 'Products',
+    to: '/products',
+    children: [
+      {
+        label: 'Study Room Management App',
+        description: 'For Abhyasika and study halls',
+        to: '/products#study-room',
+      },
+      {
+        label: 'AI Assistants',
+        description: 'Support, leads, internal operations',
+        to: '/products#chatbots',
+      },
+      {
+        label: 'Business Dashboards',
+        description: 'Reporting and performance views',
+        to: '/products#analytics',
+      },
+    ],
+  },
   { label: 'Clients', to: '/clients' },
   { label: 'Blogs', to: '/blogs' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 export const footerColumns = [
@@ -44,7 +125,7 @@ export const footerColumns = [
       { label: 'Digital Marketing', to: '/services#marketing' },
       { label: 'WhatsApp API', to: '/services#whatsapp' },
       { label: 'UI / UX', to: '/services#uiux' },
-      { label: 'Graphics Design', to: '/services#graphics' },
+      { label: 'Graphics Designing', to: '/services#graphics' },
     ],
   },
   {
@@ -54,6 +135,14 @@ export const footerColumns = [
       { label: 'Custom AI Solutions', to: '/ai-solutions#custom' },
       { label: 'AI Integration & API', to: '/ai-solutions#integration' },
       { label: 'Data Analytics & Insights', to: '/ai-solutions#analytics' },
+    ],
+  },
+  {
+    title: 'Products',
+    links: [
+      { label: 'Study Room Management App', to: '/products#study-room' },
+      { label: 'Business Dashboards', to: '/products#analytics' },
+      { label: 'AI Assistants', to: '/products#chatbots' },
     ],
   },
 ];

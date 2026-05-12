@@ -97,10 +97,11 @@ export default function ChatPanel({ open, onClose }) {
       <aside
         role="dialog"
         aria-label="Finlec AI chat"
+        data-lenis-prevent
         className={[
           'fixed z-50 transition-all duration-300 ease-out',
           'bottom-0 right-0 left-0 sm:left-auto sm:bottom-6 sm:right-6',
-          'sm:w-[378px] h-[80vh] sm:h-[576px] sm:max-h-[calc(100vh-3rem)]',
+          'h-[78svh] sm:h-[576px] sm:max-h-[calc(100vh-3rem)] sm:w-[378px]',
           'rounded-t-3xl sm:rounded-3xl bg-surface-container-lowest border border-outline-variant shadow-high overflow-hidden flex flex-col',
           open
             ? 'translate-y-0 opacity-100 pointer-events-auto'

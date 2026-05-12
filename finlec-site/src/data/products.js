@@ -1,49 +1,49 @@
 export const products = {
   featured: {
-    name: 'Finlec Product Lab',
-    tagline: 'A focused space for digital products, AI workflows, and automation systems.',
+    name: 'Study Room Management App',
+    tagline: 'A coming-soon SaaS system for Abhyasika and study halls.',
     description:
-      'The reference site does not publish a dedicated product catalog yet, so this page now presents product capabilities instead of unsupported product claims.',
+      'The live Finlec site lists a Study Room Management App for managing students, fees, seats, renewals, alerts, and admin operations in one place.',
     image:
-      'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&q=80&auto=format&fit=crop',
     bullets: [
-      'AI-powered assistants and chatbot workflows',
-      'Customer dashboards, admin tools, and analytics portals',
-      'Website, app, and WhatsApp API systems that can grow into owned products',
+      'Student profile, attendance, and performance tracking',
+      'Fee collection, receipts, payment history, and renewal workflows',
+      'Seat allocation, automated reminders, notifications, and admin dashboard views',
     ],
   },
   features: [
     {
-      icon: 'smart_toy',
-      title: 'AI Assistants',
-      desc: 'Chatbots, support automation, custom training, and analytics for customer engagement.',
+      icon: 'groups',
+      title: 'Student Management',
+      desc: 'Profiles, attendance, performance notes, and study hall records organized for daily operations.',
     },
     {
-      icon: 'dashboard',
-      title: 'Business Dashboards',
-      desc: 'Data visualization, performance metrics, and reporting interfaces for faster decisions.',
+      icon: 'payments',
+      title: 'Fee Management',
+      desc: 'Fee collection, receipt generation, due tracking, and renewal workflows with fewer manual steps.',
     },
     {
-      icon: 'integration_instructions',
-      title: 'API Products',
-      desc: 'Connected web apps, integrations, webhooks, and real-time processing across systems.',
+      icon: 'event_seat',
+      title: 'Seat Management',
+      desc: 'Seat allocation, availability checks, reservation status, and capacity planning in one dashboard.',
     },
   ],
   roadmap: [
+    {
+      id: 'study-room',
+      icon: 'school',
+      title: 'Study Room Management App',
+      desc: 'A complete study hall operations product with students, seats, fees, renewals, reminders, and admin control.',
+      large: true,
+      image:
+        'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&q=80&auto=format&fit=crop',
+    },
     {
       id: 'chatbots',
       icon: 'support_agent',
       title: 'AI support products',
       desc: 'Domain-trained assistants for support, lead capture, and internal operations.',
-      large: true,
-      image:
-        'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80&auto=format&fit=crop',
-    },
-    {
-      id: 'commerce',
-      icon: 'shopping_cart',
-      title: 'Commerce systems',
-      desc: 'eCommerce flows, customer communication, and WhatsApp-powered engagement.',
     },
     {
       id: 'analytics',

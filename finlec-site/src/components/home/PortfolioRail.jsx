@@ -46,6 +46,7 @@ export default function PortfolioRail() {
       <div
         ref={railRef}
         className="flex gap-lg overflow-x-auto pb-md hide-scrollbar snap-x snap-mandatory"
+        data-lenis-prevent-touch
       >
         {portfolio.map((p) => (
           <div

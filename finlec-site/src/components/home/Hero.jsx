@@ -1,101 +1,339 @@
-import { ArrowRight, Code2, Layers3, Sparkles } from 'lucide-react';
+import { useLayoutEffect, useRef } from 'react';
+import {
+  ArrowRight,
+  Code2,
+  Sparkles,
+  Bot,
+  Plus,
+  TrendingUp,
+} from 'lucide-react';
 import Button from '@/components/ui/Button';
-import Badge from '@/components/ui/Badge';
 import AnimatedHeading from '@/components/ui/AnimatedHeading';
+import AnimatedNumber from '@/components/ui/AnimatedNumber';
+import Marquee from '@/components/ui/Marquee';
+import { clientLogos } from '@/data/clients';
+import { gsap, prefersReducedMotion } from '@/lib/gsap';
 
-const signals = [
-  { value: '150+', label: 'Projects' },
-  { value: '96%', label: 'Satisfaction' },
-  { value: '100+', label: 'Clients' },
+/* ─── bottom stats ─── */
+const bottomStats = [
+  { value: 150, suffix: '+', label: 'Projects completed' },
+  { value: 100, suffix: '+', label: 'Happy clients' },
+  { value: 96, suffix: '%', label: 'Client satisfaction' },
 ];
 
 export default function Hero() {
+  const sectionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (prefersReducedMotion || !sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      /* floating cards */
+      gsap.to('.hero-float-card-left', {
+        y: -16,
+        rotation: -8,
+        duration: 4.5,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+      });
+      gsap.to('.hero-float-card-right', {
+        y: -14,
+        rotation: 8,
+        duration: 4,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        delay: 0.8,
+      });
+
+      /* floating plus icons */
+      gsap.utils.toArray('.hero-plus-icon').forEach((el, i) => {
+        gsap.to(el, {
+          y: -10 - i * 3,
+          x: (i % 2 === 0 ? 1 : -1) * 6,
+          rotation: 60 + i * 30,
+          duration: 5.5 + i * 0.7,
+          ease: 'sine.inOut',
+          repeat: -1,
+          yoyo: true,
+          delay: i * 0.4,
+        });
+      });
+
+      /* sparkle icons */
+      gsap.utils.toArray('.hero-sparkle-float').forEach((el, i) => {
+        gsap.to(el, {
+          y: -8,
+          scale: 1.12,
+          duration: 3 + i * 0.5,
+          ease: 'sine.inOut',
+          repeat: -1,
+          yoyo: true,
+          delay: i * 0.6,
+        });
+      });
+
+      /* avatars subtle bounce */
+      gsap.to('.hero-avatar-stack', {
+        y: -3,
+        duration: 2.8,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative overflow-hidden bg-on-secondary-fixed text-white">
-      <img
-        src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1800&q=80&auto=format&fit=crop"
-        alt=""
-        loading="eager"
-        className="absolute inset-0 h-full w-full scale-[1.02] object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-on-secondary-fixed/95 via-on-secondary-fixed/78 to-primary-900/62" />
-      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-surface to-transparent" />
-
-      <div className="container-page relative grid min-h-[calc(100vh-82px)] lg:grid-cols-12 gap-2xl items-center pt-[42px] pb-[94px] md:pt-[50px] md:pb-[112px]">
-        <div className="lg:col-span-7 space-y-lg">
-          <Badge className="bg-white/10 text-white ring-1 ring-white/15 backdrop-blur-md">
-            <Sparkles size={17} /> AI | Technology | Innovation
-          </Badge>
-          <AnimatedHeading as="h1" className="text-display text-balance">
-            Transforming Ideas into Digital Success.
-          </AnimatedHeading>
-          <AnimatedHeading
-            as="p"
-            delay={0.2}
-            className="text-body-lg text-white/80 max-w-2xl"
-          >
-            We help businesses grow with website and app development, strategic
-            digital marketing, AI solutions, WhatsApp Business API, and creative design.
-          </AnimatedHeading>
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <Button size="lg" magnetic to="/contact" variant="white" iconRight={<ArrowRight size={21} />}>
-              Start a project
-            </Button>
-            <Button
-              size="lg"
-              variant="ghost"
-              to="/services"
-              className="text-white ring-1 ring-white/20 hover:bg-white/10"
-            >
-              Our services
-            </Button>
+    <section ref={sectionRef} className="hero-outer-frame relative overflow-hidden">
+      {/* ─── DARK OUTER BACKGROUND ─── */}
+      <div className="bg-surface px-3 pb-0 pt-3 sm:px-4 sm:pt-4 md:px-6 md:pt-6">
+        {/* ─── BLUE HERO CARD ─── */}
+        <div className="hero-blue-card relative overflow-hidden rounded-t-[1.5rem] rounded-b-none bg-gradient-to-br from-[#0068d6] via-primary to-[#003ea8] sm:rounded-t-[2rem] md:rounded-t-[2.5rem]">
+          {/* Background patterns */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]" aria-hidden>
+            <div
+              className="absolute inset-0 opacity-[0.06]"
+              style={{
+                backgroundImage:
+                  'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
+                backgroundSize: '48px 48px',
+              }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'radial-gradient(ellipse at 25% 20%, rgba(100,200,255,0.14), transparent 50%), radial-gradient(ellipse at 75% 80%, rgba(0,200,240,0.08), transparent 45%)',
+              }}
+            />
           </div>
 
-          <div className="grid max-w-2xl grid-cols-3 gap-md pt-xl">
-            {signals.map((signal) => (
-              <div
-                key={signal.label}
-                className="interactive-surface metric-tile rounded-2xl border border-white/15 bg-white/10 p-lg backdrop-blur-md"
-              >
-                <p className="text-h3 leading-none">{signal.value}</p>
-                <p className="mt-1 text-label-sm text-white/70">{signal.label}</p>
+          {/* ─── Floating "+" decorations ─── */}
+          <span className="hero-plus-icon absolute left-[7%] top-[22%] hidden text-white/25 lg:block">
+            <Plus size={34} strokeWidth={2.5} />
+          </span>
+          <span className="hero-plus-icon absolute right-[12%] top-[30%] hidden text-white/15 lg:block">
+            <Plus size={24} strokeWidth={2.5} />
+          </span>
+          <span className="hero-plus-icon absolute bottom-[35%] left-[18%] hidden text-white/15 lg:block">
+            <Plus size={20} strokeWidth={2.5} />
+          </span>
+          <span className="hero-plus-icon absolute bottom-[40%] right-[8%] hidden text-white/20 lg:block">
+            <Plus size={28} strokeWidth={2.5} />
+          </span>
+
+          {/* ─── Sparkle accent circles ─── */}
+          <div className="hero-sparkle-float absolute left-[10%] top-[35%] hidden h-11 w-11 place-items-center rounded-full bg-white/10 backdrop-blur-sm lg:grid">
+            <Plus size={20} className="text-white/60" />
+          </div>
+          <div className="hero-sparkle-float absolute right-[15%] top-[18%] hidden h-12 w-12 place-items-center rounded-full bg-white/10 backdrop-blur-sm lg:grid">
+            <Sparkles size={20} className="text-white/60" />
+          </div>
+
+          {/* ─── Floating card LEFT ─── */}
+          <div className="hero-float-card-left absolute left-[3%] top-[28%] z-10 hidden w-[210px] -rotate-[10deg] rounded-2xl border border-white/15 bg-white/[0.08] p-5 shadow-2xl backdrop-blur-xl lg:block xl:left-[5%] xl:top-[24%] xl:w-[230px]">
+            <div className="mb-3 flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/15">
+                <Code2 size={20} className="text-white/80" />
+              </span>
+              <div>
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-white/45">
+                  Monthly Sales
+                </p>
+                <p className="text-[0.7rem] text-emerald-300">
+                  <TrendingUp size={12} className="mb-0.5 mr-1 inline" />
+                  Increased 40%
+                </p>
               </div>
-            ))}
+            </div>
+            <p className="text-[2rem] font-extrabold italic leading-none text-white">192</p>
+            <div className="mt-2 flex items-end gap-1.5">
+              {[65, 45, 78, 55, 82, 50, 70, 60, 85].map((h, i) => (
+                <span
+                  key={i}
+                  className="w-full rounded-sm bg-white/20"
+                  style={{ height: `${h * 0.28}px` }}
+                />
+              ))}
+            </div>
+            <div className="mt-3 flex items-center justify-between text-[0.7rem]">
+              <span className="text-white/40 line-through">$90000</span>
+              <span className="font-bold text-emerald-300">$20000</span>
+            </div>
           </div>
+
+          {/* ─── Floating card RIGHT ─── */}
+          <div className="hero-float-card-right absolute bottom-[30%] right-[3%] z-10 hidden w-[210px] rotate-[10deg] rounded-2xl border border-white/15 bg-white/[0.08] p-5 shadow-2xl backdrop-blur-xl lg:block xl:bottom-[26%] xl:right-[5%] xl:w-[230px]">
+            <div className="mb-3 flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/15">
+                <Bot size={20} className="text-white/80" />
+              </span>
+              <div>
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-white/45">
+                  Monthly Sales
+                </p>
+                <p className="text-[0.7rem] text-emerald-300">
+                  <TrendingUp size={12} className="mb-0.5 mr-1 inline" />
+                  Increased 40%
+                </p>
+              </div>
+            </div>
+            <p className="text-[2rem] font-extrabold italic leading-none text-white">192</p>
+            <div className="mt-2 flex items-end gap-1.5">
+              {[55, 78, 42, 88, 65, 72, 50, 80, 60].map((h, i) => (
+                <span
+                  key={i}
+                  className="w-full rounded-sm bg-white/20"
+                  style={{ height: `${h * 0.28}px` }}
+                />
+              ))}
+            </div>
+            <div className="mt-3 flex items-center justify-between text-[0.7rem]">
+              <span className="text-white/40 line-through">$90000</span>
+              <span className="font-bold text-emerald-300">$20000</span>
+            </div>
+          </div>
+
+          {/* ─── CENTER CONTENT ─── */}
+          <div className="relative z-20 mx-auto max-w-3xl px-4 pb-12 pt-14 text-center text-white sm:pb-14 sm:pt-16 md:pb-16 md:pt-20 lg:pb-20 lg:pt-24">
+            {/* Badge pill */}
+            <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/20 px-5 py-2.5 text-[0.85rem] font-semibold backdrop-blur-md">
+              <span>The Future of Digital is Here</span>
+              <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-white">
+                <Sparkles size={13} />
+              </span>
+            </div>
+
+            {/* Heading */}
+            <AnimatedHeading as="h1" className="text-display text-balance leading-[1.06]">
+              Experience seamless growth with smart tools made for{' '}
+              <span className="hero-highlight-wrap relative inline-block">
+                <span className="relative z-10 italic">modern businesses</span>
+                <span
+                  className="absolute -inset-x-3 bottom-[2px] top-[52%] -z-0 rounded-md bg-white/25"
+                  aria-hidden
+                />
+              </span>
+            </AnimatedHeading>
+
+            {/* Subtitle */}
+            <AnimatedHeading
+              as="p"
+              delay={0.2}
+              className="mx-auto mt-6 max-w-2xl text-body-lg text-white/70"
+            >
+              We help businesses grow with website and app development, strategic
+              digital marketing, AI solutions, WhatsApp Business API, and creative
+              design — all from one powerful team.
+            </AnimatedHeading>
+
+            {/* CTA buttons */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3 md:gap-4">
+              <Button
+                size="lg"
+                magnetic
+                to="/contact"
+                variant="white"
+                iconRight={<ArrowRight size={20} />}
+                className="shadow-xl shadow-black/20"
+              >
+                Get Started
+              </Button>
+              <Button
+                size="lg"
+                variant="ghost"
+                to="/services"
+                className="border border-white/25 text-white hover:bg-white/10"
+              >
+                Learn More
+              </Button>
+            </div>
+          </div>
+
+          {/* ─── BOTTOM STATS BAR (inside the blue card) ─── */}
+          <div className="relative z-20 border-t border-white/10 px-4 pb-16 pt-6 sm:px-8 md:pb-20 md:pt-8 lg:px-12">
+            <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 md:flex-row md:justify-between md:gap-4">
+              {/* Avatar stack + active clients */}
+              <div className="flex items-center gap-4">
+                <div className="hero-avatar-stack flex -space-x-3">
+                  {[
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
+                    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face',
+                    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face',
+                    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face',
+                  ].map((src, i) => (
+                    <img
+                      key={i}
+                      src={src}
+                      alt=""
+                      className="h-10 w-10 rounded-full border-2 border-primary object-cover shadow-md"
+                      loading="eager"
+                    />
+                  ))}
+                </div>
+                <div className="text-white">
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/50">
+                    Active Clients
+                  </p>
+                  <p className="text-xl font-extrabold leading-none">100+</p>
+                </div>
+              </div>
+
+              {/* Trust badge */}
+              <div className="hidden items-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-5 py-3 backdrop-blur-md lg:flex">
+                <span className="grid h-9 w-9 place-items-center rounded-full bg-white/15">
+                  <Sparkles size={16} className="text-white/70" />
+                </span>
+                <p className="max-w-[200px] text-[0.72rem] leading-snug text-white/55">
+                  Trusted digital technology partner powering innovative solutions.
+                </p>
+              </div>
+
+              {/* Stats numbers */}
+              <div className="flex items-center gap-8 text-white md:gap-10">
+                {bottomStats.map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <p className="text-2xl font-extrabold leading-none md:text-[1.85rem]">
+                      <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+                    </p>
+                    <p className="mt-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-white/45">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ─── BOTTOM NOTCH / ARCH CURVE ─── */}
+          <div
+            className="absolute bottom-0 left-0 right-0 z-30 h-[50px] bg-surface md:h-[65px]"
+            aria-hidden
+            style={{ borderRadius: '50% 50% 0 0 / 100% 100% 0 0' }}
+          />
         </div>
 
-        <div className="hidden lg:col-span-5 lg:block">
-          <div className="relative ml-auto h-[540px] max-w-[520px]">
-            <div className="absolute inset-0 -rotate-2 overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-high backdrop-blur-sm">
-              <img
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1100&q=85&auto=format&fit=crop"
-                alt=""
-                className="h-full w-full object-cover"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-on-secondary-fixed/62 via-on-secondary-fixed/12 to-transparent" />
-            </div>
-
-            <div className="absolute -left-8 top-12 w-56 rounded-2xl border border-white/15 bg-white/12 p-lg shadow-high backdrop-blur-xl">
-              <div className="mb-md grid h-12 w-12 place-items-center rounded-xl bg-primary text-white">
-                <Code2 size={24} />
+        {/* ─── CLIENT LOGOS STRIP (in the dark area below the card) ─── */}
+        <div className="bg-surface pb-6 pt-4 md:pb-8 md:pt-6">
+          <Marquee>
+            {clientLogos.map((c) => (
+              <div
+                key={c.name}
+                className="grid h-16 w-36 place-items-center px-4"
+              >
+                <img
+                  src={c.logo}
+                  alt={`${c.name} logo`}
+                  loading="lazy"
+                  className="max-h-10 w-full object-contain grayscale opacity-60 transition-opacity duration-300 hover:opacity-100 hover:grayscale-0"
+                />
               </div>
-              <p className="text-label-sm uppercase tracking-widest text-white/65">Build</p>
-              <p className="mt-1 text-h3 leading-tight">Websites, apps, AI</p>
-            </div>
-
-            <div className="absolute -right-4 bottom-16 w-64 rounded-2xl border border-white/15 bg-white/12 p-lg shadow-high backdrop-blur-xl">
-              <div className="mb-md grid h-12 w-12 place-items-center rounded-xl bg-secondary text-white">
-                <Layers3 size={24} />
-              </div>
-              <p className="text-label-sm uppercase tracking-widest text-white/65">Growth</p>
-              <p className="mt-1 text-h3 leading-tight">Design, marketing, launch support</p>
-            </div>
-
-            <div className="absolute right-10 top-8 grid h-16 w-16 place-items-center rounded-full bg-white text-primary shadow-high soft-float">
-              <Sparkles size={30} />
-            </div>
-          </div>
+            ))}
+          </Marquee>
         </div>
       </div>
     </section>

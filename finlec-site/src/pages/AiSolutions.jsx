@@ -4,6 +4,7 @@ import PageHero from '@/components/ui/PageHero';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
+import SiteCta from '@/components/ui/SiteCta';
 import { aiIndustries, aiSolutions } from '@/data/aiSolutions';
 
 export default function AiSolutions() {
@@ -75,6 +76,7 @@ export default function AiSolutions() {
           ))}
         </div>
       </Section>
+      <SiteCta title="Ready to make AI useful inside your workflow?" />
     </>
   );
 }

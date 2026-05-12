@@ -1,26 +1,78 @@
 ---
-title: "Shipping AI products that don't embarrass you"
+title: "Shipping AI products that do not embarrass you"
 slug: "shipping-ai-products"
-date: "2026-04-12"
+date: "2026-05-08"
 author: "Finlec Team"
-tags: ["AI", "Engineering"]
+category: "AI Engineering"
+readTime: "7 min read"
+featuredStat: "McKinsey reports 88% regular AI use, but only about one-third scaling enterprise-wide."
+source: "McKinsey State of AI 2025"
+tags: ["AI", "Engineering", "AI Agents"]
 cover: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&q=80&auto=format&fit=crop"
-excerpt: "A field guide to evals, guardrails, and production wiring for LLM-powered features."
+excerpt: "A practical playbook for taking AI from demo to dependable product: evals, workflow fit, cost budgets, and guardrails."
 ---
 
-# Shipping AI products that don't embarrass you
+# Shipping AI products that do not embarrass you
 
-Building an AI demo is easy. Shipping an AI **product** that doesn't hallucinate, leak data, or quietly burn $40 in tokens per session — that's the work.
+AI demos are easy. AI products are harder because real customers bring messy inputs, edge cases, privacy expectations, budget limits, and support questions.
 
-## What we always wire in
+The market is moving fast. McKinsey's 2025 State of AI survey reports that 88% of respondents say their organizations use AI regularly in at least one business function, while only about one-third say their companies have begun scaling AI programs across the enterprise. That gap is where most failed AI features live.
 
-- **Evals on day one.** A growing folder of golden conversations and adversarial prompts.
-- **Cost & latency budgets.** Per-route. Surfaced in dashboards, not just logs.
-- **Guardrails.** Input filtering, output validation, and a hard kill switch.
-- **Observability.** Every prompt, response, and tool call traced.
+## The difference between a demo and a product
 
-## Why teams fail
+A demo proves the model can do something impressive once. A product proves the system can do something useful repeatedly.
 
-They demo on cherry-picked happy paths. They never write the eval. They forget that LLMs are non-deterministic systems running on someone else's GPU.
+That means you need:
 
-The fix is unglamorous: treat your AI feature like a production database — capacity-planned, monitored, and tested.
+- A narrow job-to-be-done, not a generic chatbot.
+- A human fallback for risky or unclear cases.
+- Evals that catch bad outputs before customers do.
+- Cost and latency budgets per workflow.
+- Logging that shows what the model saw, decided, and returned.
+
+## Start with workflow fit
+
+Before choosing a model, map the workflow. Ask where the user starts, what data the AI needs, what action happens next, and who checks the result.
+
+Good early AI use cases usually share three traits:
+
+1. The task is repetitive but not fully deterministic.
+2. The business already has useful data or examples.
+3. A wrong answer can be reviewed, corrected, or blocked.
+
+If the task is vague and the data is scattered, build the workflow first. The model will not rescue a broken process.
+
+## Evals before launch
+
+Every AI feature should ship with a small test set:
+
+- Golden prompts from real business scenarios.
+- Adversarial prompts that try to force leakage or unsafe claims.
+- Expected response rules in plain language.
+- Regression checks after every prompt or model change.
+
+The eval set does not need to be huge on day one. It needs to exist, grow, and be treated like product code.
+
+## Guardrails that matter
+
+Guardrails are not one thing. They are layers:
+
+- Input filters for sensitive or irrelevant requests.
+- Retrieval boundaries so the model answers from approved material.
+- Output validation for numbers, links, formats, and claims.
+- Escalation paths when confidence is low.
+- A kill switch for any flow that behaves badly in production.
+
+## What Finlec usually builds first
+
+For small and mid-size businesses, we usually start with one of these:
+
+- Website lead qualification with CRM handoff.
+- WhatsApp support triage with template-safe follow-ups.
+- Internal knowledge search across policies, services, and pricing.
+- Sales proposal draft generation from structured inputs.
+- Analytics summaries that explain what changed and why.
+
+## Source used
+
+- [McKinsey - The state of AI in 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai)

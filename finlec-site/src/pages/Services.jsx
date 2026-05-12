@@ -4,6 +4,7 @@ import PageHero from '@/components/ui/PageHero';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
+import SiteCta from '@/components/ui/SiteCta';
 import { ArrowRight } from 'lucide-react';
 import { services } from '@/data/services';
 
@@ -102,6 +103,7 @@ export default function Services() {
           </div>
         </div>
       </Section>
+      <SiteCta title="Ready to turn a service need into a shipped system?" />
     </>
   );
 }

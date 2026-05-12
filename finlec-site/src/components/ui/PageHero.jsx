@@ -5,9 +5,9 @@ import Reveal from './Reveal';
 
 export default function PageHero({ eyebrow, title, description, badge, children }) {
   return (
-    <section className="relative overflow-hidden">
+    <section className="page-hero relative overflow-hidden">
       <BlobBackground />
-      <div className="container-page relative pt-2xl pb-xl md:pt-[108px] md:pb-[72px]">
+      <div className="container-page relative pt-xl pb-xl md:pt-[108px] md:pb-[72px]">
         {badge ? (
           <Reveal>
             <Badge icon={badge.icon} variant={badge.variant || 'primary'}>

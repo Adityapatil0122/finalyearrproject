@@ -39,13 +39,13 @@ export default function FloatingActions() {
     : '#';
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 print:hidden">
+    <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 print:hidden sm:bottom-6 sm:right-6 sm:gap-3">
       <button
         type="button"
         onClick={() => scrollToTop({ smooth: true })}
         aria-label="Back to top"
         className={[
-          'interactive-surface grid h-12 w-12 place-items-center rounded-full bg-on-surface text-white shadow-high transition-all duration-300 hover:bg-primary active:scale-95',
+          'interactive-surface grid h-11 w-11 place-items-center rounded-full bg-on-surface text-white shadow-high transition-all duration-300 hover:bg-primary active:scale-95 sm:h-12 sm:w-12',
           showTop
             ? 'opacity-100 translate-y-0 pointer-events-auto'
             : 'opacity-0 translate-y-3 pointer-events-none',
@@ -61,7 +61,7 @@ export default function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="group interactive-surface relative grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-high hover:scale-105 active:scale-95 transition-transform"
+        className="group interactive-surface relative grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-high transition-transform hover:scale-105 active:scale-95 sm:h-14 sm:w-14"
       >
         <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" aria-hidden />
         <WhatsAppIcon size={28} />

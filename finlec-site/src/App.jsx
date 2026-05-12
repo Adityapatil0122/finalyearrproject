@@ -19,7 +19,7 @@ export default function App() {
       <MotionLayer />
       <RouteProgress />
       <Navbar />
-      <main id="main-content" className="flex-1 pt-[82px]">
+      <main id="main-content" className="flex-1 pt-[70px] md:pt-[82px]">
         <PageTransition>
           <Outlet />
         </PageTransition>
