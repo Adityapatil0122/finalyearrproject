@@ -118,7 +118,7 @@ export default function Products() {
             >
               <div
                 className={[
-                  'group interactive-surface surface-lift relative h-full rounded-3xl overflow-hidden border border-outline-variant bg-surface-container-lowest p-xl shadow-low transition-all duration-300',
+                  'roadmap-card group interactive-surface relative h-full rounded-3xl overflow-hidden border border-outline-variant bg-surface-container-lowest p-xl shadow-low transition-all duration-300',
                   r.large ? 'min-h-[378px]' : 'min-h-[198px]',
                 ].join(' ')}
                 id={r.id}
@@ -135,7 +135,7 @@ export default function Products() {
                   </>
                 ) : null}
                 <div className="relative">
-                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary mb-md">
+                  <div className="roadmap-icon grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary mb-md">
                     <span className="material-symbols-outlined">{r.icon}</span>
                   </div>
                   <h3 className="text-h2 mb-2">{r.title}</h3>

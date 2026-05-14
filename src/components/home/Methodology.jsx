@@ -49,7 +49,7 @@ export default function Methodology() {
                 id={`method-step-${i}`}
                 key={m.step}
                 className={[
-                  'rounded-2xl border p-lg transition-all duration-500',
+                  'method-step-row rounded-2xl border p-lg transition-all duration-500',
                   active === i
                     ? 'border-primary bg-primary/5 shadow-low'
                     : 'border-outline-variant bg-surface-container-lowest',

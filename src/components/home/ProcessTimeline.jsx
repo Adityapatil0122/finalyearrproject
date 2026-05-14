@@ -68,12 +68,12 @@ export default function ProcessTimeline() {
     <Section id="process" className="bg-surface-container-low">
       <div className="text-center mb-2xl">
         <Reveal>
-          <span className="inline-block rounded-full border border-primary text-primary px-4 py-1 text-label-sm font-bold uppercase tracking-widest">
+          <p className="text-label-sm uppercase tracking-widest text-primary font-semibold mb-2">
             Process
-          </span>
+          </p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="mt-md text-h1 font-bold">How we work</h2>
+          <h2 className="text-h1 font-bold">How we work</h2>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-2 text-body-lg text-on-surface-variant">
@@ -91,7 +91,7 @@ export default function ProcessTimeline() {
 
         <ol className="grid grid-cols-1 md:grid-cols-4 gap-xl md:gap-md">
           {steps.map(({ n, title, desc, Icon }) => (
-            <li key={n} className="interactive-surface surface-lift rounded-3xl px-2 py-md text-center">
+            <li key={n} className="process-step interactive-surface rounded-3xl px-2 py-md text-center">
               <div className="relative mx-auto w-fit">
                 <div
                   data-circle

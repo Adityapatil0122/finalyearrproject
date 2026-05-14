@@ -38,7 +38,7 @@ function Item({ q, a, open, onToggle }) {
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="w-full flex items-center justify-between gap-md text-left py-lg group"
+        className="faq-item-btn w-full flex items-center justify-between gap-md text-left py-lg group"
       >
         <span className="text-h3 font-semibold text-on-surface group-hover:text-primary transition-colors">
           {q}

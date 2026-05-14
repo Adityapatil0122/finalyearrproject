@@ -2,20 +2,14 @@ import { useState } from 'react';
 import {
   CheckCircle2,
   ChevronDown,
-  Clock,
   ExternalLink,
-  Globe2,
   Loader2,
-  Lock,
-  Mail,
   MapPin,
-  MessageCircle,
-  Phone,
   Send,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import Reveal from '@/components/ui/Reveal';
+import BusinessSnapshot from '@/components/home/BusinessSnapshot';
 import { siteConfig } from '@/data/siteConfig';
 import { sendContactForm } from '@/lib/emailjs';
 
@@ -34,54 +28,6 @@ const officeLatitude = 18.4567815;
 const officeLongitude = 73.8496193;
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${officeLatitude},${officeLongitude}`;
 const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=73.82%2C18.43%2C73.88%2C18.48&layer=mapnik&marker=${officeLatitude}%2C${officeLongitude}`;
-
-const whatsappUrl = `https://wa.me/${(siteConfig.whatsapp || siteConfig.phone).replace(
-  /[^\d]/g,
-  ''
-)}`;
-
-function InstagramIcon({ size = 20 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1zm0 5.5a4.3 4.3 0 1 0 0 8.6 4.3 4.3 0 0 0 0-8.6zm0 7.1a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6zm5.4-7.3a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-    </svg>
-  );
-}
-
-const contactMethods = [
-  {
-    label: 'Email our team',
-    value: siteConfig.email,
-    href: `mailto:${siteConfig.email}`,
-    icon: Mail,
-    tone: 'primary',
-  },
-  {
-    label: 'Give us a call',
-    value: siteConfig.phone,
-    href: `tel:${siteConfig.phone.replace(/\s/g, '')}`,
-    icon: Phone,
-    tone: 'secondary',
-  },
-  {
-    label: 'WhatsApp',
-    value: siteConfig.whatsapp,
-    href: whatsappUrl,
-    icon: MessageCircle,
-    tone: 'success',
-  },
-];
-
-const socialLinks = [
-  { label: 'Website', href: '/', icon: Globe2, internal: true },
-  { label: 'Instagram', href: siteConfig.social.instagram, icon: InstagramIcon },
-].filter((item) => item.href);
-
-const toneClasses = {
-  primary: 'bg-primary/10 text-primary',
-  secondary: 'bg-secondary/10 text-secondary',
-  success: 'bg-emerald-500/10 text-emerald-600',
-};
 
 export default function Contact() {
   useSEO({
@@ -123,17 +69,17 @@ export default function Contact() {
     <div className="bg-surface">
       <section className="relative overflow-hidden border-b border-outline-variant bg-surface-container-low">
         <div className="absolute inset-0 signal-grid opacity-50" aria-hidden />
-        <div className="container-page relative py-xl text-center md:py-2xl">
+        <div className="container-page relative py-lg text-center md:py-xl">
           <Reveal>
-            <div className="mx-auto max-w-4xl">
+            <div className="mx-auto max-w-3xl">
               <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
                 Let&apos;s Talk
               </p>
-              <h1 className="mt-3 text-display leading-tight text-balance text-on-surface">
+              <h1 className="mt-2 text-h1 leading-tight text-balance text-on-surface">
                 Let&apos;s create the{' '}
                 <span className="italic text-primary">next big thing</span> together.
               </h1>
-              <p className="mx-auto mt-md max-w-2xl text-body-lg text-on-surface-variant">
+              <p className="mx-auto mt-sm max-w-2xl text-body-md text-on-surface-variant">
                 Share your project goals, timeline, and the kind of digital system you
                 want to build. We will reply with a clear next step.
               </p>
@@ -143,118 +89,20 @@ export default function Contact() {
 
       </section>
 
-      <section className="container-page py-2xl md:py-[92px]">
-        <div className="grid grid-cols-1 gap-xl lg:grid-cols-[0.92fr_1.08fr]">
-          <Reveal>
-            <aside className="space-y-lg">
-              <div className="rounded-3xl border border-outline-variant bg-surface-container-lowest p-lg shadow-low md:p-xl">
-                <h2 className="text-h2 text-on-surface">Reach Out</h2>
-                <p className="mt-2 text-body-md text-on-surface-variant">
-                  Talk to us directly or send a project brief. We keep conversations
-                  practical, quick, and focused on what moves your business forward.
-                </p>
+      <section className="container-page py-lg md:py-xl">
+        <div className="mx-auto grid max-w-[1440px] gap-lg lg:grid-cols-[1.05fr_1.1fr] lg:items-stretch">
+          <BusinessSnapshot embedded />
 
-                <div className="mt-xl grid gap-md">
-                  {contactMethods.map(({ label, value, href, icon: Icon, tone }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target={label === 'WhatsApp' ? '_blank' : undefined}
-                      rel={label === 'WhatsApp' ? 'noopener noreferrer' : undefined}
-                      className="group flex items-start gap-md rounded-2xl border border-outline-variant bg-surface p-md transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:bg-primary/5"
-                    >
-                      <span
-                        className={[
-                          'grid h-14 w-14 shrink-0 place-items-center rounded-2xl transition-transform duration-300 group-hover:scale-105',
-                          toneClasses[tone],
-                        ].join(' ')}
-                      >
-                        <Icon size={26} />
-                      </span>
-                      <span className="min-w-0">
-                        <span className="block text-label-sm font-semibold uppercase tracking-widest text-on-surface-variant">
-                          {label}
-                        </span>
-                        <span className="mt-1 block break-words text-body-lg font-semibold text-on-surface">
-                          {value}
-                        </span>
-                      </span>
-                    </a>
-                  ))}
-                </div>
-
-                <div className="mt-lg grid gap-md border-t border-outline-variant pt-lg md:grid-cols-2">
-                  <div className="flex items-start gap-sm">
-                    <Clock size={20} className="mt-1 shrink-0 text-primary" />
-                    <div>
-                      <p className="text-label-sm font-semibold uppercase tracking-widest text-on-surface-variant">
-                        Business hours
-                      </p>
-                      {siteConfig.businessHours.map((line) => (
-                        <p key={line} className="mt-1 text-body-md text-on-surface">
-                          {line}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="text-label-sm font-semibold uppercase tracking-widest text-on-surface-variant">
-                      Connect
-                    </p>
-                    <div className="mt-sm flex gap-sm">
-                      {socialLinks.map(({ label, href, icon: Icon, internal }) =>
-                        internal ? (
-                          <Link
-                            key={label}
-                            to={href}
-                            aria-label={label}
-                            className="grid h-11 w-11 place-items-center rounded-full border border-outline-variant text-on-surface-variant transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
-                          >
-                            <Icon size={19} />
-                          </Link>
-                        ) : (
-                          <a
-                            key={label}
-                            href={href}
-                            aria-label={label}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="grid h-11 w-11 place-items-center rounded-full border border-outline-variant text-on-surface-variant transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
-                          >
-                            <Icon size={19} />
-                          </a>
-                        )
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </aside>
-          </Reveal>
-
-          <Reveal delay={0.1}>
+          <Reveal delay={0.08}>
             <form
               onSubmit={handleSubmit}
-              className="rounded-3xl border border-outline-variant bg-surface-container-lowest p-lg shadow-high md:p-xl"
+              className="flex h-full flex-col rounded-3xl border border-outline-variant bg-surface-container-lowest p-md shadow-high md:p-lg"
             >
-              <div className="flex flex-col gap-md border-b border-outline-variant pb-lg md:flex-row md:items-start md:justify-between">
-                <div>
-                  <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
-                    Project brief
-                  </p>
-                  <h2 className="mt-2 text-h2 text-on-surface">Send a Message</h2>
-                  <p className="mt-2 max-w-xl text-body-md text-on-surface-variant">
-                    The more context you share, the faster we can suggest the right route.
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-surface-container-low px-md py-sm text-label-sm font-semibold text-on-surface-variant">
-                  Secure inquiry
-                </div>
+              <div className="border-b border-outline-variant pb-md">
+                <h2 className="text-h2 text-on-surface">Send Us a Message</h2>
               </div>
 
-              <div className="mt-lg grid grid-cols-1 gap-lg md:grid-cols-2">
+              <div className="mt-md grid grid-cols-1 gap-md md:grid-cols-2">
                 <FloatingField
                   label="Full Name"
                   name="name"
@@ -289,7 +137,7 @@ export default function Contact() {
                     name="service"
                     value={form.service}
                     onChange={handleChange}
-                    className="h-[58px] w-full appearance-none rounded-xl border border-outline-variant bg-surface px-md py-md text-body-md outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
+                    className="h-[50px] w-full appearance-none rounded-xl border border-outline-variant bg-surface px-md py-sm text-body-md outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
                   >
                     {services.map((s) => (
                       <option key={s} value={s}>
@@ -312,16 +160,16 @@ export default function Contact() {
                 value={form.message}
                 onChange={handleChange}
                 required
-                className="mt-lg"
+                className="mt-md"
               />
 
-              {error ? <p className="mt-md text-label-sm text-tertiary">{error}</p> : null}
+              {error ? <p className="mt-sm text-label-sm text-tertiary">{error}</p> : null}
 
               <button
                 type="submit"
                 disabled={status === 'sending' || status === 'sent'}
                 className={[
-                  'btn-sheen mt-lg flex w-full items-center justify-center gap-md rounded-2xl py-lg text-h3 font-bold shadow-lg transition-all hover:-translate-y-1 active:scale-[0.98]',
+                  'btn-sheen mt-md flex w-full items-center justify-center gap-sm rounded-2xl py-md text-body-lg font-bold shadow-lg transition-all hover:-translate-y-1 active:scale-[0.98]',
                   status === 'sent'
                     ? 'bg-secondary text-white shadow-secondary/20'
                     : 'bg-primary text-white shadow-primary/20 hover:bg-primary-600 hover:shadow-primary/30',
@@ -335,27 +183,22 @@ export default function Contact() {
                   </>
                 ) : status === 'sent' ? (
                   <>
-                    <CheckCircle2 size={22} />
+                    <CheckCircle2 size={20} />
                     Sent - we&apos;ll get back to you soon
                   </>
                 ) : (
                   <>
                     <span>Send Project Inquiry</span>
-                    <Send size={22} />
+                    <Send size={20} />
                   </>
                 )}
               </button>
-
-              <div className="mt-lg flex items-center justify-center gap-xs text-on-surface-variant/70">
-                <Lock size={15} />
-                <p className="text-label-sm">Your data is secure and never shared.</p>
-              </div>
             </form>
           </Reveal>
         </div>
       </section>
       <Reveal delay={0.08}>
-        <section className="relative h-[340px] border-y border-outline-variant md:h-[420px]">
+        <section className="relative h-[260px] border-y border-outline-variant md:h-[320px]">
           <iframe
             title="Finlec Technologies location map"
             src={mapEmbedUrl}
@@ -391,7 +234,7 @@ function FloatingField({ as = 'input', label, className = '', ...props }) {
         placeholder=" "
         className={[
           'peer w-full rounded-xl border border-outline-variant bg-surface px-md py-md text-body-md outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10',
-          isTextarea ? 'min-h-[156px] resize-none' : 'h-[58px]',
+          isTextarea ? 'min-h-[118px] resize-none' : 'h-[50px]',
         ].join(' ')}
       />
       <label

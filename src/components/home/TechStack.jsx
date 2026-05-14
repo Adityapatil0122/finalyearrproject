@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { Code2, Layers3, Rocket } from 'lucide-react';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
@@ -72,27 +72,43 @@ const orbitRings = [
 ];
 
 export default function TechStack() {
-  const galaxyRef = useRef(null);
+  const stageRef = useRef(null);
 
-  useEffect(() => {
-    if (!galaxyRef.current) return undefined;
+  useLayoutEffect(() => {
+    if (!stageRef.current) return undefined;
 
-    const ctx = gsap.context(() => {
+      const ctx = gsap.context(() => {
       const rings = gsap.utils.toArray('.tech-orbit');
 
+      gsap.killTweensOf(
+        '.tech-orbit, .tech-orbit-card, .tech-orbit-node, .tech-logo-bouncer, .tech-core'
+      );
+
       gsap.set(
-        '.tech-orbit, .tech-orbit-node, .tech-orbit-card, .tech-logo-bouncer, .tech-core, .tech-comet',
-        { animation: 'none' }
+        '.tech-orbit, .tech-orbit-card, .tech-orbit-node, .tech-logo-bouncer, .tech-core',
+        { clearProps: 'animation' }
       );
 
       gsap.set('.tech-orbit-node', {
         xPercent: -50,
         yPercent: -50,
         scale: 1,
+        animation: 'none',
+      });
+
+      gsap.set('.tech-logo-bouncer', {
+        y: 0,
+        rotation: 0,
+        animation: 'none',
+      });
+
+      gsap.set('.tech-core', {
+        scale: 1,
+        animation: 'none',
       });
 
       rings.forEach((ring) => {
-        const duration = Number.parseFloat(ring.dataset.duration) || 12;
+        const duration = Number.parseFloat(ring.dataset.duration) || 24;
         const reverse = ring.classList.contains('tech-orbit-reverse');
         const cards = ring.querySelectorAll('.tech-orbit-card');
 
@@ -101,6 +117,12 @@ export default function TechStack() {
           yPercent: -50,
           rotation: 0,
           transformOrigin: '50% 50%',
+          animation: 'none',
+        });
+
+        gsap.set(cards, {
+          rotation: 0,
+          animation: 'none',
         });
 
         gsap.to(ring, {
@@ -119,44 +141,32 @@ export default function TechStack() {
       });
 
       gsap.to('.tech-orbit-node', {
-        scale: 1.08,
-        duration: 1.45,
+        scale: 1.055,
+        duration: 2.8,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        stagger: 0.1,
+      });
+
+      gsap.to('.tech-logo-bouncer', {
+        y: -4,
+        rotation: 1.5,
+        duration: 2.4,
         ease: 'sine.inOut',
         repeat: -1,
         yoyo: true,
         stagger: 0.08,
       });
 
-      gsap.to('.tech-logo-bouncer', {
-        y: -5,
-        rotation: 2,
-        duration: 1.15,
-        ease: 'sine.inOut',
-        repeat: -1,
-        yoyo: true,
-        stagger: 0.07,
-      });
-
       gsap.to('.tech-core', {
-        scale: 1.04,
-        duration: 1.8,
+        scale: 1.025,
+        duration: 3.4,
         ease: 'sine.inOut',
         repeat: -1,
         yoyo: true,
       });
-
-      gsap.fromTo(
-        '.tech-comet-one',
-        { x: -90, y: -40, opacity: 0 },
-        { x: 760, y: 430, opacity: 1, duration: 3.4, ease: 'power1.inOut', repeat: -1 }
-      );
-
-      gsap.fromTo(
-        '.tech-comet-two',
-        { x: 820, y: 70, opacity: 0 },
-        { x: -120, y: 360, opacity: 1, duration: 4.2, ease: 'power1.inOut', repeat: -1 }
-      );
-    }, galaxyRef);
+    }, stageRef);
 
     return () => ctx.revert();
   }, []);
@@ -199,11 +209,9 @@ export default function TechStack() {
 
         <Reveal delay={0.12}>
           <div
-            ref={galaxyRef}
+            ref={stageRef}
             className="tech-orbit-stage relative min-h-[420px] overflow-visible md:min-h-[620px]"
           >
-            <div className="tech-comet tech-comet-one" />
-            <div className="tech-comet tech-comet-two" />
             <div className="absolute inset-x-8 top-10 h-24 rounded-full bg-primary/10 blur-3xl" />
             <div className="absolute bottom-8 right-8 h-32 w-32 rounded-full bg-secondary/10 blur-3xl" />
 
@@ -221,7 +229,6 @@ export default function TechStack() {
                 key={ring.className}
                 className={ring.className}
                 data-duration={Number.parseFloat(ring.duration)}
-                style={{ '--orbit-duration': ring.duration }}
               >
                 {ring.items.map(({ tech, top, left }, itemIndex) => (
                   <div

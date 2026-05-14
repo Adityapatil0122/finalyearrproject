@@ -21,6 +21,13 @@ const bottomStats = [
   { value: 96, suffix: '%', label: 'Client satisfaction' },
 ];
 
+const clientAvatars = [
+  'https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?w=80&h=80&fit=crop&crop=faces&auto=format&q=80',
+  'https://images.unsplash.com/photo-1654436200209-de489ed205df?w=80&h=80&fit=crop&crop=faces&auto=format&q=80',
+  'https://images.unsplash.com/photo-1619890632764-87d5fc97840a?w=80&h=80&fit=crop&crop=faces&auto=format&q=80',
+  'https://images.unsplash.com/photo-1605988941502-372407d1dac5?w=80&h=80&fit=crop&crop=faces&auto=format&q=80',
+];
+
 export default function Hero() {
   const sectionRef = useRef(null);
 
@@ -257,15 +264,10 @@ export default function Hero() {
           {/* ─── BOTTOM STATS BAR (inside the blue card) ─── */}
           <div className="relative z-20 border-t border-white/10 px-4 pb-16 pt-6 sm:px-8 md:pb-20 md:pt-8 lg:px-12">
             <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 md:flex-row md:justify-between md:gap-4">
-              {/* Avatar stack + active clients */}
+              {/* Avatar stack + clients */}
               <div className="flex items-center gap-4">
                 <div className="hero-avatar-stack flex -space-x-3">
-                  {[
-                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
-                    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face',
-                    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face',
-                    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face',
-                  ].map((src, i) => (
+                  {clientAvatars.map((src, i) => (
                     <img
                       key={i}
                       src={src}
@@ -277,7 +279,7 @@ export default function Hero() {
                 </div>
                 <div className="text-white">
                   <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/50">
-                    Active Clients
+                    Clients
                   </p>
                   <p className="text-xl font-extrabold leading-none">100+</p>
                 </div>
@@ -319,7 +321,7 @@ export default function Hero() {
 
         {/* ─── CLIENT LOGOS STRIP (in the dark area below the card) ─── */}
         <div className="bg-surface pb-6 pt-4 md:pb-8 md:pt-6">
-          <Marquee>
+          <Marquee speed={46}>
             {clientLogos.map((c) => (
               <div
                 key={c.name}
@@ -329,7 +331,7 @@ export default function Hero() {
                   src={c.logo}
                   alt={`${c.name} logo`}
                   loading="lazy"
-                  className="max-h-10 w-full object-contain grayscale opacity-60 transition-opacity duration-300 hover:opacity-100 hover:grayscale-0"
+                  className="max-h-10 w-full object-contain opacity-90 saturate-[1.06] transition-opacity duration-300 hover:opacity-100"
                 />
               </div>
             ))}

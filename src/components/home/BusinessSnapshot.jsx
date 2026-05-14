@@ -1,82 +1,185 @@
-import { Mail, MapPin, Phone, Clock } from 'lucide-react';
+import { Clock3, Mail, MapPin, MessageCircleMore, PhoneCall } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
-import Button from '@/components/ui/Button';
 import { siteConfig } from '@/data/siteConfig';
 
-const cards = [
+const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, '')}`;
+const whatsappDigits = siteConfig.whatsapp.replace(/\D/g, '');
+const whatsappHref = `https://wa.me/${whatsappDigits}`;
+
+const channels = [
   {
-    label: 'Call',
+    label: 'Call Us',
     value: siteConfig.phone,
-    href: `tel:${siteConfig.phone.replace(/\s/g, '')}`,
-    Icon: Phone,
+    href: phoneHref,
+    note: null,
+    Icon: PhoneCall,
+    tint: 'bg-emerald-50 border-emerald-100 text-emerald-600',
+    iconTint: 'bg-emerald-100 text-emerald-600',
   },
   {
-    label: 'Email',
+    label: 'Email Us',
     value: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
+    note: null,
     Icon: Mail,
+    tint: 'bg-blue-50 border-blue-100 text-blue-600',
+    iconTint: 'bg-blue-100 text-blue-600',
   },
   {
-    label: 'Visit',
-    value: siteConfig.shortAddress || siteConfig.address,
-    href: '/contact',
+    label: 'WhatsApp',
+    value: 'Chat with us instantly',
+    href: whatsappHref,
+    note: siteConfig.whatsapp,
+    Icon: MessageCircleMore,
+    tint: 'bg-teal-50 border-teal-100 text-teal-600',
+    iconTint: 'bg-teal-100 text-teal-600',
+  },
+  {
+    label: 'Visit Us',
+    value: siteConfig.address,
+    to: '/contact',
+    note: null,
     Icon: MapPin,
-  },
-  {
-    label: 'Hours',
-    value: siteConfig.businessHours[0],
-    href: '/contact',
-    Icon: Clock,
+    tint: 'bg-amber-50 border-amber-100 text-amber-600',
+    iconTint: 'bg-amber-100 text-amber-600',
   },
 ];
 
-export default function BusinessSnapshot() {
-  return (
-    <Section id="business-info" className="bg-surface">
-      <div className="grid lg:grid-cols-[0.9fr_1.4fr] gap-2xl items-center">
-        <div>
-          <Reveal>
-            <p className="text-label-sm uppercase tracking-widest text-primary font-semibold mb-2">
-              Pune studio
-            </p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="text-h1 text-balance">Useful contact details, right where visitors need them.</h2>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-md text-body-lg text-on-surface-variant">
-              The contact information now matches the public reference site, including business hours and the Pune address.
-            </p>
-          </Reveal>
-          <Reveal delay={0.26}>
-            <div className="mt-lg">
-              <Button to="/contact" magnetic>
-                Send a project brief
-              </Button>
+const hours = [
+  { day: 'Monday - Saturday', value: '10:00 AM - 6:00 PM' },
+  { day: 'Sunday', value: 'Closed' },
+];
+
+export default function BusinessSnapshot({ embedded = false, className = '' }) {
+  const content = (
+    <div className={embedded ? 'flex h-full flex-col' : 'mx-auto max-w-4xl'}>
+        <Reveal>
+          <div className={embedded ? 'mb-lg' : 'mb-xl'}>
+            <h2 className={embedded ? 'text-h2 text-on-surface' : 'text-h2 text-on-surface'}>
+              Get in Touch
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className={embedded ? 'grid flex-1 gap-md sm:grid-cols-2' : 'space-y-md'}>
+          {channels.map(({ label, value, href, to, note, Icon, tint, iconTint }, index) => (
+            <Reveal key={label} delay={index * 0.06}>
+              {to ? (
+                <Link
+                  to={to}
+                  className={[
+                    'group block border transition-all duration-300 hover:-translate-y-1 hover:shadow-med',
+                    embedded ? 'h-full rounded-2xl px-md py-md' : 'rounded-[1.75rem] px-lg py-lg',
+                    tint,
+                  ].join(' ')}
+                >
+                  <div className={embedded ? 'flex items-start gap-sm' : 'flex items-start gap-md sm:items-center'}>
+                    <span className={[
+                      'grid shrink-0 place-items-center transition-transform duration-300 group-hover:scale-110',
+                      embedded ? 'h-10 w-10 rounded-xl' : 'h-12 w-12 rounded-2xl',
+                      iconTint,
+                    ].join(' ')}>
+                      <Icon size={embedded ? 19 : 22} />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-label-sm font-semibold uppercase tracking-widest">{label}</p>
+                      <p className={[
+                        'mt-1 font-semibold leading-snug text-on-surface [overflow-wrap:anywhere]',
+                        embedded ? 'text-[1.05rem]' : 'text-h3',
+                      ].join(' ')}>
+                        {value}
+                      </p>
+                      {note ? <p className="mt-0.5 text-body-sm text-on-surface-variant">{note}</p> : null}
+                    </div>
+                  </div>
+                </Link>
+              ) : (
+                <a
+                  href={href}
+                  className={[
+                    'group block border transition-all duration-300 hover:-translate-y-1 hover:shadow-med',
+                    embedded ? 'h-full rounded-2xl px-md py-md' : 'rounded-[1.75rem] px-lg py-lg',
+                    tint,
+                  ].join(' ')}
+                >
+                  <div className={embedded ? 'flex items-start gap-sm' : 'flex items-start gap-md sm:items-center'}>
+                    <span className={[
+                      'grid shrink-0 place-items-center transition-transform duration-300 group-hover:scale-110',
+                      embedded ? 'h-10 w-10 rounded-xl' : 'h-12 w-12 rounded-2xl',
+                      iconTint,
+                    ].join(' ')}>
+                      <Icon size={embedded ? 19 : 22} />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-label-sm font-semibold uppercase tracking-widest">{label}</p>
+                      <p className={[
+                        'mt-1 font-semibold leading-snug text-on-surface [overflow-wrap:anywhere]',
+                        embedded ? 'text-[1.05rem]' : 'text-h3',
+                      ].join(' ')}>
+                        {value}
+                      </p>
+                      {note ? <p className="mt-0.5 text-body-sm text-on-surface-variant">{note}</p> : null}
+                    </div>
+                  </div>
+                </a>
+              )}
+            </Reveal>
+          ))}
+
+          <Reveal delay={0.28} className={embedded ? 'sm:col-span-2' : ''}>
+            <div
+              className={[
+                'border border-slate-200 bg-slate-50',
+                embedded ? 'h-full rounded-2xl px-md py-md' : 'rounded-[1.75rem] px-lg py-lg',
+              ].join(' ')}
+            >
+              <div className="flex items-start gap-sm">
+                <span className={[
+                  'grid shrink-0 place-items-center bg-slate-200 text-slate-700 transition-transform duration-300 hover:scale-110',
+                  embedded ? 'h-10 w-10 rounded-xl' : 'h-12 w-12 rounded-2xl',
+                ].join(' ')}>
+                  <Clock3 size={embedded ? 19 : 22} />
+                </span>
+                <div>
+                  <p className="text-label-sm font-semibold uppercase tracking-widest text-slate-600">
+                    Business Hours
+                  </p>
+                </div>
+              </div>
+
+              <div className={embedded ? 'mt-md grid gap-sm border-t border-slate-200 pt-md sm:grid-cols-2' : 'mt-md space-y-3 border-t border-slate-200 pt-md'}>
+                {hours.map((entry) => (
+                  <div key={entry.day} className={embedded ? 'flex items-center justify-between gap-sm text-body-md' : 'flex items-center justify-between gap-md text-body-lg'}>
+                    <span className="text-on-surface">{entry.day}</span>
+                    <span className="text-on-surface-variant">{entry.value}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>
-
-        <div className="grid sm:grid-cols-2 gap-md">
-          {cards.map(({ label, value, href, Icon }, i) => (
-            <Reveal key={label} delay={i * 0.06}>
-              <a
-                href={href}
-                className="interactive-surface surface-lift block h-full rounded-2xl border border-outline-variant bg-surface-container-lowest p-lg shadow-low"
-              >
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
-                  <Icon size={20} />
-                </span>
-                <p className="mt-md text-label-sm uppercase tracking-widest text-on-surface-variant">
-                  {label}
-                </p>
-                <p className="mt-1 text-h3 text-on-surface">{value}</p>
-              </a>
-            </Reveal>
-          ))}
-        </div>
       </div>
+  );
+
+  if (embedded) {
+    return (
+      <aside
+        id="business-info"
+        className={[
+          'h-full rounded-3xl border border-outline-variant bg-surface-container-lowest p-md shadow-high md:p-lg',
+          className,
+        ].join(' ')}
+      >
+        {content}
+      </aside>
+    );
+  }
+
+  return (
+    <Section id="business-info" className={['bg-surface', className].join(' ')}>
+      {content}
     </Section>
   );
 }

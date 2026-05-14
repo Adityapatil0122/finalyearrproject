@@ -1,250 +1,189 @@
-import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import {
-  Blocks,
-  Globe2,
-  Rocket,
+  ArrowRight,
+  BadgeCheck,
   Sparkles,
-  SmartphoneNfc,
-  Target,
-  TrendingUp,
 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
-import AnimatedNumber from '@/components/ui/AnimatedNumber';
 import SiteCta from '@/components/ui/SiteCta';
-import Marquee from '@/components/ui/Marquee';
-import { clientLogos, clientImpact, clientSignals } from '@/data/clients';
+import { caseStudies, clientLogos } from '@/data/clients';
 
-const signalIcons = [Globe2, SmartphoneNfc, Target];
+const logoTints = [
+  'bg-primary/8 border-primary/15',
+  'bg-secondary/8 border-secondary/15',
+  'bg-emerald-50 border-emerald-100',
+  'bg-amber-50 border-amber-100',
+  'bg-surface-container-lowest border-outline-variant',
+];
 
 export default function Clients() {
-  const clientsRef = useRef(null);
-
   useSEO({
-    title: 'Clients – Finlec Technologies',
+    title: 'Clients - Finlec Technologies',
     description:
       'See the brands and businesses that trust Finlec Technologies for web, app, AI, and digital marketing solutions.',
   });
 
+  const featuredLogos = clientLogos.slice(0, 9);
+  const remainingLogos = clientLogos.slice(9);
+
   return (
-    <div ref={clientsRef}>
+    <>
+      <section className="relative overflow-hidden border-b border-outline-variant bg-surface-container-low">
+        <div className="absolute inset-0 signal-grid opacity-60" aria-hidden />
+        <div className="container-page relative py-xl md:py-[96px]">
+          <div className="mx-auto max-w-4xl text-center">
+            <Reveal>
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-surface-container-lowest px-4 py-1.5 text-label-sm font-semibold text-primary shadow-low">
+                <Sparkles size={15} />
+                Client network
+              </span>
+            </Reveal>
 
-      {/* ─── HERO ─── */}
-      <section className="relative overflow-hidden border-b border-outline-variant bg-gradient-to-b from-surface-container-low to-surface">
-        {/* subtle dot grid */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-40"
-          aria-hidden
-          style={{
-            backgroundImage:
-              'radial-gradient(circle, rgba(0,88,190,0.12) 1px, transparent 1px)',
-            backgroundSize: '32px 32px',
-          }}
-        />
+            <Reveal delay={0.08}>
+              <h1 className="mx-auto mt-6 max-w-4xl text-display leading-tight text-balance text-on-surface">
+                Brands that trust us to build, launch, and keep moving.
+              </h1>
+            </Reveal>
 
-        <div className="container-page relative py-2xl text-center md:py-[100px]">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-1.5 text-label-sm font-semibold text-primary">
-              <Sparkles size={15} />
-              Our Clients
-            </span>
-          </Reveal>
+            <Reveal delay={0.16}>
+              <p className="mx-auto mt-md max-w-2xl text-body-lg text-on-surface-variant">
+                A growing mix of local businesses, product teams, service brands, and
+                operators who needed cleaner websites, sharper journeys, better
+                automation, and practical digital systems.
+              </p>
+            </Reveal>
 
-          <Reveal delay={0.08}>
-            <h1 className="mx-auto mt-6 max-w-4xl text-display leading-tight text-balance text-on-surface">
-              Trusted by businesses building{' '}
-              <span className="italic text-primary">real things.</span>
-            </h1>
-          </Reveal>
+            <Reveal delay={0.24}>
+              <div className="mt-xl flex flex-wrap justify-center gap-sm">
+                {['Websites', 'Apps', 'AI workflows', 'Growth campaigns'].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-outline-variant bg-surface-container-lowest px-md py-sm text-label-sm font-semibold text-on-surface shadow-low"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
 
-          <Reveal delay={0.15}>
-            <p className="mx-auto mt-5 max-w-2xl text-body-lg text-on-surface-variant">
-              From startups to established brands — we've helped 100+ businesses across
-              India grow their digital presence, launch products, and reach more customers.
-            </p>
-          </Reveal>
+      <Section className="bg-surface">
+        <div className="grid gap-xl lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <div>
+            <Reveal>
+              <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
+                Brand wall
+              </p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h2 className="mt-3 text-h1 text-balance text-on-surface">
+                A quieter wall for the teams we have worked with.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.14}>
+              <p className="mt-md text-body-lg text-on-surface-variant">
+                No vanity counters here. Just the businesses that trusted Finlec
+                with websites, apps, automation, design, and growth work.
+              </p>
+            </Reveal>
+          </div>
 
-          {/* Stats row */}
-          <Reveal delay={0.22}>
-            <div className="mx-auto mt-xl grid max-w-2xl grid-cols-3 gap-md">
-              {clientImpact.slice(0, 3).map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-2xl border border-outline-variant bg-surface-container-lowest px-md py-lg shadow-low"
-                >
-                  <p className="text-h2 font-bold text-primary">
-                    <AnimatedNumber value={item.value} suffix={item.suffix} />
-                  </p>
-                  <p className="mt-1 text-label-sm uppercase tracking-widest text-on-surface-variant">
-                    {item.label}
-                  </p>
-                </div>
+          <Reveal delay={0.12}>
+            <div className="grid grid-cols-2 gap-md sm:grid-cols-3">
+              {featuredLogos.map((client, index) => (
+                <LogoTile key={client.logo} client={client} index={index} featured />
               ))}
             </div>
           </Reveal>
         </div>
 
-        {/* Logo marquee inside hero */}
-        <Reveal delay={0.28}>
-          <div className="border-t border-outline-variant py-xl">
-            <Marquee>
-              {clientLogos.map((c) => (
-                <div
-                  key={c.name}
-                  className="grid h-20 w-40 place-items-center rounded-xl border border-outline-variant/60 bg-surface-container-lowest px-md shadow-low transition-all duration-300 hover:border-primary/30 hover:shadow-med"
-                >
-                  <img
-                    src={c.logo}
-                    alt={`${c.name} logo`}
-                    loading="lazy"
-                    className="max-h-11 w-full object-contain"
-                  />
-                </div>
-              ))}
-            </Marquee>
+        {remainingLogos.length ? (
+          <div className="mt-md grid grid-cols-2 gap-md sm:grid-cols-3 lg:grid-cols-6">
+            {remainingLogos.map((client, index) => (
+              <Reveal key={client.logo} delay={(index % 6) * 0.04}>
+                <LogoTile client={client} index={index + featuredLogos.length} />
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
-      </section>
+        ) : null}
+      </Section>
 
-      {/* ─── LOGO GRID ─── */}
       <Section className="bg-surface">
-        <div className="text-center">
-          <Reveal>
-            <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
-              Brand wall
-            </p>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h2 className="mx-auto mt-3 max-w-2xl text-h1 text-balance text-on-surface">
-              Every logo here is a story of growth.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.14}>
-            <p className="mx-auto mt-4 max-w-xl text-body-lg text-on-surface-variant">
-              These are the businesses that chose Finlec to build, grow, and evolve their digital presence.
-            </p>
+        <div className="mb-xl flex flex-col justify-between gap-md lg:flex-row lg:items-end">
+          <div>
+            <Reveal>
+              <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
+                Work patterns
+              </p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h2 className="mt-3 max-w-3xl text-h1 text-balance text-on-surface">
+                What clients usually ask us to make better.
+              </h2>
+            </Reveal>
+          </div>
+          <Reveal delay={0.12}>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-sm rounded-full bg-primary px-lg py-md text-label-sm font-semibold text-white shadow-low transition-all hover:-translate-y-0.5 hover:bg-primary-600 hover:shadow-high"
+            >
+              Start a project
+              <ArrowRight size={17} />
+            </Link>
           </Reveal>
         </div>
 
-        <div className="mt-2xl grid grid-cols-3 gap-md sm:grid-cols-4 md:grid-cols-5">
-          {clientLogos.map((logo, index) => (
-            <Reveal key={logo.logo} delay={(index % 10) * 0.04}>
-              <div className="group flex h-28 cursor-default items-center justify-center rounded-2xl border border-outline-variant bg-surface-container-lowest p-md shadow-low transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-med">
-                <img
-                  src={logo.logo}
-                  alt={`${logo.name} logo`}
-                  loading="lazy"
-                  className="max-h-14 w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
+        <div className="grid gap-md md:grid-cols-3">
+          {caseStudies.map((study, index) => (
+            <Reveal key={study.id} delay={index * 0.08}>
+              <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-lowest shadow-low transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-med">
+                <div className="media-reveal aspect-[4/3] overflow-hidden">
+                  <img
+                    src={study.image}
+                    alt=""
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-lg">
+                  <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
+                    {study.tag}
+                  </p>
+                  <h3 className="mt-sm text-h3 text-on-surface">{study.title}</h3>
+                  <p className="mt-2 flex-1 text-body-md text-on-surface-variant">
+                    {study.summary}
+                  </p>
+                </div>
+              </article>
             </Reveal>
           ))}
         </div>
       </Section>
 
-      {/* ─── STATS BAND ─── */}
-      <Section
-        className="relative overflow-hidden bg-primary text-white"
-        container={false}
-      >
-        {/* subtle light sweep */}
-        <div
-          className="pointer-events-none absolute inset-0"
-          aria-hidden
-          style={{
-            background:
-              'radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.08), transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(0,200,240,0.10), transparent 40%)',
-          }}
-        />
-        <div className="container-page relative">
-          <div className="grid gap-xl lg:grid-cols-2 lg:items-center">
-            <div>
-              <Reveal>
-                <p className="text-label-sm font-semibold uppercase tracking-widest text-white/60">
-                  By the numbers
-                </p>
-              </Reveal>
-              <Reveal delay={0.08}>
-                <h2 className="mt-3 text-h1 text-balance">
-                  Results that speak louder than promises.
-                </h2>
-              </Reveal>
-              <Reveal delay={0.15}>
-                <p className="mt-4 max-w-lg text-body-lg text-white/70">
-                  Every project we take on is focused on one goal — delivering
-                  measurable growth for the businesses that trust us.
-                </p>
-              </Reveal>
-            </div>
+      <SiteCta title="Ready to build something your clients remember?" />
+    </>
+  );
+}
 
-            <div className="grid grid-cols-2 gap-md">
-              {clientImpact.map((item, index) => (
-                <Reveal key={item.label} delay={index * 0.07}>
-                  <div className="rounded-2xl border border-white/15 bg-white/10 p-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/15">
-                    <div className="flex items-center gap-2">
-                      <TrendingUp size={18} className="text-white/50" />
-                    </div>
-                    <p className="mt-2 text-display font-bold leading-none">
-                      <AnimatedNumber value={item.value} suffix={item.suffix} />
-                    </p>
-                    <p className="mt-2 text-label-sm uppercase tracking-widest text-white/60">
-                      {item.label}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* ─── HOW WE SUPPORT CLIENTS ─── */}
-      <Section className="bg-surface-container-low">
-        <div className="text-center">
-          <Reveal>
-            <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
-              How we help
-            </p>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h2 className="mx-auto mt-3 max-w-2xl text-h1 text-balance text-on-surface">
-              Three ways we keep your business moving forward.
-            </h2>
-          </Reveal>
-        </div>
-
-        <div className="mt-2xl grid grid-cols-1 gap-lg md:grid-cols-3">
-          {clientSignals.map((signal, index) => {
-            const Icon = signalIcons[index] || Rocket;
-            return (
-              <Reveal key={signal.title} delay={index * 0.1}>
-                <article className="group relative flex h-full flex-col rounded-2xl border border-outline-variant bg-surface-container-lowest p-xl shadow-low transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-med">
-                  {/* top accent line on hover */}
-                  <div className="absolute left-6 right-6 top-0 h-[2px] origin-left scale-x-0 rounded-full bg-gradient-to-r from-primary to-secondary transition-transform duration-500 group-hover:scale-x-100" />
-
-                  <div className="mb-lg flex items-center justify-between">
-                    <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-white shadow-low">
-                      <Icon size={26} />
-                    </div>
-                    <span className="text-[2rem] font-extrabold text-on-surface/8 select-none">
-                      0{index + 1}
-                    </span>
-                  </div>
-
-                  <h3 className="text-h3 text-on-surface">{signal.title}</h3>
-                  <p className="mt-2 flex-1 text-body-md text-on-surface-variant">
-                    {signal.desc}
-                  </p>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
-      </Section>
-
-      {/* ─── CTA ─── */}
-      <SiteCta title="Ready to add your brand to the moving wall?" />
+function LogoTile({ client, index, featured = false }) {
+  return (
+    <div
+      className={[
+        'group flex items-center justify-center border p-md shadow-low transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-med',
+        featured ? 'h-28 rounded-2xl' : 'h-24 rounded-xl',
+        logoTints[index % logoTints.length],
+      ].join(' ')}
+    >
+      <img
+        src={client.logo}
+        alt={`${client.name} logo`}
+        loading="lazy"
+        className="max-h-14 w-full object-contain transition-transform duration-300 group-hover:scale-105"
+      />
     </div>
   );
 }

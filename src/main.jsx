@@ -12,6 +12,8 @@ import Clients from '@/pages/Clients';
 import Blogs from '@/pages/Blogs';
 import BlogPost from '@/pages/BlogPost';
 import Contact from '@/pages/Contact';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
+import TermsOfService from '@/pages/TermsOfService';
 import NotFound from '@/pages/NotFound';
 
 createRoot(document.getElementById('root')).render(
@@ -28,6 +30,8 @@ createRoot(document.getElementById('root')).render(
             <Route path="blogs" element={<Blogs />} />
             <Route path="blogs/:slug" element={<BlogPost />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="terms-of-service" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

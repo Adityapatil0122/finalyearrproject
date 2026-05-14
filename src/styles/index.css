@@ -206,6 +206,129 @@
     animation: soft-float 8s ease-in-out infinite;
   }
 
+  .expertise-section {
+    background:
+      linear-gradient(180deg, #f9f9ff 0%, #eef5ff 48%, #f8fbfa 100%);
+  }
+
+  .expertise-grid-bg {
+    position: absolute;
+    inset: -72px;
+    pointer-events: none;
+    opacity: 0.64;
+    background-image:
+      linear-gradient(rgba(0, 88, 190, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 104, 122, 0.08) 1px, transparent 1px);
+    background-size: 38px 38px;
+    mask-image: radial-gradient(ellipse at 50% 44%, #000 0%, transparent 72%);
+    animation: expertise-grid-shift 32s linear infinite;
+  }
+
+  .expertise-card {
+    --expertise-accent: #0058be;
+    --expertise-tint: rgba(0, 88, 190, 0.1);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid rgba(221, 224, 232, 0.95);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.88)),
+      linear-gradient(135deg, var(--expertise-tint), transparent 56%);
+    box-shadow: 0 12px 34px rgba(0, 21, 45, 0.055);
+  }
+
+  .expertise-card::after {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 -46%;
+    z-index: 0;
+    width: 36%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.62), transparent);
+    transform: skewX(-14deg);
+    animation: expertise-card-sheen 12.5s ease-in-out infinite;
+    animation-delay: var(--card-delay, 0s);
+  }
+
+  .expertise-card:hover {
+    border-color: color-mix(in srgb, var(--expertise-accent) 38%, #dde0e8);
+    box-shadow: 0 24px 62px rgba(0, 21, 45, 0.11);
+  }
+
+  .expertise-card-primary {
+    --expertise-accent: #0058be;
+    --expertise-tint: rgba(0, 88, 190, 0.12);
+  }
+
+  .expertise-card-secondary {
+    --expertise-accent: #00687a;
+    --expertise-tint: rgba(0, 104, 122, 0.12);
+  }
+
+  .expertise-card-tertiary {
+    --expertise-accent: #924700;
+    --expertise-tint: rgba(146, 71, 0, 0.1);
+  }
+
+  .expertise-icon {
+    display: grid;
+    width: 3.2rem;
+    height: 3.2rem;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--expertise-accent) 18%, transparent);
+    border-radius: 0.5rem;
+    background: color-mix(in srgb, var(--expertise-accent) 12%, white);
+    color: var(--expertise-accent);
+    transition:
+      transform 300ms ease,
+      background-color 300ms ease,
+      color 300ms ease;
+  }
+
+  .expertise-icon .material-symbols-outlined {
+    font-size: 1.6rem;
+  }
+
+  .expertise-card:hover .expertise-icon {
+    color: #fff;
+    background: var(--expertise-accent);
+    transform: rotate(-7deg) scale(1.06);
+  }
+
+  .expertise-kicker {
+    color: color-mix(in srgb, var(--expertise-accent) 72%, #191b23);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  .expertise-detail-box {
+    border: 1px solid color-mix(in srgb, var(--expertise-accent) 14%, #dde0e8);
+    border-radius: 0.85rem;
+    background: color-mix(in srgb, var(--expertise-accent) 5%, white);
+    padding: 0.85rem 0.95rem;
+  }
+
+  .expertise-detail-label {
+    color: color-mix(in srgb, var(--expertise-accent) 72%, #191b23);
+    font-size: 0.69rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .expertise-point-chip {
+    border: 1px solid color-mix(in srgb, var(--expertise-accent) 18%, #dde0e8);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--expertise-accent) 7%, white);
+    color: color-mix(in srgb, var(--expertise-accent) 76%, #191b23);
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 0.42rem 0.62rem;
+  }
+
   .hero-holo-card {
     transform: rotate(-2deg);
     animation: hero-holo-float 7s ease-in-out infinite;
@@ -287,8 +410,8 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: min(86%, 720px);
-    height: min(70%, 460px);
+    width: min(82%, 684px);
+    height: min(66.5%, 437px);
     border-radius: 999px;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.24) 45%, transparent 70%);
     transform: translate(-50%, -50%);
@@ -326,14 +449,12 @@
   }
 
   .tech-orbit {
-    --orbit-duration: 36s;
     position: absolute;
     left: 50%;
     top: 50%;
     border: 1px solid rgba(0, 88, 190, 0.16);
     border-radius: 9999px;
-    transform: translate(-50%, -50%);
-    animation: tech-orbit-spin var(--orbit-duration) linear infinite;
+    /* transform is fully managed by GSAP — no CSS animation here */
     will-change: transform;
   }
 
@@ -346,23 +467,21 @@
   }
 
   .tech-orbit-outer {
-    width: min(98%, 860px);
-    height: min(80%, 520px);
+    width: min(93%, 817px);
+    height: min(76%, 494px);
   }
 
   .tech-orbit-middle {
-    width: min(78%, 650px);
-    height: min(60%, 390px);
+    width: min(74%, 618px);
+    height: min(57%, 371px);
   }
 
   .tech-orbit-inner {
-    width: min(56%, 470px);
-    height: min(42%, 280px);
+    width: min(53%, 447px);
+    height: min(40%, 266px);
   }
 
-  .tech-orbit-reverse {
-    animation-direction: reverse;
-  }
+  /* .tech-orbit-reverse direction is handled by GSAP (negative rotation value) */
 
   .tech-orbit-node {
     position: absolute;
@@ -382,15 +501,10 @@
     background: rgba(255, 255, 255, 0.92);
     box-shadow: 0 16px 36px rgba(0, 21, 45, 0.08);
     backdrop-filter: blur(10px);
-    animation: tech-card-counter var(--orbit-duration) linear infinite;
+    /* counter-rotation is fully managed by GSAP */
     transition:
-      transform 280ms ease,
       border-color 280ms ease,
       box-shadow 280ms ease;
-  }
-
-  .tech-orbit-reverse .tech-orbit-card {
-    animation-direction: reverse;
   }
 
   .tech-orbit-card:hover {
@@ -414,32 +528,8 @@
     filter: saturate(1.1);
   }
 
-  .tech-comet {
-    position: absolute;
-    z-index: 2;
-    width: 9px;
-    height: 9px;
-    border-radius: 999px;
-    background: #0058be;
-    box-shadow:
-      0 0 0 7px rgba(0, 88, 190, 0.1),
-      -52px 0 28px rgba(0, 88, 190, 0.32);
-  }
-
-  .tech-comet-one {
-    animation: tech-comet-one 7.5s ease-in-out infinite;
-  }
-
-  .tech-comet-two {
-    background: #00687a;
-    box-shadow:
-      0 0 0 7px rgba(0, 104, 122, 0.1),
-      -46px 0 24px rgba(0, 104, 122, 0.3);
-    animation: tech-comet-two 9s ease-in-out infinite;
-  }
-
   .client-cta {
-    border-radius: 0.5rem;
+    border-radius: 0.9rem;
     background:
       radial-gradient(circle at 18% 30%, rgba(255, 255, 255, 0.22), transparent 30%),
       radial-gradient(circle at 84% 18%, rgba(18, 199, 216, 0.32), transparent 28%),
@@ -600,6 +690,267 @@
     opacity: 0;
     transform: translateY(28px);
   }
+
+  /* ─── Global smooth hover system ───────────────────────────────────────────
+     All transitions use the same cubic-bezier for a cohesive "premium" feel.
+     The easing (0.22, 1, 0.36, 1) is a fast-out-slow-in that feels snappy
+     but never abrupt.
+  ────────────────────────────────────────────────────────────────────────── */
+
+  /* 1. Base card lift + glow — applied to every interactive card */
+  .interactive-surface {
+    transition:
+      transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 280ms ease,
+      background-color 280ms ease;
+  }
+  .interactive-surface:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 20px 60px rgba(0, 21, 45, 0.12),
+      0 0 0 1px rgba(0, 88, 190, 0.08);
+  }
+
+  /* 2. Expertise / WhyUs / Product feature cards — icon fill on hover */
+  .expertise-card {
+    transition:
+      transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 280ms ease;
+  }
+  .expertise-card:hover {
+    transform: translateY(-6px) scale(1.012);
+    box-shadow: 0 28px 70px rgba(0, 21, 45, 0.13);
+  }
+  .expertise-card:hover .expertise-icon {
+    transform: rotate(-8deg) scale(1.12);
+    color: #fff;
+    background: var(--expertise-accent);
+  }
+
+  /* 3. Expertise point-chips — subtle pop */
+  .expertise-point-chip {
+    transition:
+      background-color 240ms ease,
+      color 240ms ease,
+      transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .expertise-point-chip:hover {
+    transform: scale(1.07);
+  }
+
+  /* 4. Portfolio rail cards */
+  .portfolio-card-img {
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .group:hover .portfolio-card-img {
+    transform: scale(1.06);
+  }
+
+  /* 5. Process timeline step items */
+  .process-step {
+    transition:
+      transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 340ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 280ms ease;
+  }
+  .process-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 46px rgba(0, 21, 45, 0.1);
+    background-color: rgba(0, 88, 190, 0.04);
+  }
+  .process-step:hover [data-circle] {
+    box-shadow: 0 0 0 14px rgba(0, 88, 190, 0.1);
+    transform: scale(1.06);
+    transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 360ms ease;
+  }
+
+  /* 6. Methodology step rows */
+  .method-step-row {
+    transition:
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 320ms ease,
+      border-color 280ms ease,
+      background-color 280ms ease;
+  }
+  .method-step-row:hover {
+    transform: translateX(6px);
+    box-shadow: 0 10px 32px rgba(0, 21, 45, 0.07);
+  }
+
+  /* 7. FAQ question rows */
+  .faq-item-btn {
+    transition: padding-left 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .faq-item-btn:hover {
+    padding-left: 6px;
+  }
+
+  /* 8. Stat / metric tiles */
+  .metric-tile {
+    transition:
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 280ms ease;
+  }
+  .metric-tile:hover {
+    transform: translateY(-4px) scale(1.04);
+    background-color: rgba(0, 88, 190, 0.06);
+  }
+  .metric-tile:hover p:first-child {
+    color: #0058be;
+  }
+  .metric-tile p:first-child {
+    transition: color 260ms ease;
+  }
+
+  /* 9. Tech orbit node cards — pulse ring on hover */
+  .tech-orbit-card {
+    transition:
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 280ms ease,
+      box-shadow 320ms ease;
+  }
+  .tech-orbit-card:hover {
+    transform: scale(1.18);
+    border-color: rgba(0, 88, 190, 0.45);
+    box-shadow:
+      0 0 0 6px rgba(0, 88, 190, 0.1),
+      0 22px 54px rgba(0, 88, 190, 0.22);
+  }
+  .tech-orbit-card:hover .tech-logo-bouncer img {
+    filter: saturate(1.4) brightness(1.05);
+    transform: scale(1.1);
+  }
+  .tech-logo-bouncer img {
+    transition: filter 280ms ease, transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* 10. Tech core center button */
+  .tech-core {
+    transition:
+      transform 380ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 380ms ease;
+  }
+  .tech-core:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 0 0 16px rgba(0, 88, 190, 0.1), 0 22px 54px rgba(0, 21, 45, 0.14);
+  }
+
+  /* 11. Scroll nav arrow buttons (Portfolio Rail) */
+  .scroll-nav-btn {
+    transition:
+      background-color 260ms ease,
+      color 260ms ease,
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 260ms ease,
+      box-shadow 260ms ease;
+  }
+  .scroll-nav-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(0, 88, 190, 0.22);
+  }
+
+  /* 12. Site CTA + GlassCard */
+  .glass-card {
+    transition:
+      backdrop-filter 320ms ease,
+      box-shadow 320ms ease,
+      border-color 280ms ease;
+  }
+  .glass-card:hover {
+    box-shadow: 0 18px 48px rgba(0, 21, 45, 0.12);
+    border-color: rgba(0, 88, 190, 0.18);
+  }
+
+  /* 13. Navbar dropdown child links — already have bg transition;
+         add a subtle left-slide on the arrow icon */
+  .nav-child-link {
+    transition:
+      background-color 220ms ease,
+      padding-left 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nav-child-link:hover {
+    padding-left: 18px;
+  }
+
+  /* 14. Blog cards (used in Blogs.jsx) */
+  .blog-feature-card,
+  .blog-post-card,
+  .blog-compact-post,
+  .blog-side-card {
+    transition:
+      transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 260ms ease,
+      box-shadow 280ms ease;
+  }
+  .blog-feature-card:hover,
+  .blog-post-card:hover,
+  .blog-compact-post:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 88, 190, 0.3);
+    box-shadow: 0 20px 56px rgba(0, 21, 45, 0.12);
+  }
+  .blog-side-card:hover {
+    transform: translateX(4px);
+    border-color: rgba(0, 88, 190, 0.3);
+    box-shadow: 0 12px 36px rgba(0, 21, 45, 0.09);
+  }
+
+  /* 15. Service tech-tag chips */
+  .tech-tag-chip {
+    transition:
+      background-color 220ms ease,
+      border-color 220ms ease,
+      color 220ms ease,
+      transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .tech-tag-chip:hover {
+    transform: translateY(-2px) scale(1.06);
+  }
+
+  /* 16. Page hero — subtle scale on the image container */
+  .page-hero-image {
+    transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .page-hero-image:hover {
+    transform: scale(1.025);
+  }
+
+  /* 17. Smooth icon button pulse (used in multiple places) */
+  .icon-pill {
+    transition:
+      background-color 260ms ease,
+      color 260ms ease,
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 260ms ease;
+  }
+  .icon-pill:hover {
+    transform: rotate(-6deg) scale(1.12);
+    box-shadow: 0 8px 20px rgba(0, 88, 190, 0.2);
+  }
+
+  /* 18. Products roadmap cards */
+  .roadmap-card {
+    transition:
+      transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 360ms ease,
+      border-color 280ms ease;
+  }
+  .roadmap-card:hover {
+    transform: translateY(-7px) scale(1.015);
+    border-color: rgba(0, 88, 190, 0.22);
+    box-shadow: 0 28px 72px rgba(0, 21, 45, 0.13);
+  }
+  .roadmap-card:hover .roadmap-icon {
+    background: rgba(0, 88, 190, 0.18);
+    transform: rotate(-8deg) scale(1.1);
+  }
+  .roadmap-icon {
+    transition:
+      background-color 280ms ease,
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }
 
 @layer utilities {
@@ -621,6 +972,26 @@
   }
   50% {
     transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes expertise-grid-shift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 38px 38px, 38px 38px;
+  }
+}
+
+@keyframes expertise-card-sheen {
+  0%,
+  42% {
+    transform: translateX(0) skewX(-14deg);
+  }
+  74%,
+  100% {
+    transform: translateX(420%) skewX(-14deg);
   }
 }
 
@@ -746,44 +1117,6 @@
     box-shadow:
       0 22px 54px rgba(0, 21, 45, 0.12),
       0 0 0 18px rgba(0, 88, 190, 0);
-  }
-}
-
-@keyframes tech-comet-one {
-  0% {
-    left: 12%;
-    top: 18%;
-    opacity: 0;
-    transform: rotate(18deg) scale(0.7);
-  }
-  12%,
-  72% {
-    opacity: 1;
-  }
-  100% {
-    left: 86%;
-    top: 74%;
-    opacity: 0;
-    transform: rotate(18deg) scale(1.08);
-  }
-}
-
-@keyframes tech-comet-two {
-  0% {
-    right: 12%;
-    top: 28%;
-    opacity: 0;
-    transform: rotate(154deg) scale(0.7);
-  }
-  18%,
-  70% {
-    opacity: 1;
-  }
-  100% {
-    right: 78%;
-    top: 68%;
-    opacity: 0;
-    transform: rotate(154deg) scale(1);
   }
 }
 
@@ -1004,6 +1337,19 @@
     transform: none;
   }
 
+  .expertise-grid-bg {
+    inset: -36px;
+    background-size: 30px 30px;
+  }
+
+  .expertise-card {
+    min-height: auto;
+  }
+
+  .expertise-card-body {
+    min-height: 188px;
+  }
+
   .client-flow-board {
     min-height: 360px;
   }
@@ -1043,10 +1389,6 @@
   .tech-core {
     height: 5.7rem !important;
     width: 5.7rem !important;
-  }
-
-  .tech-comet {
-    display: none;
   }
 
   .media-reveal:hover img,

@@ -14,6 +14,8 @@ export const siteConfig = {
   social: {
     facebook: 'https://www.facebook.com/profile.php?id=61557679396584&mibextid=ZbWKw',
     instagram: 'https://www.instagram.com/finlec_technologies?igsh=aG1qN2puN3ZubjI0',
+    x: 'https://x.com/finlectech',
+    linkedin: '#',
   },
 };
 
@@ -109,16 +111,17 @@ export const navLinks = [
 
 export const footerColumns = [
   {
-    title: 'Company',
+    title: 'Features',
     links: [
-      { label: 'About', to: '/' },
-      { label: 'Clients', to: '/clients' },
-      { label: 'Blogs', to: '/blogs' },
-      { label: 'Contact', to: '/contact' },
+      { label: 'Study Room Management App', to: '/products#study-room' },
+      { label: 'Business Dashboards', to: '/products#analytics' },
+      { label: 'AI Assistants', to: '/products#chatbots' },
+      { label: 'Privacy Policy', to: '/privacy-policy' },
+      { label: 'Terms of Service', to: '/terms-of-service' },
     ],
   },
   {
-    title: 'Services',
+    title: 'Our Services',
     links: [
       { label: 'Website Development', to: '/services#web' },
       { label: 'App Development', to: '/services#app' },
@@ -135,14 +138,6 @@ export const footerColumns = [
       { label: 'Custom AI Solutions', to: '/ai-solutions#custom' },
       { label: 'AI Integration & API', to: '/ai-solutions#integration' },
       { label: 'Data Analytics & Insights', to: '/ai-solutions#analytics' },
-    ],
-  },
-  {
-    title: 'Products',
-    links: [
-      { label: 'Study Room Management App', to: '/products#study-room' },
-      { label: 'Business Dashboards', to: '/products#analytics' },
-      { label: 'AI Assistants', to: '/products#chatbots' },
     ],
   },
 ];

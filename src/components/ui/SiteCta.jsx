@@ -10,9 +10,9 @@ export default function SiteCta({
   buttonLabel = 'Start a project',
 }) {
   return (
-    <Section className="bg-surface !pt-0">
+    <Section className="bg-surface !pt-0 !pb-lg md:!pb-xl">
       <Reveal>
-        <div className="client-cta relative overflow-hidden border border-outline-variant bg-primary p-xl text-center text-white shadow-high md:p-2xl">
+        <div className="client-cta relative mx-[-0.35rem] overflow-hidden border border-outline-variant bg-primary px-[2.875rem] py-[2.625rem] text-center text-white shadow-high sm:mx-[-0.55rem] md:mx-[-0.85rem] md:px-[4.6rem] md:py-[4.2rem] lg:mx-[-1rem]">
           <div className="client-cta-logos" aria-hidden>
             {clientLogos.slice(0, 7).map((logo, index) => (
               <img

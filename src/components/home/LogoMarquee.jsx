@@ -7,7 +7,7 @@ export default function LogoMarquee() {
       <p className="container-page text-center text-label-sm uppercase tracking-widest text-on-surface-variant mb-md">
         Trusted by teams shipping at every stage
       </p>
-      <Marquee>
+      <Marquee speed={46}>
         {clientLogos.map((c) => (
           <div
             key={c.name}
@@ -17,7 +17,7 @@ export default function LogoMarquee() {
               src={c.logo}
               alt={`${c.name} logo`}
               loading="lazy"
-              className="max-h-12 w-full object-contain grayscale opacity-80 transition-all duration-300 hover:grayscale-0 hover:opacity-100"
+              className="max-h-12 w-full object-contain opacity-90 saturate-[1.06] transition-opacity duration-300 hover:opacity-100"
             />
           </div>
         ))}

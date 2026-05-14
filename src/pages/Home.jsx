@@ -7,7 +7,6 @@ import ProcessTimeline from '@/components/home/ProcessTimeline';
 import PortfolioRail from '@/components/home/PortfolioRail';
 import TestimonialsGrid from '@/components/home/TestimonialsGrid';
 import FAQ from '@/components/home/FAQ';
-import BusinessSnapshot from '@/components/home/BusinessSnapshot';
 import SiteCta from '@/components/ui/SiteCta';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -29,7 +28,6 @@ export default function Home() {
       <PortfolioRail />
       <TestimonialsGrid />
       <FAQ />
-      <BusinessSnapshot />
       <SiteCta />
     </>
   );

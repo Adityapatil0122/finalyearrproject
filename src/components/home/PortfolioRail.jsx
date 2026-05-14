@@ -29,14 +29,14 @@ export default function PortfolioRail() {
           <button
             onClick={() => scroll(-1)}
             aria-label="Previous"
-            className="interactive-surface grid h-12 w-12 place-items-center rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-primary hover:text-white hover:border-primary transition-all"
+            className="scroll-nav-btn interactive-surface grid h-12 w-12 place-items-center rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-primary hover:text-white hover:border-primary transition-all"
           >
             <ChevronLeft size={20} />
           </button>
           <button
             onClick={() => scroll(1)}
             aria-label="Next"
-            className="interactive-surface grid h-12 w-12 place-items-center rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-primary hover:text-white hover:border-primary transition-all"
+            className="scroll-nav-btn interactive-surface grid h-12 w-12 place-items-center rounded-full border border-outline-variant bg-surface-container-lowest hover:bg-primary hover:text-white hover:border-primary transition-all"
           >
             <ChevronRight size={20} />
           </button>
@@ -58,7 +58,7 @@ export default function PortfolioRail() {
                 src={p.image}
                 alt={p.title}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="portfolio-card-img absolute inset-0 h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-on-secondary-fixed/85 via-on-secondary-fixed/10 to-transparent" />
               <div className="absolute inset-0 p-lg flex flex-col justify-end text-white">

@@ -85,7 +85,7 @@ export default function Services() {
                       {s.tech.map((t) => (
                         <span
                           key={t}
-                          className="rounded-full border border-outline-variant bg-surface-container-lowest px-3 py-1 text-label-sm font-medium text-on-surface-variant transition-colors duration-300 hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
+                          className="tech-tag-chip rounded-full border border-outline-variant bg-surface-container-lowest px-3 py-1 text-label-sm font-medium text-on-surface-variant transition-colors duration-300 hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
                         >
                           {t}
                         </span>

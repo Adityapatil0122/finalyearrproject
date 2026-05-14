@@ -14,12 +14,12 @@ This is the site knowledge base. If a question is not covered here, say so and o
 - **Business hours:** Sunday: Closed
 
 ## Public service areas
-- **Product Strategy:** From idea to MVP, we de-risk the next twelve weeks of build.
-- **Design Systems:** Token-driven UI kits that survive a hundred PRs without rotting.
-- **Engineering:** Typed, tested, and shipped on a CI you can trust on a Friday.
-- **AI & Automation:** LLMs, chatbots, analytics, and agents wired into the products you already run.
-- **Growth:** SEO, PPC, social media, and content systems measured against business goals.
-- **Care:** Maintenance, analytics, and a dedicated point of contact after launch.
+- **Website Development:** Custom websites built for performance, responsiveness, user experience, and search visibility.
+- **App Development:** Mobile applications for iOS and Android platforms, from UI/UX to launch support.
+- **Digital Marketing:** Strategic campaigns to boost online presence, qualified traffic, and brand growth.
+- **WhatsApp Business API:** Enterprise-grade WhatsApp solutions for customer communication, automation, and broadcasts.
+- **UI / UX Design:** Creative and intuitive interface design grounded in user research and usability testing.
+- **Graphics Design:** Eye-catching visual designs for brand identity, marketing material, print, and social media.
 
 ## Stats / track record
 - 150+ Projects completed
