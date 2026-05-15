@@ -10,27 +10,43 @@ export default function AnimatedHeading({
   const ref = useRef(null);
 
   useLayoutEffect(() => {
-    if (prefersReducedMotion || !ref.current) return;
+    if (prefersReducedMotion || !ref.current) return undefined;
     const el = ref.current;
+    const originalHTML = el.innerHTML;
     const isPhone =
       typeof window !== 'undefined' &&
       window.matchMedia('(max-width: 767px)').matches;
-    const text = el.textContent;
-    el.innerHTML = '';
-    const words = text.split(/(\s+)/);
-    words.forEach((w) => {
-      if (/^\s+$/.test(w)) {
-        el.appendChild(document.createTextNode(w));
-        return;
-      }
-      const span = document.createElement('span');
-      span.style.display = 'inline-block';
-      span.style.willChange = 'transform, opacity';
-      span.textContent = w;
-      el.appendChild(span);
+
+    const textNodes = [];
+    const walker = document.createTreeWalker(el, window.NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        return node.nodeValue.trim()
+          ? window.NodeFilter.FILTER_ACCEPT
+          : window.NodeFilter.FILTER_REJECT;
+      },
     });
-    const targets = el.querySelectorAll('span');
-    gsap.fromTo(
+
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+    textNodes.forEach((node) => {
+      const fragment = document.createDocumentFragment();
+      node.nodeValue.split(/(\s+)/).forEach((word) => {
+        if (/^\s+$/.test(word)) {
+          fragment.appendChild(document.createTextNode(word));
+          return;
+        }
+        const span = document.createElement('span');
+        span.dataset.headingWord = 'true';
+        span.style.display = 'inline-block';
+        span.style.willChange = 'transform, opacity';
+        span.textContent = word;
+        fragment.appendChild(span);
+      });
+      node.replaceWith(fragment);
+    });
+
+    const targets = el.querySelectorAll('[data-heading-word]');
+    const tween = gsap.fromTo(
       targets,
       { yPercent: 100, autoAlpha: 0 },
       {
@@ -42,6 +58,11 @@ export default function AnimatedHeading({
         delay,
       }
     );
+
+    return () => {
+      tween.kill();
+      el.innerHTML = originalHTML;
+    };
   }, [children, delay]);
 
   return (

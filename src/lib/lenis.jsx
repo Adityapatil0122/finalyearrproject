@@ -12,17 +12,19 @@ export function LenisProvider({ children }) {
 
   useEffect(() => {
     if (prefersReducedMotion) return;
-    const headerOffset = window.matchMedia('(max-width: 767px)').matches ? 70 : 82;
+    const isPhone = window.matchMedia('(max-width: 767px)').matches;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    const headerOffset = isPhone ? 70 : 82;
 
     const lenis = new Lenis({
-      duration: 1.38,
+      duration: isTouch ? 1 : 1.38,
       easing: smoothEase,
-      wheelMultiplier: 0.84,
-      touchMultiplier: 0.92,
-      smoothWheel: true,
-      syncTouch: true,
-      syncTouchLerp: 0.075,
-      touchInertiaExponent: 1.65,
+      wheelMultiplier: isTouch ? 1 : 0.84,
+      touchMultiplier: 1,
+      smoothWheel: !isTouch,
+      syncTouch: false,
+      syncTouchLerp: isTouch ? 0.1 : 0.075,
+      touchInertiaExponent: isTouch ? 1.35 : 1.65,
       gestureOrientation: 'vertical',
       anchors: {
         offset: headerOffset,

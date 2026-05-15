@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar, BookOpen } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import Reveal from '@/components/ui/Reveal';
 import SiteCta from '@/components/ui/SiteCta';
@@ -36,34 +36,33 @@ export default function Blogs() {
   return (
     <>
       <main className="bg-[#f6f6f6]">
-        <section className="relative overflow-hidden bg-primary text-white">
-          <div className="absolute inset-0 signal-grid opacity-20" aria-hidden />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_20%,rgba(255,255,255,0.22),transparent_32%),linear-gradient(135deg,rgba(0,104,122,0.34),transparent_58%)]" aria-hidden />
-          <div className="container-page relative py-xl text-center md:py-[104px]">
+        {/* ── Blog Hero ──────────────────────────────────────────── */}
+        <section className="relative overflow-hidden border-b border-outline-variant bg-surface-container-low">
+          <div className="absolute inset-0 signal-grid opacity-60" aria-hidden />
+          <div className="container-page relative py-lg text-center md:py-xl">
             <Reveal>
-              <p className="text-label-sm font-semibold uppercase tracking-widest text-white/72">
-                Finlec insights
-              </p>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <h1 className="mx-auto mt-3 max-w-3xl text-h1 text-balance text-white">
-                Our Blog
-              </h1>
-            </Reveal>
-            <Reveal delay={0.16}>
-              <p className="mx-auto mt-md max-w-2xl text-body-lg text-white/78">
-                Practical notes on websites, apps, AI workflows, WhatsApp automation,
-                SEO, accessibility, analytics, security, and launch planning.
-              </p>
+              <div className="mx-auto max-w-3xl">
+                <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-surface-container-lowest px-4 py-1.5 text-label-sm font-semibold text-primary shadow-low">
+                  <BookOpen size={15} />
+                  Finlec Insights
+                </span>
+                <h1 className="mt-5 text-h1 text-balance text-on-surface">
+                  Our Blog
+                </h1>
+                <p className="mx-auto mt-sm max-w-2xl text-body-md text-on-surface-variant">
+                  Practical notes on websites, apps, AI workflows, WhatsApp automation,
+                  SEO, accessibility, analytics, security, and launch planning.
+                </p>
+              </div>
             </Reveal>
           </div>
         </section>
 
         <section className="container-page pb-xl pt-xl text-center md:pt-[76px]">
           <Reveal>
-            <h1 className="text-h1 uppercase text-[#080912]">
+            <h2 className="text-h1 uppercase text-[#080912]">
               Latest articles
-            </h1>
+            </h2>
           </Reveal>
         </section>
 
@@ -99,7 +98,7 @@ function ArticleCard({ post, color }) {
       </div>
 
       <div className={['flex flex-1 flex-col p-md text-[#080912] md:p-lg', color].join(' ')}>
-        <div className="flex items-center justify-between gap-md text-label-sm font-bold uppercase text-[#080912]">
+        <div className="flex flex-wrap items-center justify-between gap-sm text-label-sm font-bold uppercase text-[#080912]">
           <span>{post.readTime}</span>
           <span className="inline-flex items-center gap-1">
             <Calendar size={15} />

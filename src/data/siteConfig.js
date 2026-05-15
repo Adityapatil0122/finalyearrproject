@@ -92,16 +92,6 @@ export const navLinks = [
         description: 'For Abhyasika and study halls',
         to: '/products#study-room',
       },
-      {
-        label: 'AI Assistants',
-        description: 'Support, leads, internal operations',
-        to: '/products#chatbots',
-      },
-      {
-        label: 'Business Dashboards',
-        description: 'Reporting and performance views',
-        to: '/products#analytics',
-      },
     ],
   },
   { label: 'Clients', to: '/clients' },
@@ -114,8 +104,6 @@ export const footerColumns = [
     title: 'Features',
     links: [
       { label: 'Study Room Management App', to: '/products#study-room' },
-      { label: 'Business Dashboards', to: '/products#analytics' },
-      { label: 'AI Assistants', to: '/products#chatbots' },
       { label: 'Privacy Policy', to: '/privacy-policy' },
       { label: 'Terms of Service', to: '/terms-of-service' },
     ],

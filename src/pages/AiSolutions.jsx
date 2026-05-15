@@ -7,6 +7,15 @@ import Button from '@/components/ui/Button';
 import SiteCta from '@/components/ui/SiteCta';
 import { aiIndustries, aiSolutions } from '@/data/aiSolutions';
 
+const aiHeroImage =
+  'https://images.pexels.com/photos/12969403/pexels-photo-12969403.jpeg?auto=compress&cs=tinysrgb&w=1200';
+
+const industryToneClasses = {
+  primary: 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white',
+  secondary: 'bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white',
+  tertiary: 'bg-tertiary/10 text-tertiary group-hover:bg-tertiary group-hover:text-white',
+};
+
 export default function AiSolutions() {
   useSEO({
     title: 'AI Solutions - Finlec Technologies',
@@ -20,6 +29,10 @@ export default function AiSolutions() {
         badge={{ icon: 'auto_awesome', label: 'AI that ships' }}
         title="Comprehensive digital and AI solutions to help your business thrive."
         description="AI-powered chatbots, custom AI solutions, integration APIs, and analytics dashboards for real business workflows."
+        media={{
+          src: aiHeroImage,
+          alt: 'Laptop displaying an analytics dashboard for AI business workflows',
+        }}
       >
         <Button to="/contact" size="lg" magnetic iconRight={<ArrowRight size={18} />}>
           Start your AI journey
@@ -66,11 +79,25 @@ export default function AiSolutions() {
             <h2 className="text-h1 text-balance">AI support across practical business contexts.</h2>
           </Reveal>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-sm">
+        <div className="ai-industry-grid grid grid-cols-2 gap-sm md:grid-cols-5">
           {aiIndustries.map((industry, i) => (
-            <Reveal key={industry} delay={i * 0.03}>
-              <div className="interactive-surface rounded-2xl border border-outline-variant bg-surface-container-lowest px-md py-3 text-center text-label-sm font-semibold text-on-surface shadow-low">
-                {industry}
+            <Reveal key={industry.label} delay={i * 0.03}>
+              <div className="group interactive-surface surface-lift relative overflow-hidden rounded-3xl border border-outline-variant bg-surface-container-lowest p-md shadow-low transition-all duration-300 hover:border-primary/35 hover:shadow-high">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="flex min-h-[96px] flex-col items-center justify-center gap-3 text-center">
+                  <span
+                    className={[
+                      'grid h-12 w-12 place-items-center rounded-2xl transition-all duration-300 group-hover:scale-110',
+                      industryToneClasses[industry.tone],
+                    ].join(' ')}
+                    aria-hidden
+                  >
+                    <span className="material-symbols-outlined text-[26px]">{industry.icon}</span>
+                  </span>
+                  <span className="text-label-sm font-semibold text-on-surface">
+                    {industry.label}
+                  </span>
+                </div>
               </div>
             </Reveal>
           ))}

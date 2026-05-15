@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import { navLinks } from '@/data/siteConfig';
@@ -6,6 +6,23 @@ import Logo from './Logo';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [open]);
 
   return (
     <header
@@ -107,12 +124,14 @@ export default function Navbar() {
 
       <div
         className={[
-          'lg:hidden overflow-hidden transition-[max-height,opacity] duration-300',
-          open ? 'max-h-[450px] opacity-100' : 'max-h-0 opacity-0',
+          'lg:hidden overflow-hidden border-t border-outline-variant/70 bg-surface/98 backdrop-blur-md transition-[max-height,opacity,transform] duration-300',
+          open
+            ? 'max-h-[calc(100svh-70px)] translate-y-0 opacity-100'
+            : 'max-h-0 -translate-y-2 opacity-0',
         ].join(' ')}
       >
         <ul
-          className="container-page flex max-h-[calc(100vh-70px)] flex-col gap-1 overflow-y-auto pb-6 pt-1"
+          className="container-page flex max-h-[calc(100svh-70px)] flex-col gap-1 overflow-y-auto pb-[calc(1.5rem+env(safe-area-inset-bottom))] pt-2"
           data-lenis-prevent
         >
           {navLinks.map((l) => (

@@ -34,14 +34,14 @@ export const aiSolutions = [
 ];
 
 export const aiIndustries = [
-  'Enterprise',
-  'E-commerce',
-  'Healthcare',
-  'Financial Services',
-  'Education',
-  'Travel & Hospitality',
-  'Real Estate',
-  'Logistics',
-  'Insurance',
-  'Government',
+  { label: 'Enterprise', icon: 'domain', tone: 'primary' },
+  { label: 'E-commerce', icon: 'shopping_bag', tone: 'secondary' },
+  { label: 'Healthcare', icon: 'local_hospital', tone: 'tertiary' },
+  { label: 'Financial Services', icon: 'account_balance', tone: 'primary' },
+  { label: 'Education', icon: 'school', tone: 'secondary' },
+  { label: 'Travel & Hospitality', icon: 'travel_explore', tone: 'tertiary' },
+  { label: 'Real Estate', icon: 'real_estate_agent', tone: 'primary' },
+  { label: 'Logistics', icon: 'local_shipping', tone: 'secondary' },
+  { label: 'Insurance', icon: 'verified_user', tone: 'tertiary' },
+  { label: 'Government', icon: 'gavel', tone: 'primary' },
 ];

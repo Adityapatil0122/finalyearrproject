@@ -61,7 +61,7 @@ function Item({ q, a, open, onToggle }) {
         ].join(' ')}
       >
         <div className="overflow-hidden">
-          <p className="text-body-lg text-on-surface-variant max-w-3xl pr-12">{a}</p>
+          <p className="text-body-lg text-on-surface-variant max-w-3xl pr-0 sm:pr-12">{a}</p>
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@ export default function FAQ() {
         </div>
 
         <Reveal delay={0.15}>
-          <div className="interactive-surface rounded-3xl bg-surface-container-lowest border border-outline-variant px-xl shadow-low">
+          <div className="interactive-surface rounded-3xl bg-surface-container-lowest border border-outline-variant px-md shadow-low sm:px-xl">
             {faqs.map((f, i) => (
               <Item
                 key={f.q}

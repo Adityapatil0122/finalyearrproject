@@ -209,7 +209,7 @@ export default function Contact() {
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface/90 px-md py-sm text-label-sm font-semibold text-on-surface shadow-low backdrop-blur-sm transition-all hover:border-primary hover:bg-primary hover:text-white"
+            className="absolute bottom-4 left-4 right-4 inline-flex items-center justify-center gap-2 rounded-full border border-outline-variant bg-surface/90 px-md py-sm text-center text-label-sm font-semibold text-on-surface shadow-low backdrop-blur-sm transition-all hover:border-primary hover:bg-primary hover:text-white sm:left-auto sm:justify-start sm:text-left"
           >
             <MapPin size={15} />
             {siteConfig.shortAddress} - Open in Maps

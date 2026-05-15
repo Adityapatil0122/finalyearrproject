@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
-  BadgeCheck,
   Sparkles,
 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';

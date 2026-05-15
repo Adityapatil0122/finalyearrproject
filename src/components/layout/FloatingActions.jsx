@@ -39,7 +39,7 @@ export default function FloatingActions() {
     : '#';
 
   return (
-    <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 print:hidden sm:bottom-6 sm:right-6 sm:gap-3">
+    <div className="floating-actions fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 print:hidden sm:bottom-6 sm:right-6 sm:gap-3">
       <button
         type="button"
         onClick={() => scrollToTop({ smooth: true })}

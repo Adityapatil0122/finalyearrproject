@@ -12,17 +12,64 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   html {
     font-size: 100%;
     scroll-behavior: auto;
     scroll-padding-top: 76px;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-surface text-on-surface font-sans antialiased;
     min-width: 320px;
     overflow-x: hidden;
+    overscroll-behavior-x: none;
     text-rendering: optimizeLegibility;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg,
+  iframe {
+    max-width: 100%;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    height: auto;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  a,
+  button {
+    overflow-wrap: break-word;
   }
 
   ::selection {
@@ -930,26 +977,79 @@
     box-shadow: 0 8px 20px rgba(0, 88, 190, 0.2);
   }
 
-  /* 18. Products roadmap cards */
-  .roadmap-card {
+  .product-dashboard-shell {
+    animation: product-dashboard-float 7.5s ease-in-out infinite;
+  }
+
+  .product-dashboard-shell::after {
+    content: '';
+    position: absolute;
+    inset: -40% -48%;
+    pointer-events: none;
+    background: linear-gradient(
+      112deg,
+      transparent 38%,
+      rgba(0, 88, 190, 0.06) 45%,
+      rgba(0, 104, 122, 0.12) 50%,
+      rgba(0, 88, 190, 0.06) 56%,
+      transparent 64%
+    );
+    animation: product-dashboard-sweep 5.8s ease-in-out infinite;
+  }
+
+  .product-module-card {
     transition:
       transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 360ms ease,
-      border-color 280ms ease;
+      border-color 280ms ease,
+      box-shadow 320ms ease;
   }
-  .roadmap-card:hover {
-    transform: translateY(-7px) scale(1.015);
-    border-color: rgba(0, 88, 190, 0.22);
-    box-shadow: 0 28px 72px rgba(0, 21, 45, 0.13);
+
+  .product-module-card::after {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(0, 88, 190, 0.9), rgba(0, 104, 122, 0.42));
+    opacity: 0;
+    transition: opacity 260ms ease;
   }
-  .roadmap-card:hover .roadmap-icon {
-    background: rgba(0, 88, 190, 0.18);
-    transform: rotate(-8deg) scale(1.1);
+
+  .product-module-card:hover::after {
+    opacity: 1;
   }
-  .roadmap-icon {
-    transition:
-      background-color 280ms ease,
-      transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  .product-seat {
+    animation: product-seat-breathe 4.8s ease-in-out infinite;
+  }
+
+  .product-seat:nth-child(3n) {
+    animation-delay: 360ms;
+  }
+
+  .product-seat:nth-child(4n) {
+    animation-delay: 680ms;
+  }
+
+  .ai-industry-grid .interactive-surface {
+    min-width: 0;
+  }
+
+  .ai-industry-grid .material-symbols-outlined {
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ai-industry-grid .interactive-surface:hover .material-symbols-outlined {
+    transform: rotate(-7deg) scale(1.08);
+  }
+
+  .floating-actions {
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .chat-panel {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
 
@@ -1248,6 +1348,55 @@
   }
 }
 
+@keyframes product-dashboard-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes product-dashboard-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-28%);
+  }
+  18%,
+  76% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(28%);
+  }
+}
+
+@keyframes product-seat-breathe {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .page-hero .container-page {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .page-hero-image {
+    max-width: min(520px, 100%);
+  }
+
+  .tech-orbit-stage {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 767px) {
   html {
     scroll-padding-top: 70px;
@@ -1259,12 +1408,12 @@
   }
 
   .text-display {
-    font-size: clamp(2.35rem, 11vw, 3.1rem) !important;
+    font-size: clamp(2.1rem, 10.5vw, 3rem) !important;
     line-height: 1.03 !important;
   }
 
   .text-h1 {
-    font-size: clamp(2rem, 8.6vw, 2.42rem) !important;
+    font-size: clamp(1.86rem, 8.2vw, 2.34rem) !important;
     line-height: 1.08 !important;
   }
 
@@ -1297,6 +1446,20 @@
     margin-right: auto;
   }
 
+  .page-hero .container-page {
+    gap: 1.75rem;
+  }
+
+  .page-hero-image {
+    border-radius: 1rem;
+  }
+
+  .product-dashboard-shell {
+    animation: none;
+    border-radius: 1rem;
+    padding: 0.35rem;
+  }
+
   .home-hero .hero-actions > * {
     min-height: 52px;
     width: 100%;
@@ -1305,6 +1468,10 @@
   .home-hero .hero-metrics {
     gap: 0.5rem;
     padding-top: 1.25rem;
+  }
+
+  .home-hero .hero-metrics > * {
+    border-radius: 0.75rem;
   }
 
   .home-hero .hero-metrics .interactive-surface {
@@ -1380,21 +1547,92 @@
     min-height: 170px;
   }
 
+  .tech-orbit-stage {
+    min-height: clamp(310px, 105vw, 420px) !important;
+    overflow: hidden !important;
+  }
+
   .tech-orbit-card {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
+    width: clamp(52px, 16vw, 64px);
+    height: clamp(52px, 16vw, 64px);
+    border-radius: 16px;
   }
 
   .tech-core {
-    height: 5.7rem !important;
-    width: 5.7rem !important;
+    height: clamp(4.75rem, 24vw, 5.7rem) !important;
+    width: clamp(4.75rem, 24vw, 5.7rem) !important;
+  }
+
+  .tech-core-label {
+    font-size: 0.66rem !important;
+    letter-spacing: 0.08em !important;
   }
 
   .media-reveal:hover img,
   .blog-feature-card:hover,
   .blog-compact-post:hover {
     transform: none;
+  }
+
+  .product-module-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .container-page {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+  }
+
+  .text-display {
+    font-size: clamp(1.96rem, 10vw, 2.42rem) !important;
+  }
+
+  .text-h1 {
+    font-size: clamp(1.72rem, 8.5vw, 2.04rem) !important;
+  }
+
+  .ai-industry-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-hero .hero-metrics .text-label-sm {
+    font-size: 0.64rem !important;
+  }
+
+  .portfolio-card-img {
+    max-width: none;
+  }
+
+  .product-dashboard-shell .product-seat {
+    height: 2.15rem;
+    border-radius: 0.65rem;
+    font-size: 0.66rem;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .interactive-surface:hover,
+  .surface-lift:hover,
+  .tilt-surface:hover,
+  .blog-feature-card:hover,
+  .blog-post-card:hover,
+  .blog-compact-post:hover,
+  .expertise-card:hover {
+    transform: none;
+  }
+
+  .media-reveal:hover img,
+  .group:hover .portfolio-card-img,
+  .tech-orbit-card:hover,
+  .tech-core:hover {
+    transform: none !important;
+  }
+
+  .btn-sheen:hover::before,
+  .media-reveal:hover::after {
+    transform: translateX(-130%);
   }
 }
 

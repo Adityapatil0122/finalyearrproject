@@ -22,10 +22,10 @@ const bottomStats = [
 ];
 
 const clientAvatars = [
-  'https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?w=80&h=80&fit=crop&crop=faces&auto=format&q=80',
-  'https://images.unsplash.com/photo-1654436200209-de489ed205df?w=80&h=80&fit=crop&crop=faces&auto=format&q=80',
-  'https://images.unsplash.com/photo-1619890632764-87d5fc97840a?w=80&h=80&fit=crop&crop=faces&auto=format&q=80',
-  'https://images.unsplash.com/photo-1605988941502-372407d1dac5?w=80&h=80&fit=crop&crop=faces&auto=format&q=80',
+  '/avatars/avatar-1.png',
+  '/avatars/cimg.jpg',
+  '/avatars/cimg2.jpg',
+  '/avatars/cimg3.jpg',
 ];
 
 export default function Hero() {
@@ -95,7 +95,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="hero-outer-frame relative overflow-hidden">
+    <section ref={sectionRef} className="home-hero hero-outer-frame relative overflow-hidden">
       {/* ─── DARK OUTER BACKGROUND ─── */}
       <div className="bg-surface px-3 pb-0 pt-3 sm:px-4 sm:pt-4 md:px-6 md:pt-6">
         {/* ─── BLUE HERO CARD ─── */}
@@ -239,7 +239,7 @@ export default function Hero() {
             </AnimatedHeading>
 
             {/* CTA buttons */}
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3 md:gap-4">
+            <div className="hero-actions mt-10 flex flex-wrap items-center justify-center gap-3 md:gap-4">
               <Button
                 size="lg"
                 magnetic
@@ -285,20 +285,10 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Trust badge */}
-              <div className="hidden items-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-5 py-3 backdrop-blur-md lg:flex">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-white/15">
-                  <Sparkles size={16} className="text-white/70" />
-                </span>
-                <p className="max-w-[200px] text-[0.72rem] leading-snug text-white/55">
-                  Trusted digital technology partner powering innovative solutions.
-                </p>
-              </div>
-
               {/* Stats numbers */}
-              <div className="flex items-center gap-8 text-white md:gap-10">
+              <div className="hero-metrics grid w-full max-w-md grid-cols-3 gap-2 text-white md:w-auto md:max-w-none md:flex md:items-center md:gap-10">
                 {bottomStats.map((stat) => (
-                  <div key={stat.label} className="text-center">
+                  <div key={stat.label} className="min-w-0 text-center">
                     <p className="text-2xl font-extrabold leading-none md:text-[1.85rem]">
                       <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                     </p>

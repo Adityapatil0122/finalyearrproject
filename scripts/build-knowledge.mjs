@@ -84,7 +84,7 @@ async function main() {
     for (const f of s.features) out.push(`- ${f}`);
     out.push('');
   }
-  out.push(`Industries served by AI pages: ${aiIndustries.join(', ')}`);
+  out.push(`Industries served by AI pages: ${aiIndustries.map((industry) => industry.label).join(', ')}`);
   out.push('');
 
   out.push('## Tech stack');
