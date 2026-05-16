@@ -32,27 +32,27 @@ export const navLinks = [
       },
       {
         label: 'App Development',
-        description: 'Custom, cross-platform, responsive',
+        description: 'Custom, Cross-platform, Responsive',
         to: '/services#app',
       },
       {
         label: 'Digital Marketing',
-        description: 'SEO, social media, campaigns',
+        description: 'SEO, Social Media, Campaigns',
         to: '/services#marketing',
       },
       {
         label: 'WhatsApp Business API',
-        description: 'API setup, green tick, chatbots',
+        description: 'API Setup, Green Tick, Chatbots',
         to: '/services#whatsapp',
       },
       {
-        label: 'UI / UX Design',
-        description: 'Research, wireframing, visual design',
+        label: 'UI/UX Design',
+        description: 'Research, Wireframing, Visual Design',
         to: '/services#uiux',
       },
       {
         label: 'Graphics Designing',
-        description: 'Logos, social media, print',
+        description: 'Logos, Social Media, Print',
         to: '/services#graphics',
       },
     ],
@@ -89,7 +89,7 @@ export const navLinks = [
     children: [
       {
         label: 'Study Room Management App',
-        description: 'For Abhyasika and study halls',
+        description: 'For Abhyasika and study halls (Coming Soon)',
         to: '/products#study-room',
       },
     ],

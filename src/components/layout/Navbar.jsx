@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { navLinks } from '@/data/siteConfig';
 import Logo from './Logo';
 
@@ -65,35 +65,22 @@ export default function Navbar() {
                 )}
               </NavLink>
               {l.children?.length ? (
-                <div className="pointer-events-none absolute left-1/2 top-[calc(100%+0.7rem)] z-50 w-[330px] -translate-x-1/2 translate-y-2 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                  <div className="absolute -top-3 left-0 right-0 h-3" aria-hidden />
-                  <div className="overflow-hidden rounded-2xl border border-outline-variant bg-white p-2 shadow-[0_22px_70px_rgba(0,21,45,0.18)] ring-1 ring-black/5">
-                    <div className="flex items-center justify-between border-b border-outline-variant bg-surface-container-low px-3 py-2">
-                      <span className="text-label-sm font-semibold uppercase tracking-widest text-primary">
-                        {l.label}
-                      </span>
-                      <span className="grid h-8 w-8 place-items-center rounded-xl bg-primary/10 text-primary">
-                        <ArrowRight size={16} />
-                      </span>
-                    </div>
-                    <div className="grid gap-1 pt-2">
+                <div className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-64 translate-y-1 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div className="overflow-hidden rounded-md border border-outline-variant bg-white p-2 shadow-lg">
+                    <div className="grid grid-cols-1 gap-1">
                       {l.children.map((child) => (
                         <Link
                           key={child.to}
                           to={child.to}
-                          className="group/item rounded-xl bg-white px-3 py-2.5 transition-colors hover:bg-primary/10 focus-visible:bg-primary/10 focus-visible:outline-none"
+                          className="block rounded-md p-3 transition-colors hover:bg-surface-container focus-visible:bg-surface-container focus-visible:outline-none"
                         >
-                          <span className="flex items-center justify-between gap-3 text-body-md font-semibold text-on-surface">
+                          <div className="font-medium text-on-surface">
                             {child.label}
-                            <ArrowRight
-                              size={15}
-                              className="text-primary opacity-0 transition-all group-hover/item:translate-x-1 group-hover/item:opacity-100"
-                            />
-                          </span>
+                          </div>
                           {child.description ? (
-                            <span className="mt-0.5 block text-label-sm text-on-surface-variant">
+                            <div className="mt-0.5 text-xs text-on-surface-variant">
                               {child.description}
-                            </span>
+                            </div>
                           ) : null}
                         </Link>
                       ))}

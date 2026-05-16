@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   CheckCircle2,
   ChevronDown,
@@ -23,6 +23,17 @@ const services = [
   'Graphics Design',
   'Other',
 ];
+
+const serviceIcons = {
+  'Website Development': 'language',
+  'App Development': 'phone_iphone',
+  'AI Solutions': 'auto_awesome',
+  'Digital Marketing': 'campaign',
+  'WhatsApp API': 'chat',
+  'UI / UX Design': 'design_services',
+  'Graphics Design': 'draw',
+  Other: 'more_horiz',
+};
 
 const officeLatitude = 18.4567815;
 const officeLongitude = 73.8496193;
@@ -125,31 +136,10 @@ export default function Contact() {
                   value={form.phone}
                   onChange={handleChange}
                 />
-                <div className="relative">
-                  <label
-                    htmlFor="service"
-                    className="absolute -top-2 left-4 z-10 bg-surface-container-lowest px-1 text-[0.78rem] font-semibold text-primary"
-                  >
-                    Service interested in
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={form.service}
-                    onChange={handleChange}
-                    className="h-[50px] w-full appearance-none rounded-xl border border-outline-variant bg-surface px-md py-sm text-body-md outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
-                  >
-                    {services.map((s) => (
-                      <option key={s} value={s}>
-                        {s}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronDown
-                    size={20}
-                    className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant"
-                  />
-                </div>
+                <ServiceDropdown
+                  value={form.service}
+                  onChange={(service) => setForm((current) => ({ ...current, service }))}
+                />
               </div>
 
               <FloatingField
@@ -246,6 +236,115 @@ function FloatingField({ as = 'input', label, className = '', ...props }) {
       >
         {label}
       </label>
+    </div>
+  );
+}
+
+function ServiceDropdown({ value, onChange }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const closeOnOutside = (event) => {
+      if (!ref.current?.contains(event.target)) setOpen(false);
+    };
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+
+    document.addEventListener('pointerdown', closeOnOutside);
+    window.addEventListener('keydown', closeOnEscape);
+
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutside);
+      window.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [open]);
+
+  return (
+    <div ref={ref} className="relative">
+      <input type="hidden" name="service" value={value} />
+      <label
+        id="service-label"
+        className="absolute -top-2 left-4 z-20 bg-surface-container-lowest px-1 text-[0.78rem] font-semibold text-primary"
+      >
+        Service interested in
+      </label>
+      <button
+        type="button"
+        aria-labelledby="service-label"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((current) => !current)}
+        className={[
+          'flex h-[50px] w-full items-center justify-between gap-sm rounded-xl border bg-surface px-md py-sm text-left text-body-md outline-none transition-all',
+          open
+            ? 'border-primary ring-4 ring-primary/10'
+            : 'border-outline-variant hover:border-primary/30',
+        ].join(' ')}
+      >
+        <span className="flex min-w-0 items-center gap-2">
+          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+            <span className="material-symbols-outlined text-[18px]">{serviceIcons[value]}</span>
+          </span>
+          <span className="truncate text-on-surface">{value}</span>
+        </span>
+        <ChevronDown
+          size={20}
+          className={[
+            'shrink-0 text-on-surface-variant transition-transform duration-300',
+            open ? 'rotate-180 text-primary' : '',
+          ].join(' ')}
+        />
+      </button>
+
+      <div
+        role="listbox"
+        className={[
+          'absolute left-0 right-0 top-[calc(100%+0.45rem)] z-40 overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-lowest p-1.5 shadow-high transition-all duration-200',
+          open
+            ? 'translate-y-0 opacity-100 pointer-events-auto'
+            : '-translate-y-2 opacity-0 pointer-events-none',
+        ].join(' ')}
+      >
+        <div className="max-h-[250px] overflow-y-auto" data-lenis-prevent>
+          {services.map((service) => {
+            const selected = service === value;
+            return (
+              <button
+                key={service}
+                type="button"
+                role="option"
+                aria-selected={selected}
+                onClick={() => {
+                  onChange(service);
+                  setOpen(false);
+                }}
+                className={[
+                  'flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-body-md transition-colors',
+                  selected
+                    ? 'bg-primary text-white'
+                    : 'text-on-surface hover:bg-primary/5 hover:text-primary',
+                ].join(' ')}
+              >
+                <span
+                  className={[
+                    'grid h-8 w-8 shrink-0 place-items-center rounded-xl',
+                    selected ? 'bg-white/15 text-white' : 'bg-primary/10 text-primary',
+                  ].join(' ')}
+                >
+                  <span className="material-symbols-outlined text-[18px]">
+                    {serviceIcons[service]}
+                  </span>
+                </span>
+                <span className="font-medium">{service}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
