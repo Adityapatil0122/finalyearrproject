@@ -28,15 +28,23 @@ function formatDate(d) {
 
 export default function Blogs() {
   useSEO({
-    title: 'Blog - Finlec Technologies',
+    title: 'Blog | Website, AI, SEO and App Guides - Finlec Technologies',
     description:
-      'Research-backed guides on websites, AI, WhatsApp API, UI/UX, SEO, and digital growth from Finlec Technologies.',
+      'Read simple guides from Finlec Technologies on websites, apps, AI, WhatsApp API, UI/UX, SEO, security, and digital growth.',
+    path: '/blogs',
+    keywords: [
+      'Finlec blog',
+      'website development guides',
+      'AI guides',
+      'SEO guides',
+      'app development guides',
+    ],
   });
 
   return (
     <>
       <main className="bg-[#f6f6f6]">
-        {/* ── Blog Hero ──────────────────────────────────────────── */}
+        {/* Blog hero */}
         <section className="relative overflow-hidden border-b border-outline-variant bg-surface-container-low">
           <div className="absolute inset-0 signal-grid opacity-60" aria-hidden />
           <div className="container-page relative py-lg text-center md:py-xl">
@@ -47,10 +55,10 @@ export default function Blogs() {
                   Finlec Insights
                 </span>
                 <h1 className="mt-5 text-h1 text-balance text-on-surface">
-                  Our Blog
+                  Helpful guides for better digital work
                 </h1>
                 <p className="mx-auto mt-sm max-w-2xl text-body-md text-on-surface-variant">
-                  Practical notes on websites, apps, AI workflows, WhatsApp automation,
+                  Simple notes on websites, apps, AI workflows, WhatsApp automation,
                   SEO, accessibility, analytics, security, and launch planning.
                 </p>
               </div>
@@ -61,7 +69,7 @@ export default function Blogs() {
         <section className="container-page pb-xl pt-xl text-center md:pt-[76px]">
           <Reveal>
             <h2 className="text-h1 uppercase text-[#080912]">
-              Latest articles
+              Latest guides
             </h2>
           </Reveal>
         </section>
@@ -77,7 +85,7 @@ export default function Blogs() {
         </section>
       </main>
 
-      <SiteCta title="Read enough? Let us turn the idea into a plan." />
+      <SiteCta title="Ready to turn an idea into a plan?" />
     </>
   );
 }
@@ -86,7 +94,7 @@ function ArticleCard({ post, color }) {
   return (
     <Link
       to={`/blogs/${post.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl shadow-low ring-1 ring-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-high hover:ring-primary/40"
+      className="blog-post-card group flex h-full flex-col overflow-hidden rounded-2xl shadow-low ring-1 ring-primary/20 transition-all duration-300 hover:ring-primary/40"
     >
       <div className="media-reveal aspect-[16/10] overflow-hidden bg-surface-container">
         <img

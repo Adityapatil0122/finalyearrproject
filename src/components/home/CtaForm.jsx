@@ -17,7 +17,7 @@ export default function CtaForm() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-h1 text-balance">
-                Got a brief? Let&apos;s map the right digital solution.
+                Have a project idea? Let&apos;s plan the right digital solution.
               </h2>
             </Reveal>
             <Reveal delay={0.2}>

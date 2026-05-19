@@ -18,24 +18,32 @@ const industryToneClasses = {
 
 export default function AiSolutions() {
   useSEO({
-    title: 'AI Solutions - Finlec Technologies',
+    title: 'AI Solutions | Chatbots, AI Tools and Analytics - Finlec Technologies',
     description:
-      'AI-powered chatbots, custom AI solutions, integration APIs, and data analytics from Finlec Technologies.',
+      'Build useful AI chatbots, custom AI tools, API integrations, and analytics dashboards with Finlec Technologies.',
+    path: '/ai-solutions',
+    keywords: [
+      'AI chatbots',
+      'custom AI solutions',
+      'AI integration',
+      'analytics dashboards',
+      'AI solutions Pune',
+    ],
   });
 
   return (
     <>
       <PageHero
         badge={{ icon: 'auto_awesome', label: 'AI that ships' }}
-        title="Comprehensive digital and AI solutions to help your business thrive."
-        description="AI-powered chatbots, custom AI solutions, integration APIs, and analytics dashboards for real business workflows."
+        title="AI tools that solve real business tasks."
+        description="We build chatbots, custom AI tools, API integrations, and dashboards that fit your daily work."
         media={{
           src: aiHeroImage,
           alt: 'Laptop displaying an analytics dashboard for AI business workflows',
         }}
       >
         <Button to="/contact" size="lg" magnetic iconRight={<ArrowRight size={18} />}>
-          Start your AI journey
+          Plan an AI project
         </Button>
       </PageHero>
 
@@ -76,7 +84,7 @@ export default function AiSolutions() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="text-h1 text-balance">AI support across practical business contexts.</h2>
+            <h2 className="text-h1 text-balance">AI support for common business needs.</h2>
           </Reveal>
         </div>
         <div className="ai-industry-grid grid grid-cols-2 gap-sm md:grid-cols-5">
@@ -103,7 +111,7 @@ export default function AiSolutions() {
           ))}
         </div>
       </Section>
-      <SiteCta title="Ready to make AI useful inside your workflow?" />
+      <SiteCta title="Ready to make AI useful for your team?" />
     </>
   );
 }

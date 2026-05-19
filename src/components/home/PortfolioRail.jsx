@@ -22,7 +22,7 @@ export default function PortfolioRail() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="text-h1 text-balance">Recent launches we are quietly proud of.</h2>
+            <h2 className="text-h1 text-balance">Recent work across web, AI, design, apps, and marketing.</h2>
           </Reveal>
         </div>
         <div className="flex gap-2">

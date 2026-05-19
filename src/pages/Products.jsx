@@ -25,8 +25,17 @@ const seatStateClasses = {
 
 export default function Products() {
   useSEO({
-    title: 'Products - Finlec Technologies',
-    description: 'Study Room Management App by Finlec Technologies.',
+    title: 'Products | Study Room Management App - Finlec Technologies',
+    description:
+      'Study Room Management App by Finlec Technologies helps Abhyasika and study halls manage students, seats, fees, renewals, and reminders.',
+    path: '/products',
+    keywords: [
+      'study room management app',
+      'Abhyasika software',
+      'study hall management',
+      'seat management app',
+      'fee management app',
+    ],
   });
 
   return (
@@ -50,7 +59,7 @@ export default function Products() {
 
             <Reveal delay={0.16}>
               <p className="mt-md max-w-xl text-body-lg text-on-surface-variant">
-                A clean admin system for students, seats, fees, renewals, and daily
+                A simple admin system for students, seats, fees, renewals, and daily
                 study hall operations.
               </p>
             </Reveal>
@@ -58,7 +67,7 @@ export default function Products() {
             <Reveal delay={0.24}>
               <div className="mt-xl flex flex-col gap-sm sm:flex-row sm:flex-wrap">
                 <Button to="/contact" size="lg" magnetic iconRight={<ArrowRight size={18} />}>
-                  Scope the app
+                  Plan the app
                 </Button>
                 <Button href="#modules" size="lg" variant="outline">
                   View modules
@@ -82,7 +91,7 @@ export default function Products() {
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="mt-3 text-h1 text-balance">
-              The three things study halls manage every day.
+              Core modules for daily study hall work.
             </h2>
           </Reveal>
         </div>
@@ -104,8 +113,8 @@ export default function Products() {
 
       <SiteCta
         title="Want this for your study hall?"
-        description="Tell us how you run admissions, seats, and fees today. We will map the cleanest app flow."
-        buttonLabel="Plan my product"
+        description="Tell us how you manage admissions, seats, and fees today. We will map a simple app flow."
+        buttonLabel="Plan my app"
       />
     </>
   );

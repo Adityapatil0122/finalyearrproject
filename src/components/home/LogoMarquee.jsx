@@ -5,9 +5,9 @@ export default function LogoMarquee() {
   return (
     <section className="py-xl border-y border-outline-variant bg-surface-container-low">
       <p className="container-page text-center text-label-sm uppercase tracking-widest text-on-surface-variant mb-md">
-        Trusted by teams shipping at every stage
+        Trusted by teams at different stages of growth
       </p>
-      <Marquee speed={46}>
+      <Marquee speed={42}>
         {clientLogos.map((c) => (
           <div
             key={c.name}

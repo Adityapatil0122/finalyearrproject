@@ -96,7 +96,7 @@ export default function Navbar() {
           to="/contact"
           className="btn-sheen hidden lg:inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-3 text-white text-[0.95rem] font-semibold shadow-low hover:shadow-high active:scale-95 transition-all"
         >
-          Let&apos;s Talk
+          Let&apos;s talk
           <span className="material-symbols-outlined text-[22px]">arrow_forward</span>
         </Link>
 
@@ -160,7 +160,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className="mt-2 block text-center rounded-full bg-primary px-5 py-3 text-white font-semibold"
             >
-              Let&apos;s Talk
+              Let&apos;s talk
             </Link>
           </li>
         </ul>

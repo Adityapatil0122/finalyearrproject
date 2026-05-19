@@ -90,7 +90,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
           <p className="text-label-sm text-white/40">
-            Crafted with precision in {siteConfig.shortAddress || siteConfig.address}.
+            Built in {siteConfig.shortAddress || siteConfig.address}.
           </p>
         </div>
       </div>

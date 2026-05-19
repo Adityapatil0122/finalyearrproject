@@ -10,7 +10,7 @@ const whatsappHref = `https://wa.me/${whatsappDigits}`;
 
 const channels = [
   {
-    label: 'Call Us',
+    label: 'Call us',
     value: siteConfig.phone,
     href: phoneHref,
     note: null,
@@ -19,7 +19,7 @@ const channels = [
     iconTint: 'bg-emerald-100 text-emerald-600',
   },
   {
-    label: 'Email Us',
+    label: 'Email us',
     value: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
     note: null,
@@ -37,7 +37,7 @@ const channels = [
     iconTint: 'bg-teal-100 text-teal-600',
   },
   {
-    label: 'Visit Us',
+    label: 'Visit us',
     value: siteConfig.address,
     to: '/contact',
     note: null,
@@ -144,7 +144,7 @@ export default function BusinessSnapshot({ embedded = false, className = '' }) {
                 </span>
                 <div>
                   <p className="text-label-sm font-semibold uppercase tracking-widest text-slate-600">
-                    Business Hours
+                    Business hours
                   </p>
                 </div>
               </div>

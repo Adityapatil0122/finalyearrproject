@@ -42,9 +42,16 @@ const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=73.82%
 
 export default function Contact() {
   useSEO({
-    title: 'Contact - Finlec Technologies',
+    title: 'Contact | Start a Project With Finlec Technologies',
     description:
-      'Contact Finlec Technologies for website, app, AI, marketing, WhatsApp API, UI/UX, and graphics design services.',
+      'Contact Finlec Technologies for website development, app development, AI solutions, digital marketing, WhatsApp API, UI/UX, and graphics design.',
+    path: '/contact',
+    keywords: [
+      'contact Finlec Technologies',
+      'website development Pune contact',
+      'app development Pune contact',
+      'AI solutions Pune contact',
+    ],
   });
 
   const [form, setForm] = useState({
@@ -84,15 +91,14 @@ export default function Contact() {
           <Reveal>
             <div className="mx-auto max-w-3xl">
               <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
-                Let&apos;s Talk
+                Let&apos;s talk
               </p>
               <h1 className="mt-2 text-h1 leading-tight text-balance text-on-surface">
-                Let&apos;s create the{' '}
-                <span className="italic text-primary">next big thing</span> together.
+                Tell us what you want to build.
               </h1>
               <p className="mx-auto mt-sm max-w-2xl text-body-md text-on-surface-variant">
-                Share your project goals, timeline, and the kind of digital system you
-                want to build. We will reply with a clear next step.
+                Share your goals, timing, and the kind of support you need.
+                We will reply with a clear next step.
               </p>
             </div>
           </Reveal>
@@ -110,7 +116,7 @@ export default function Contact() {
               className="flex h-full flex-col rounded-3xl border border-outline-variant bg-surface-container-lowest p-md shadow-high md:p-lg"
             >
               <div className="border-b border-outline-variant pb-md">
-                <h2 className="text-h2 text-on-surface">Send Us a Message</h2>
+                <h2 className="text-h2 text-on-surface">Send us a message</h2>
               </div>
 
               <div className="mt-md grid grid-cols-1 gap-md md:grid-cols-2">
@@ -178,7 +184,7 @@ export default function Contact() {
                   </>
                 ) : (
                   <>
-                    <span>Send Project Inquiry</span>
+                    <span>Send project inquiry</span>
                     <Send size={20} />
                   </>
                 )}

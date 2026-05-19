@@ -19,7 +19,8 @@ export default function Reveal({
       typeof window !== 'undefined' &&
       window.matchMedia('(max-width: 767px)').matches;
     const mobileY = isPhone ? Math.min(y, 18) : y;
-    const blur = isPhone ? 'blur(5px)' : 'blur(10px)';
+    const blur = isPhone ? 'blur(3px)' : 'blur(6px)';
+    ref.current.style.willChange = 'opacity, transform, filter';
     const tween = gsap.fromTo(
       ref.current,
       { autoAlpha: 0, y: mobileY, filter: blur },
@@ -31,6 +32,9 @@ export default function Reveal({
         ease: 'power3.out',
         delay,
         scrollTrigger: { trigger: ref.current, start, once: true },
+        onComplete: () => {
+          if (ref.current) ref.current.style.willChange = 'auto';
+        },
       }
     );
     return () => {

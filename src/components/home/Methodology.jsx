@@ -40,7 +40,7 @@ export default function Methodology() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="text-h1 text-balance">A method that respects your time and your runway.</h2>
+            <h2 className="text-h1 text-balance">A simple method with clear steps.</h2>
           </Reveal>
 
           <div className="mt-xl space-y-md">

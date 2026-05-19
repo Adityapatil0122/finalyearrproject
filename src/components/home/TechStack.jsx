@@ -28,9 +28,9 @@ const techLogos = {
 };
 
 const featured = [
-  { icon: Code2, label: 'Frontend systems' },
-  { icon: Layers3, label: 'Cloud + data' },
-  { icon: Rocket, label: 'Launch pipeline' },
+  { icon: Code2, label: 'Frontend' },
+  { icon: Layers3, label: 'Cloud and data' },
+  { icon: Rocket, label: 'Launch support' },
 ];
 
 const orbitRings = [
@@ -181,12 +181,12 @@ export default function TechStack() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="text-h1 text-balance">A stack that feels alive, not like a checklist.</h2>
+            <h2 className="text-h1 text-balance">Tools we use to build and launch reliable products.</h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-md text-body-lg text-on-surface-variant">
-              The tools we use across product design, engineering, automation, cloud,
-              and launch support.
+              We choose practical tools for design, development, automation, cloud,
+              and long-term support.
             </p>
           </Reveal>
 
@@ -220,7 +220,7 @@ export default function TechStack() {
                 <Rocket size={42} className="text-primary" />
               </div>
               <p className="tech-core-label mx-auto mt-sm w-fit rounded-full border border-outline-variant bg-white/95 px-md py-2 text-label-sm font-semibold uppercase tracking-widest text-on-surface-variant shadow-low backdrop-blur-sm">
-                Build engine
+                Build tools
               </p>
             </div>
 

@@ -5,8 +5,8 @@ import Reveal from './Reveal';
 import Button from './Button';
 
 export default function SiteCta({
-  title = 'Ready to build something worth showing?',
-  description = 'Share your goals and the team will map the right website, app, AI, or growth solution.',
+  title = 'Ready to start your project?',
+  description = 'Share your goals and we will suggest the right website, app, AI, design, or growth plan.',
   buttonLabel = 'Start a project',
 }) {
   return (

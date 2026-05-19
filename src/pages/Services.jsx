@@ -12,9 +12,17 @@ const serviceHeroImage =
 
 export default function Services() {
   useSEO({
-    title: 'Services - Finlec Technologies',
+    title: 'Services | Website, App, AI, Marketing and Design - Finlec Technologies',
     description:
-      'Web, mobile, AI, marketing, design, and conversational commerce - six disciplines, one accountable team.',
+      'Explore website development, app development, AI solutions, WhatsApp API, UI/UX design, graphics, and digital marketing services from Finlec Technologies.',
+    path: '/services',
+    keywords: [
+      'website development services',
+      'mobile app development',
+      'digital marketing services',
+      'WhatsApp Business API',
+      'UI UX design',
+    ],
   });
   const active = useStickyNav(services.map((s) => s.id));
 
@@ -31,13 +39,13 @@ export default function Services() {
             </Reveal>
             <Reveal delay={0.08}>
               <h1 className="mt-4 text-h1 text-balance text-on-surface md:text-[3.35rem] md:leading-[1.04]">
-                Build the digital parts your business depends on.
+                Build the digital work your business needs.
               </h1>
             </Reveal>
             <Reveal delay={0.16}>
               <p className="mt-md text-body-lg text-on-surface-variant">
-                Websites, apps, AI workflows, WhatsApp automation, marketing, and
-                design support arranged around one clear delivery plan.
+                Websites, apps, AI tools, WhatsApp automation, marketing, and
+                design support planned around one clear goal.
               </p>
             </Reveal>
             <Reveal delay={0.24}>
@@ -142,7 +150,7 @@ export default function Services() {
                     </div>
                     <div className="mt-lg">
                       <Button to="/contact" magnetic iconRight={<ArrowRight size={18} />}>
-                        Brief us on {s.title.toLowerCase()}
+                        Talk about {s.title.toLowerCase()}
                       </Button>
                     </div>
                   </div>
@@ -152,7 +160,7 @@ export default function Services() {
           </div>
         </div>
       </Section>
-      <SiteCta title="Ready to turn a service need into a shipped system?" />
+      <SiteCta title="Ready to plan your next digital project?" />
     </>
   );
 }

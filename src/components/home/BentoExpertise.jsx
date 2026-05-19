@@ -52,14 +52,13 @@ export default function BentoExpertise() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="text-h1 text-balance">
-              Website, apps, marketing, WhatsApp, design, and branding from one team.
+              Websites, apps, marketing, WhatsApp, design, branding, and AI in one place.
             </h2>
           </Reveal>
           <Reveal delay={0.18}>
             <p className="mx-auto mt-md max-w-2xl text-body-lg text-on-surface-variant">
-              These are the real service areas Finlec publishes: practical digital
-              builds for businesses that need better reach, clearer interfaces, and
-              systems that can keep improving after launch.
+              We build the digital pieces your business needs: clear pages, useful
+              apps, simple automation, better design, and steady growth support.
             </p>
           </Reveal>
         </div>

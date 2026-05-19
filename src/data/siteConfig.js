@@ -1,8 +1,9 @@
 export const siteConfig = {
   name: 'Finlec Technologies',
-  tagline: 'Transforming ideas into digital success.',
+  siteUrl: 'https://finlectechnologies.com',
+  tagline: 'Digital services for growing businesses.',
   description:
-    'Finlec Technologies provides AI implementations, website and app development, digital marketing, WhatsApp Business API, UI/UX design, and graphics design services.',
+    'Finlec Technologies builds websites, mobile apps, AI tools, WhatsApp API systems, digital marketing plans, UI/UX designs, and brand graphics for growing businesses.',
   email: 'contact@finlectechnologies.com',
   phone: '+91 9960756292',
   whatsapp: '+91 9423636421',
@@ -27,32 +28,32 @@ export const navLinks = [
     children: [
       {
         label: 'Website Development',
-        description: 'Custom, eCommerce, WordPress',
+        description: 'Custom sites, eCommerce, WordPress',
         to: '/services#web',
       },
       {
         label: 'App Development',
-        description: 'Custom, Cross-platform, Responsive',
+        description: 'Mobile apps for Android and iOS',
         to: '/services#app',
       },
       {
         label: 'Digital Marketing',
-        description: 'SEO, Social Media, Campaigns',
+        description: 'SEO, social media, paid campaigns',
         to: '/services#marketing',
       },
       {
         label: 'WhatsApp Business API',
-        description: 'API Setup, Green Tick, Chatbots',
+        description: 'API setup, chatbots, broadcasts',
         to: '/services#whatsapp',
       },
       {
         label: 'UI/UX Design',
-        description: 'Research, Wireframing, Visual Design',
+        description: 'Research, wireframes, screen design',
         to: '/services#uiux',
       },
       {
         label: 'Graphics Designing',
-        description: 'Logos, Social Media, Print',
+        description: 'Logos, social media, print assets',
         to: '/services#graphics',
       },
     ],
@@ -63,22 +64,22 @@ export const navLinks = [
     children: [
       {
         label: 'AI-Powered Chatbots',
-        description: 'Intelligent conversational agents',
+        description: 'Support and lead chatbots',
         to: '/ai-solutions#chatbots',
       },
       {
         label: 'Custom AI Solutions',
-        description: 'Tailored AI development',
+        description: 'AI tools for your workflow',
         to: '/ai-solutions#custom',
       },
       {
         label: 'AI Integration & API',
-        description: 'Seamless platform integration',
+        description: 'Connect AI with your systems',
         to: '/ai-solutions#integration',
       },
       {
         label: 'Data Analytics & Insights',
-        description: 'AI-driven analysis',
+        description: 'Dashboards and clear reports',
         to: '/ai-solutions#analytics',
       },
     ],

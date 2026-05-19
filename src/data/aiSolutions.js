@@ -4,32 +4,32 @@ export const aiSolutions = [
     icon: 'smart_toy',
     title: 'AI-Powered Chatbots',
     summary:
-      'Intelligent conversational agents for enhanced customer engagement and always-on support.',
-    features: ['Virtual support 24/7', 'Multi-language support', 'Custom training', 'Analytics dashboard'],
+      'Chatbots that answer questions, collect leads, and hand off to your team when needed.',
+    features: ['24/7 support', 'Multi-language replies', 'Training on your content', 'Chat reports'],
   },
   {
     id: 'custom',
     icon: 'auto_awesome',
     title: 'Custom AI Solutions',
     summary:
-      'Tailored AI development for specific business needs, automation, and decision support.',
-    features: ['Process automation', 'ML model development', 'Solution architecture', 'Integration services'],
+      'AI tools built around your daily work, data, and business goals.',
+    features: ['Task automation', 'ML model development', 'Solution planning', 'System integration'],
   },
   {
     id: 'integration',
     icon: 'integration_instructions',
     title: 'AI Integration & API',
     summary:
-      'Seamless integration of AI technologies into existing systems, products, and data flows.',
-    features: ['Third-party integration', 'Custom API development', 'Seamless connectivity', 'Real-time processing'],
+      'Connect AI with your website, app, CRM, support system, or internal tools.',
+    features: ['Third-party integration', 'Custom API development', 'Clean data flow', 'Real-time processing'],
   },
   {
     id: 'analytics',
     icon: 'monitoring',
     title: 'Data Analytics & Insights',
     summary:
-      'AI-driven analytics, dashboards, and predictive insights for better business decisions.',
-    features: ['Predictive analytics', 'Business intelligence', 'Performance metrics', 'Data visualization'],
+      'Dashboards and reports that make business data easier to understand.',
+    features: ['Predictive analytics', 'Business reports', 'Performance metrics', 'Data visualization'],
   },
 ];
 

@@ -20,13 +20,13 @@ const steps = [
   {
     n: 3,
     title: 'Develop',
-    desc: 'Robust, scalable engineering with modern stacks.',
+    desc: 'Clean development with modern tools.',
     Icon: Code2,
   },
   {
     n: 4,
     title: 'Launch',
-    desc: 'Ship, measure, iterate — built to keep growing.',
+    desc: 'Launch, measure, and improve after release.',
     Icon: Rocket,
   },
 ];
@@ -73,11 +73,11 @@ export default function ProcessTimeline() {
           </p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="text-h1 font-bold">How we work</h2>
+          <h2 className="text-h1 font-bold">A clear four-step process</h2>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mt-2 text-body-lg text-on-surface-variant">
-            A simple, transparent four-step engagement.
+            Simple steps, regular updates, and no guesswork.
           </p>
         </Reveal>
       </div>

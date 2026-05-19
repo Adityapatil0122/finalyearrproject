@@ -1,5 +1,5 @@
 ---
-title: "Shipping AI products that do not embarrass you"
+title: "Shipping AI products that work in real life"
 slug: "shipping-ai-products"
 date: "2026-05-08"
 author: "Finlec Team"
@@ -9,10 +9,10 @@ featuredStat: "McKinsey reports 88% regular AI use, but only about one-third sca
 source: "McKinsey State of AI 2025"
 tags: ["AI", "Engineering", "AI Agents"]
 cover: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&q=80&auto=format&fit=crop"
-excerpt: "A practical playbook for taking AI from demo to dependable product: evals, workflow fit, cost budgets, and guardrails."
+excerpt: "A practical guide for taking AI from demo to dependable product: tests, workflow fit, cost budgets, and safety rules."
 ---
 
-# Shipping AI products that do not embarrass you
+# Shipping AI products that work in real life
 
 AI demos are easy. AI products are harder because real customers bring messy inputs, edge cases, privacy expectations, budget limits, and support questions.
 
@@ -26,7 +26,7 @@ That means you need:
 
 - A narrow job-to-be-done, not a generic chatbot.
 - A human fallback for risky or unclear cases.
-- Evals that catch bad outputs before customers do.
+- Tests that catch bad outputs before customers do.
 - Cost and latency budgets per workflow.
 - Logging that shows what the model saw, decided, and returned.
 
@@ -42,7 +42,7 @@ Good early AI use cases usually share three traits:
 
 If the task is vague and the data is scattered, build the workflow first. The model will not rescue a broken process.
 
-## Evals before launch
+## Tests before launch
 
 Every AI feature should ship with a small test set:
 
@@ -53,9 +53,9 @@ Every AI feature should ship with a small test set:
 
 The eval set does not need to be huge on day one. It needs to exist, grow, and be treated like product code.
 
-## Guardrails that matter
+## Safety rules that matter
 
-Guardrails are not one thing. They are layers:
+Safety rules are not one thing. They are layers:
 
 - Input filters for sensitive or irrelevant requests.
 - Retrieval boundaries so the model answers from approved material.

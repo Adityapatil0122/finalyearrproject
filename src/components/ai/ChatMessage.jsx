@@ -40,7 +40,7 @@ export default function ChatMessage({ role, content, streaming = false }) {
                 },
               }}
             >
-              {content || (streaming ? '…' : '')}
+              {content || (streaming ? '...' : '')}
             </ReactMarkdown>
             {streaming && (
               <span

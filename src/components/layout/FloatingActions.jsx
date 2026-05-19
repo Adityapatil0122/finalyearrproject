@@ -7,7 +7,7 @@ import ChatLauncher from '@/components/ai/ChatLauncher';
 const WHATSAPP_NUMBER = (siteConfig.whatsapp || siteConfig.phone || '')
   .replace(/[^\d]/g, '');
 const WHATSAPP_PREFILL = encodeURIComponent(
-  "Hi Finlec — I'd like to talk about a project."
+  "Hi Finlec, I'd like to talk about a project."
 );
 
 function WhatsAppIcon({ size = 28 }) {

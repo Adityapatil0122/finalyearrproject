@@ -19,9 +19,17 @@ const logoTints = [
 
 export default function Clients() {
   useSEO({
-    title: 'Clients - Finlec Technologies',
+    title: 'Clients | Brands Working With Finlec Technologies',
     description:
-      'See the brands and businesses that trust Finlec Technologies for web, app, AI, and digital marketing solutions.',
+      'See brands and businesses that work with Finlec Technologies for websites, apps, AI tools, design, and digital marketing.',
+    path: '/clients',
+    keywords: [
+      'Finlec clients',
+      'website development clients',
+      'app development clients',
+      'AI solutions clients',
+      'digital marketing clients',
+    ],
   });
 
   const featuredLogos = clientLogos.slice(0, 9);
@@ -42,14 +50,14 @@ export default function Clients() {
 
             <Reveal delay={0.08}>
               <h1 className="mx-auto mt-6 max-w-4xl text-display leading-tight text-balance text-on-surface">
-                Brands that trust us to build, launch, and keep moving.
+                Businesses that trust us with websites, apps, AI, and growth work.
               </h1>
             </Reveal>
 
             <Reveal delay={0.16}>
               <p className="mx-auto mt-md max-w-2xl text-body-lg text-on-surface-variant">
-                A growing mix of local businesses, product teams, service brands, and
-                operators who needed cleaner websites, sharper journeys, better
+                We work with local businesses, product teams, service brands, and
+                operators that need cleaner websites, easier user flows, better
                 automation, and practical digital systems.
               </p>
             </Reveal>
@@ -80,13 +88,13 @@ export default function Clients() {
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mt-3 text-h1 text-balance text-on-surface">
-                A quieter wall for the teams we have worked with.
+                Teams we have worked with.
               </h2>
             </Reveal>
             <Reveal delay={0.14}>
               <p className="mt-md text-body-lg text-on-surface-variant">
-                No vanity counters here. Just the businesses that trusted Finlec
-                with websites, apps, automation, design, and growth work.
+                These businesses trusted Finlec with websites, apps, automation,
+                design, and growth work.
               </p>
             </Reveal>
           </div>
@@ -121,7 +129,7 @@ export default function Clients() {
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mt-3 max-w-3xl text-h1 text-balance text-on-surface">
-                What clients usually ask us to make better.
+                What clients usually ask us to improve.
               </h2>
             </Reveal>
           </div>
@@ -163,7 +171,7 @@ export default function Clients() {
         </div>
       </Section>
 
-      <SiteCta title="Ready to build something your clients remember?" />
+      <SiteCta title="Ready to build something useful for your clients?" />
     </>
   );
 }

@@ -6,12 +6,12 @@ import { siteConfig } from '@/data/siteConfig';
 
 const faqs = [
   {
-    q: 'Which services does Finlec offer?',
-    a: 'Finlec publishes website development, app development, digital marketing, WhatsApp Business API, UI/UX design, graphics design, and AI solution services.',
+    q: 'What services can Finlec help with?',
+    a: 'We help with website development, app development, digital marketing, WhatsApp Business API, UI/UX design, graphics design, and AI solutions.',
   },
   {
     q: 'What AI work can you help with?',
-    a: 'The public service list includes AI-powered chatbots, custom AI solutions, AI integration and API services, and data analytics and insights.',
+    a: 'We build AI chatbots, custom AI tools, AI integrations, API services, and analytics dashboards.',
   },
   {
     q: 'Where is the team located?',
@@ -26,8 +26,8 @@ const faqs = [
     a: `Call ${siteConfig.phone}, email ${siteConfig.email}, or use the contact form to send project details.`,
   },
   {
-    q: 'Which technologies are listed publicly?',
-    a: 'The public tech stack includes React, Angular, Vue.js, Node.js, Python, PHP, Java, MySQL, MongoDB, AWS, Docker, Kubernetes, Git, Jenkins, Azure, Firebase, GraphQL, and TypeScript.',
+    q: 'Which technologies do you use?',
+    a: 'We use tools such as React, Angular, Vue.js, Node.js, Python, PHP, Java, MySQL, MongoDB, AWS, Docker, Kubernetes, Git, Jenkins, Azure, Firebase, GraphQL, and TypeScript.',
   },
 ];
 
@@ -82,12 +82,12 @@ export default function FAQ() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="text-h1 text-balance">
-              Quick answers from the public reference data.
+              Quick answers before you contact us.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-md text-body-lg text-on-surface-variant max-w-md">
-              These answers now match the details published on the reference site.
+              These are the common questions people ask before starting a project.
             </p>
           </Reveal>
         </div>

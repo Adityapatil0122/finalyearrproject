@@ -12,7 +12,7 @@ export default function TestimonialsGrid() {
           </p>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="text-h1 text-balance">What clients rely on us to improve.</h2>
+          <h2 className="text-h1 text-balance">What clients ask us to improve.</h2>
         </Reveal>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-md">

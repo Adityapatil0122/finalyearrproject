@@ -7,7 +7,7 @@ import SuggestedPrompts from './SuggestedPrompts';
 const WELCOME = {
   role: 'assistant',
   content:
-    "Hi — I'm **Finlec AI**. Ask me anything about our services, products, process, or how to start a project. I'll keep it short and direct.",
+    "Hi, I'm **Finlec AI**. Ask me about our services, products, process, or how to start a project. I'll keep it short.",
 };
 
 export default function ChatPanel({ open, onClose }) {
@@ -63,7 +63,7 @@ export default function ChatPanel({ open, onClose }) {
       onDone: () => {
         setMessages((prev) => {
           const copy = [...prev];
-          copy[copy.length - 1] = { role: 'assistant', content: acc || '…', streaming: false };
+          copy[copy.length - 1] = { role: 'assistant', content: acc || '...', streaming: false };
           return copy;
         });
         setBusy(false);
@@ -118,7 +118,7 @@ export default function ChatPanel({ open, onClose }) {
             <div>
               <p className="font-semibold leading-tight">Finlec AI</p>
               <p className="text-label-sm text-on-surface-variant leading-tight">
-                Powered by Claude · usually replies instantly
+                Usually replies fast
               </p>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function ChatPanel({ open, onClose }) {
               }
             }}
             rows={1}
-            placeholder="Ask about services, pricing, process…"
+            placeholder="Ask about services, pricing, or process..."
             disabled={busy}
             className="flex-1 resize-none rounded-2xl border border-outline-variant bg-surface-container-low px-4 py-2.5 text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary max-h-32 disabled:opacity-50"
           />

@@ -3,16 +3,18 @@ import { ArrowLeft } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 const responsibilityItems = [
-  'Provide accurate and complete information',
-  'Maintain the security of their account information',
-  'Use our services in compliance with all applicable laws',
-  'Not engage in any activity that disrupts or interferes with our services',
+  'Share accurate and complete information',
+  'Keep account details safe when accounts are used',
+  'Use our services in line with applicable laws',
+  'Do not disrupt or misuse our services',
 ];
 
 export default function TermsOfService() {
   useSEO({
-    title: 'Terms of Service - Finlec Technologies',
-    description: 'Read the Finlec Technologies terms of service.',
+    title: 'Terms of Service | Finlec Technologies',
+    description: 'Read the basic terms for using Finlec Technologies services and website.',
+    path: '/terms-of-service',
+    robots: 'index, follow',
   });
 
   return (
@@ -35,17 +37,16 @@ export default function TermsOfService() {
           <div className="prose prose-slate mt-xl max-w-none">
             <h2>1. Acceptance of Terms</h2>
             <p>
-              By accessing and using the services offered by Finlec Technologies
-              (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;), you agree to comply with and be
-              bound by these Terms of Service. If you do not agree to these terms, please
-              do not use our services.
+              By using Finlec Technologies services or website, you agree to these
+              Terms of Service. If you do not agree with these terms, please do not use
+              our services.
             </p>
 
             <h2>2. Description of Services</h2>
             <p>
-              Finlec Technologies provides various digital services including but not
-              limited to website development, app development, digital marketing, and AI
-              solutions as described on our website.
+              Finlec Technologies provides digital services such as website
+              development, app development, digital marketing, design, WhatsApp API,
+              and AI solutions as described on our website.
             </p>
 
             <h2>3. User Responsibilities</h2>
@@ -58,8 +59,7 @@ export default function TermsOfService() {
 
             <h2>4. Contact Us</h2>
             <p>
-              If you have questions or concerns about these Terms of Service, please
-              contact us at{' '}
+              If you have questions about these Terms of Service, please contact us at{' '}
               <a href="mailto:legal@finlectechnologies.com">legal@finlectechnologies.com</a>.
             </p>
           </div>

@@ -3,27 +3,29 @@ import { ArrowLeft } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 const collectionItems = [
-  'Fill out forms on our website',
-  'Subscribe to our newsletter',
-  'Request information about our services',
+  'Send a form on our website',
+  'Join our newsletter',
+  'Ask about our services',
   'Contact us directly',
 ];
 
 const usageItems = [
-  'Provide, operate, and maintain our website',
-  'Improve, personalize, and expand our website',
-  'Understand and analyze how you use our website',
-  'Develop new products, services, features, and functionality',
+  'Run and maintain our website',
+  'Improve our website and services',
+  'Understand how visitors use our website',
+  'Plan new services and features',
   'Communicate with you about our services',
-  'Process your transactions',
-  'Send you emails',
-  'Find and prevent fraud',
+  'Process payments when needed',
+  'Send emails you asked for or may need',
+  'Help protect the website from fraud',
 ];
 
 export default function PrivacyPolicy() {
   useSEO({
-    title: 'Privacy Policy - Finlec Technologies',
-    description: 'Read the Finlec Technologies privacy policy.',
+    title: 'Privacy Policy | Finlec Technologies',
+    description: 'Read how Finlec Technologies collects, uses, and protects basic website and contact information.',
+    path: '/privacy-policy',
+    robots: 'index, follow',
   });
 
   return (
@@ -46,14 +48,13 @@ export default function PrivacyPolicy() {
           <div className="prose prose-slate mt-xl max-w-none">
             <h2>1. Introduction</h2>
             <p>
-              Finlec Technologies (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to
-              protecting your privacy. This Privacy Policy explains how we collect, use,
-              disclose, and safeguard your information when you use our website and
-              services.
+              Finlec Technologies (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) respects your
+              privacy. This policy explains what information we collect, how we use it,
+              and how we protect it when you use our website or services.
             </p>
 
             <h2>2. Information We Collect</h2>
-            <p>We may collect personal information that you voluntarily provide to us when you:</p>
+            <p>We may collect information you choose to share when you:</p>
             <ul>
               {collectionItems.map((item) => (
                 <li key={item}>{item}</li>
@@ -61,7 +62,7 @@ export default function PrivacyPolicy() {
             </ul>
 
             <h2>3. How We Use Your Information</h2>
-            <p>We may use the information we collect for various purposes, including to:</p>
+            <p>We may use this information to:</p>
             <ul>
               {usageItems.map((item) => (
                 <li key={item}>{item}</li>
@@ -70,8 +71,7 @@ export default function PrivacyPolicy() {
 
             <h2>4. Contact Us</h2>
             <p>
-              If you have questions or concerns about this Privacy Policy, please contact us
-              at{' '}
+              If you have questions about this Privacy Policy, please contact us at{' '}
               <a href="mailto:privacy@finlectechnologies.com">privacy@finlectechnologies.com</a>.
             </p>
           </div>

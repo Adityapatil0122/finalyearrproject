@@ -12,9 +12,17 @@ import { useSEO } from '@/hooks/useSEO';
 
 export default function Home() {
   useSEO({
-    title: 'Finlec Technologies - Website & App Development, Digital Marketing',
+    title: 'Finlec Technologies | Website, App, AI and Marketing Services in Pune',
     description:
-      'AI implementations, website and app development, digital marketing, WhatsApp Business API, UI/UX design, and graphics design services.',
+      'Finlec Technologies builds websites, mobile apps, AI tools, WhatsApp API systems, UI/UX designs, graphics, and digital marketing plans in Pune.',
+    path: '/',
+    keywords: [
+      'Finlec Technologies',
+      'website development Pune',
+      'app development Pune',
+      'AI solutions Pune',
+      'digital marketing Pune',
+    ],
   });
 
   return (

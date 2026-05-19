@@ -54,7 +54,7 @@ export default {
         'on-secondary-fixed': '#001f25',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
         symbols: ['Material Symbols Outlined', 'sans-serif'],
       },
       fontSize: {

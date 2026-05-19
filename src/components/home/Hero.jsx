@@ -14,7 +14,6 @@ import Marquee from '@/components/ui/Marquee';
 import { clientLogos } from '@/data/clients';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
 
-/* ─── bottom stats ─── */
 const bottomStats = [
   { value: 150, suffix: '+', label: 'Projects completed' },
   { value: 100, suffix: '+', label: 'Happy clients' },
@@ -35,7 +34,6 @@ export default function Hero() {
     if (prefersReducedMotion || !sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      /* floating cards */
       gsap.to('.hero-float-card-left', {
         y: -16,
         rotation: -8,
@@ -54,7 +52,6 @@ export default function Hero() {
         delay: 0.8,
       });
 
-      /* floating plus icons */
       gsap.utils.toArray('.hero-plus-icon').forEach((el, i) => {
         gsap.to(el, {
           y: -10 - i * 3,
@@ -68,7 +65,6 @@ export default function Hero() {
         });
       });
 
-      /* sparkle icons */
       gsap.utils.toArray('.hero-sparkle-float').forEach((el, i) => {
         gsap.to(el, {
           y: -8,
@@ -81,7 +77,6 @@ export default function Hero() {
         });
       });
 
-      /* avatars subtle bounce */
       gsap.to('.hero-avatar-stack', {
         y: -3,
         duration: 2.8,
@@ -96,11 +91,8 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="home-hero hero-outer-frame relative overflow-hidden">
-      {/* ─── DARK OUTER BACKGROUND ─── */}
       <div className="bg-surface px-3 pb-0 pt-3 sm:px-4 sm:pt-4 md:px-6 md:pt-6">
-        {/* ─── BLUE HERO CARD ─── */}
         <div className="hero-blue-card relative overflow-hidden rounded-t-[1.5rem] rounded-b-none bg-gradient-to-br from-[#0068d6] via-primary to-[#003ea8] sm:rounded-t-[2rem] md:rounded-t-[2.5rem]">
-          {/* Background patterns */}
           <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]" aria-hidden>
             <div
               className="absolute inset-0 opacity-[0.06]"
@@ -119,7 +111,6 @@ export default function Hero() {
             />
           </div>
 
-          {/* ─── Floating "+" decorations ─── */}
           <span className="hero-plus-icon absolute left-[7%] top-[22%] hidden text-white/25 lg:block">
             <Plus size={34} strokeWidth={2.5} />
           </span>
@@ -133,7 +124,6 @@ export default function Hero() {
             <Plus size={28} strokeWidth={2.5} />
           </span>
 
-          {/* ─── Sparkle accent circles ─── */}
           <div className="hero-sparkle-float absolute left-[10%] top-[35%] hidden h-11 w-11 place-items-center rounded-full bg-white/10 backdrop-blur-sm lg:grid">
             <Plus size={20} className="text-white/60" />
           </div>
@@ -141,7 +131,6 @@ export default function Hero() {
             <Sparkles size={20} className="text-white/60" />
           </div>
 
-          {/* ─── Floating card LEFT ─── */}
           <div className="hero-float-card-left absolute left-[3%] top-[28%] z-10 hidden w-[210px] -rotate-[10deg] rounded-2xl border border-white/15 bg-white/[0.08] p-5 shadow-2xl backdrop-blur-xl lg:block xl:left-[5%] xl:top-[24%] xl:w-[230px]">
             <div className="mb-3 flex items-center gap-3">
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/15">
@@ -149,11 +138,11 @@ export default function Hero() {
               </span>
               <div>
                 <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-white/45">
-                  Monthly Sales
+                  Lead growth
                 </p>
                 <p className="text-[0.7rem] text-emerald-300">
                   <TrendingUp size={12} className="mb-0.5 mr-1 inline" />
-                  Increased 40%
+                  Up 40%
                 </p>
               </div>
             </div>
@@ -168,12 +157,11 @@ export default function Hero() {
               ))}
             </div>
             <div className="mt-3 flex items-center justify-between text-[0.7rem]">
-              <span className="text-white/40 line-through">$90000</span>
-              <span className="font-bold text-emerald-300">$20000</span>
+              <span className="text-white/40">Last month</span>
+              <span className="font-bold text-emerald-300">This month</span>
             </div>
           </div>
 
-          {/* ─── Floating card RIGHT ─── */}
           <div className="hero-float-card-right absolute bottom-[30%] right-[3%] z-10 hidden w-[210px] rotate-[10deg] rounded-2xl border border-white/15 bg-white/[0.08] p-5 shadow-2xl backdrop-blur-xl lg:block xl:bottom-[26%] xl:right-[5%] xl:w-[230px]">
             <div className="mb-3 flex items-center gap-3">
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/15">
@@ -181,15 +169,15 @@ export default function Hero() {
               </span>
               <div>
                 <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-white/45">
-                  Monthly Sales
+                  Support chats
                 </p>
                 <p className="text-[0.7rem] text-emerald-300">
                   <TrendingUp size={12} className="mb-0.5 mr-1 inline" />
-                  Increased 40%
+                  Faster replies
                 </p>
               </div>
             </div>
-            <p className="text-[2rem] font-extrabold italic leading-none text-white">192</p>
+            <p className="text-[2rem] font-extrabold italic leading-none text-white">24/7</p>
             <div className="mt-2 flex items-end gap-1.5">
               {[55, 78, 42, 88, 65, 72, 50, 80, 60].map((h, i) => (
                 <span
@@ -200,26 +188,23 @@ export default function Hero() {
               ))}
             </div>
             <div className="mt-3 flex items-center justify-between text-[0.7rem]">
-              <span className="text-white/40 line-through">$90000</span>
-              <span className="font-bold text-emerald-300">$20000</span>
+              <span className="text-white/40">Manual</span>
+              <span className="font-bold text-emerald-300">Assisted</span>
             </div>
           </div>
 
-          {/* ─── CENTER CONTENT ─── */}
           <div className="relative z-20 mx-auto max-w-3xl px-4 pb-12 pt-14 text-center text-white sm:pb-14 sm:pt-16 md:pb-16 md:pt-20 lg:pb-20 lg:pt-24">
-            {/* Badge pill */}
             <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/20 px-5 py-2.5 text-[0.85rem] font-semibold backdrop-blur-md">
-              <span>The Future of Digital is Here</span>
+              <span>Digital services for growing businesses</span>
               <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-white">
                 <Sparkles size={13} />
               </span>
             </div>
 
-            {/* Heading */}
             <AnimatedHeading as="h1" className="text-display text-balance leading-[1.06]">
-              Experience seamless growth with smart tools made for{' '}
+              Build better websites, apps, AI tools, and{' '}
               <span className="hero-highlight-wrap relative inline-block">
-                <span className="relative z-10 italic">modern businesses</span>
+                <span className="relative z-10 italic">growth systems</span>
                 <span
                   className="absolute -inset-x-3 bottom-[2px] top-[52%] -z-0 rounded-md bg-white/25"
                   aria-hidden
@@ -227,18 +212,16 @@ export default function Hero() {
               </span>
             </AnimatedHeading>
 
-            {/* Subtitle */}
             <AnimatedHeading
               as="p"
               delay={0.2}
               className="mx-auto mt-6 max-w-2xl text-body-lg text-white/70"
             >
-              We help businesses grow with website and app development, strategic
-              digital marketing, AI solutions, WhatsApp Business API, and creative
-              design — all from one powerful team.
+              We help businesses grow with website and app development, digital
+              marketing, AI solutions, WhatsApp Business API, UI/UX design, and
+              brand graphics from one team.
             </AnimatedHeading>
 
-            {/* CTA buttons */}
             <div className="hero-actions mt-10 flex flex-wrap items-center justify-center gap-3 md:gap-4">
               <Button
                 size="lg"
@@ -248,7 +231,7 @@ export default function Hero() {
                 iconRight={<ArrowRight size={20} />}
                 className="shadow-xl shadow-black/20"
               >
-                Get Started
+                Start a project
               </Button>
               <Button
                 size="lg"
@@ -256,15 +239,13 @@ export default function Hero() {
                 to="/services"
                 className="border border-white/25 text-white hover:bg-white/10"
               >
-                Learn More
+                View services
               </Button>
             </div>
           </div>
 
-          {/* ─── BOTTOM STATS BAR (inside the blue card) ─── */}
           <div className="relative z-20 border-t border-white/10 px-4 pb-16 pt-6 sm:px-8 md:pb-20 md:pt-8 lg:px-12">
             <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 md:flex-row md:justify-between md:gap-4">
-              {/* Avatar stack + clients */}
               <div className="flex items-center gap-4">
                 <div className="hero-avatar-stack flex -space-x-3">
                   {clientAvatars.map((src, i) => (
@@ -285,7 +266,6 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Stats numbers */}
               <div className="hero-metrics grid w-full max-w-md grid-cols-3 gap-2 text-white md:w-auto md:max-w-none md:flex md:items-center md:gap-10">
                 {bottomStats.map((stat) => (
                   <div key={stat.label} className="min-w-0 text-center">
@@ -301,7 +281,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* ─── BOTTOM NOTCH / ARCH CURVE ─── */}
           <div
             className="absolute bottom-0 left-0 right-0 z-30 h-[50px] bg-surface md:h-[65px]"
             aria-hidden
@@ -309,9 +288,8 @@ export default function Hero() {
           />
         </div>
 
-        {/* ─── CLIENT LOGOS STRIP (in the dark area below the card) ─── */}
         <div className="bg-surface pb-6 pt-4 md:pb-8 md:pt-6">
-          <Marquee speed={46}>
+          <Marquee speed={42}>
             {clientLogos.map((c) => (
               <div
                 key={c.name}

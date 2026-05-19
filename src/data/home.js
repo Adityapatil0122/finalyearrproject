@@ -2,7 +2,7 @@ export const expertise = [
   {
     icon: 'code',
     title: 'Website Development',
-    desc: 'Custom websites built for performance, responsiveness, user experience, and search visibility.',
+    desc: 'Fast, responsive websites that are easy to use and ready for search.',
     accent: 'primary',
     kicker: '01',
     metric: 'Web',
@@ -11,7 +11,7 @@ export const expertise = [
   {
     icon: 'phone_iphone',
     title: 'App Development',
-    desc: 'Mobile applications for iOS and Android platforms, from UI/UX to launch support.',
+    desc: 'Android and iOS apps planned, designed, built, and supported after launch.',
     accent: 'secondary',
     kicker: '02',
     metric: 'Mobile',
@@ -20,7 +20,7 @@ export const expertise = [
   {
     icon: 'campaign',
     title: 'Digital Marketing',
-    desc: 'Strategic campaigns to boost online presence, qualified traffic, and brand growth.',
+    desc: 'SEO, content, social media, and ad campaigns focused on better leads.',
     accent: 'tertiary',
     kicker: '03',
     metric: 'Growth',
@@ -29,7 +29,7 @@ export const expertise = [
   {
     icon: 'chat',
     title: 'WhatsApp Business API',
-    desc: 'Enterprise-grade WhatsApp solutions for customer communication, automation, and broadcasts.',
+    desc: 'WhatsApp API setup, chat flows, broadcasts, and customer support handoff.',
     accent: 'primary',
     kicker: '04',
     metric: 'Messaging',
@@ -38,17 +38,17 @@ export const expertise = [
   {
     icon: 'design_services',
     title: 'UI / UX Design',
-    desc: 'Creative and intuitive interface design grounded in user research and usability testing.',
+    desc: 'Clear screens, simple user journeys, and prototypes your team can review.',
     accent: 'secondary',
     kicker: '05',
     metric: 'Experience',
-    detail: 'Ideal for smoother journeys, wireframes, clickable prototypes, and developer-ready design handoff.',
+    detail: 'Good for wireframes, clickable prototypes, and design handoff for developers.',
     points: ['User research', 'High-fidelity prototypes', 'Design-system handoff'],
   },
   {
     icon: 'palette',
     title: 'Graphics Design',
-    desc: 'Eye-catching visual designs for brand identity, marketing material, print, and social media.',
+    desc: 'Brand graphics for logos, campaigns, social media, print, and ads.',
     accent: 'tertiary',
     kicker: '06',
     metric: 'Brand',
@@ -67,22 +67,22 @@ export const methodology = [
   {
     step: '01',
     title: 'Discover',
-    desc: 'Workshops, audits, and a written hypothesis before a line of code.',
+    desc: 'We understand your goals, users, and current problems before we build.',
   },
   {
     step: '02',
     title: 'Design',
-    desc: 'Wireframes, prototypes, and a design system that scales.',
+    desc: 'We create wireframes, screens, and reusable design rules.',
   },
   {
     step: '03',
     title: 'Build',
-    desc: 'Two-week sprints, demoed live. You see progress, not slide decks.',
+    desc: 'We build in clear steps and show real progress often.',
   },
   {
     step: '04',
     title: 'Iterate',
-    desc: 'Analytics, tests, and roadmap reviews after launch.',
+    desc: 'We use feedback and data to improve the product after launch.',
   },
 ];
 
@@ -144,21 +144,21 @@ export const usefulHighlights = [
   {
     icon: 'public',
     title: 'Web platforms',
-    desc: 'Responsive websites, eCommerce builds, WordPress, and SEO-friendly web applications.',
+    desc: 'Responsive websites, eCommerce stores, WordPress sites, and SEO-ready web apps.',
   },
   {
     icon: 'phone_iphone',
     title: 'Mobile apps',
-    desc: 'Native and cross-platform mobile apps with app UI/UX design and long-term maintenance.',
+    desc: 'Native and cross-platform apps with clear design and long-term support.',
   },
   {
     icon: 'smart_toy',
     title: 'AI enablement',
-    desc: 'Chatbots, model integration, automation, analytics dashboards, and business intelligence.',
+    desc: 'Chatbots, AI integrations, automation, analytics dashboards, and reports.',
   },
   {
     icon: 'campaign',
     title: 'Growth systems',
-    desc: 'SEO, social media marketing, PPC campaigns, content marketing, and WhatsApp Business API.',
+    desc: 'SEO, social media, paid ads, content, and WhatsApp Business API support.',
   },
 ];

@@ -13,8 +13,8 @@ export default function PageTransition({ children }) {
     if (prefersReducedMotion || !ref.current) return;
     gsap.fromTo(
       ref.current,
-      { autoAlpha: 0, y: 10, filter: 'blur(8px)' },
-      { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.55, ease: 'power3.out' }
+      { autoAlpha: 0, y: 8, filter: 'blur(4px)' },
+      { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 0.5, ease: 'power3.out' }
     );
   }, [location.pathname]);
 

@@ -13,12 +13,12 @@ export default function WhyUs() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="text-h1 text-balance">One team for the public service mix.</h2>
+            <h2 className="text-h1 text-balance">One team for the work your business needs.</h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-md text-body-lg text-on-surface-variant max-w-md">
-              The site now reflects Finlec&apos;s published services: websites, apps,
-              digital marketing, WhatsApp Business API, UI/UX, graphics, and AI.
+              Finlec helps with websites, apps, digital marketing, WhatsApp Business API,
+              UI/UX, graphics, and AI.
             </p>
           </Reveal>
         </div>

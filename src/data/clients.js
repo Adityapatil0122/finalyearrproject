@@ -27,17 +27,17 @@ export const clientSignals = [
   {
     icon: 'public',
     title: 'Digital presence',
-    desc: 'Website development, SEO-ready structure, performance optimization, and responsive design.',
+    desc: 'Websites with SEO-ready structure, fast loading, and responsive design.',
   },
   {
     icon: 'smart_toy',
     title: 'AI adoption',
-    desc: 'Chatbots, custom AI workflows, API integrations, and analytics dashboards.',
+    desc: 'Chatbots, custom AI workflows, API integrations, and dashboards.',
   },
   {
     icon: 'campaign',
     title: 'Growth execution',
-    desc: 'Social media marketing, PPC campaigns, content marketing, and WhatsApp customer journeys.',
+    desc: 'Social media, paid ads, content, and WhatsApp customer flows.',
   },
 ];
 
@@ -49,7 +49,7 @@ export const caseStudies = [
     image:
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&auto=format&fit=crop',
     summary:
-      'Custom websites, eCommerce, WordPress, responsive design, SEO-friendly builds, and ongoing maintenance.',
+      'Custom websites, eCommerce stores, WordPress sites, SEO setup, and maintenance.',
   },
   {
     id: 'app',
@@ -58,7 +58,7 @@ export const caseStudies = [
     image:
       'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80&auto=format&fit=crop',
     summary:
-      'Native and cross-platform applications with app UI/UX, launch support, and long-term maintenance.',
+      'Native and cross-platform apps with app design, launch support, and maintenance.',
   },
   {
     id: 'ai',
@@ -67,6 +67,6 @@ export const caseStudies = [
     image:
       'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80&auto=format&fit=crop',
     summary:
-      'AI-powered chatbots, custom AI solutions, integration APIs, predictive analytics, and dashboards.',
+      'AI chatbots, custom AI tools, integration APIs, analytics, and dashboards.',
   },
 ];

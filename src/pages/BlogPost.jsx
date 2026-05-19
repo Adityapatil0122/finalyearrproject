@@ -21,8 +21,15 @@ export default function BlogPost() {
   const progressRef = useRef(null);
 
   useSEO({
-    title: post ? `${post.title} - Finlec Blog` : 'Blog - Finlec',
+    title: post ? `${post.title} | Finlec Blog` : 'Blog | Finlec Technologies',
     description: post?.excerpt,
+    path: post ? `/blogs/${post.slug}` : '/blogs',
+    image: post?.cover,
+    type: post ? 'article' : 'website',
+    publishedTime: post?.date,
+    modifiedTime: post?.date,
+    author: post?.author,
+    keywords: post?.tags,
   });
 
   useEffect(() => {
