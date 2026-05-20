@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from 'react';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
+import Icon from '@/components/ui/Icon';
 import { expertise } from '@/data/home';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
 
@@ -46,7 +47,7 @@ export default function BentoExpertise() {
 
         <div className="relative mx-auto max-w-4xl text-center">
           <Reveal>
-            <p className="mb-2 text-label-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="section-eyebrow mb-2">
               Services
             </p>
           </Reveal>
@@ -76,13 +77,13 @@ export default function BentoExpertise() {
                 <div className="expertise-card-body relative z-10 flex h-full min-h-[210px] flex-col">
                   <div className="flex items-start justify-between gap-md">
                     <div className="expertise-icon">
-                      <span className="material-symbols-outlined">{e.icon}</span>
+                      <Icon name={e.icon} size={26} />
                     </div>
                     <span className="expertise-kicker">{e.kicker}</span>
                   </div>
 
                   <div className="mt-lg">
-                    <p className="mb-2 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-on-surface-variant">
+                    <p className="section-eyebrow-sm mb-2 text-[0.72rem] text-on-surface-variant">
                       {e.metric} layer
                     </p>
                     <h3 className="text-h3 text-on-surface">{e.title}</h3>

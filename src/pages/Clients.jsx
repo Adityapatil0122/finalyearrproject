@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
-  Sparkles,
 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
+import VisualHero from '@/components/ui/VisualHero';
 import SiteCta from '@/components/ui/SiteCta';
 import { caseStudies, clientLogos } from '@/data/clients';
+
+const clientsHeroImage = '/clients-hero-team.jpg';
 
 const logoTints = [
   'bg-primary/8 border-primary/15',
   'bg-secondary/8 border-secondary/15',
-  'bg-emerald-50 border-emerald-100',
-  'bg-amber-50 border-amber-100',
+  'bg-white border-primary/10',
+  'bg-white border-secondary/20',
   'bg-surface-container-lowest border-outline-variant',
 ];
 
@@ -37,52 +39,38 @@ export default function Clients() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-outline-variant bg-surface-container-low">
-        <div className="absolute inset-0 signal-grid opacity-60" aria-hidden />
-        <div className="container-page relative py-xl md:py-[96px]">
-          <div className="mx-auto max-w-4xl text-center">
-            <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-surface-container-lowest px-4 py-1.5 text-label-sm font-semibold text-primary shadow-low">
-                <Sparkles size={15} />
-                Client network
-              </span>
-            </Reveal>
+      <VisualHero
+        eyebrow="Client network"
+        title="Businesses that trust us with digital products."
+        description="We work with local businesses, product teams, service brands, and operators that need cleaner websites, easier user flows, better automation, and practical digital systems."
+        media={{
+          src: clientsHeroImage,
+          alt: 'Business team reviewing a digital project together',
+          eyebrow: 'Client work',
+          title: 'Websites, apps, AI workflows, and growth systems for real teams.',
+          objectPosition: 'center',
+        }}
+      >
+        <Link
+          to="/contact"
+          className="btn-sheen inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-[0.95rem] font-semibold text-primary shadow-high transition-all hover:bg-surface-container-low"
+        >
+          Start a project
+          <ArrowRight size={18} />
+        </Link>
+        <a
+          href="#brand-wall"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-white/24 px-6 py-3 text-[0.95rem] font-semibold text-white transition-all hover:bg-white/10"
+        >
+          View clients
+        </a>
+      </VisualHero>
 
-            <Reveal delay={0.08}>
-              <h1 className="mx-auto mt-6 max-w-4xl text-display leading-tight text-balance text-on-surface">
-                Businesses that trust us with websites, apps, AI, and growth work.
-              </h1>
-            </Reveal>
-
-            <Reveal delay={0.16}>
-              <p className="mx-auto mt-md max-w-2xl text-body-lg text-on-surface-variant">
-                We work with local businesses, product teams, service brands, and
-                operators that need cleaner websites, easier user flows, better
-                automation, and practical digital systems.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.24}>
-              <div className="mt-xl flex flex-wrap justify-center gap-sm">
-                {['Websites', 'Apps', 'AI workflows', 'Growth campaigns'].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-outline-variant bg-surface-container-lowest px-md py-sm text-label-sm font-semibold text-on-surface shadow-low"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <Section className="bg-surface">
+      <Section id="brand-wall" className="bg-surface">
         <div className="grid gap-xl lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
           <div>
             <Reveal>
-              <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
+              <p className="section-eyebrow">
                 Brand wall
               </p>
             </Reveal>
@@ -123,7 +111,7 @@ export default function Clients() {
         <div className="mb-xl flex flex-col justify-between gap-md lg:flex-row lg:items-end">
           <div>
             <Reveal>
-              <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
+              <p className="section-eyebrow">
                 Work patterns
               </p>
             </Reveal>
@@ -157,7 +145,7 @@ export default function Clients() {
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-lg">
-                  <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
+                  <p className="section-eyebrow-sm">
                     {study.tag}
                   </p>
                   <h3 className="mt-sm text-h3 text-on-surface">{study.title}</h3>

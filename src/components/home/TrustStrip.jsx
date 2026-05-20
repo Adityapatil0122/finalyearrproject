@@ -1,4 +1,5 @@
 import Reveal from '@/components/ui/Reveal';
+import Icon from '@/components/ui/Icon';
 
 const items = [
   { label: 'AI Solutions', icon: 'auto_awesome' },
@@ -17,9 +18,7 @@ export default function TrustStrip() {
           <ul className="flex flex-wrap items-center justify-center gap-x-xl gap-y-2 text-on-surface-variant">
             {items.map((it) => (
               <li key={it.label} className="flex items-center gap-2 text-label-sm font-semibold">
-                <span className="material-symbols-outlined text-[18px] text-primary">
-                  {it.icon}
-                </span>
+                <Icon name={it.icon} size={18} className="text-primary" />
                 {it.label}
               </li>
             ))}

@@ -68,7 +68,7 @@ export default function ProcessTimeline() {
     <Section id="process" className="bg-surface-container-low">
       <div className="text-center mb-2xl">
         <Reveal>
-          <p className="text-label-sm uppercase tracking-widest text-primary font-semibold mb-2">
+          <p className="section-eyebrow mb-2">
             Process
           </p>
         </Reveal>

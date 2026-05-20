@@ -104,7 +104,7 @@ export default function BlogPost() {
           </div>
           <aside className="space-y-md lg:sticky lg:top-28 lg:self-start">
             <div className="rounded-2xl border border-outline-variant bg-surface-container-lowest p-lg shadow-low">
-              <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
+              <p className="section-eyebrow-sm">
                 Article brief
               </p>
               <div className="mt-md grid gap-sm text-body-md text-on-surface-variant">
@@ -115,7 +115,7 @@ export default function BlogPost() {
             </div>
             {post.tags?.length ? (
               <div className="rounded-2xl border border-outline-variant bg-surface-container-lowest p-lg shadow-low">
-                <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
+                <p className="section-eyebrow-sm">
                   Tags
                 </p>
                 <div className="mt-md flex flex-wrap gap-2">

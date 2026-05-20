@@ -88,32 +88,42 @@ export const methodology = [
 
 export const portfolio = [
   {
-    title: 'Website development systems',
+    title: 'Business Website + SEO Build',
     tag: 'Web + SEO',
+    desc: 'A fast business website structure with clear service pages, local SEO basics, lead forms, and performance-friendly layouts for better discovery.',
+    details: ['Responsive pages', 'Lead capture', 'Search-ready content'],
     image:
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&auto=format&fit=crop',
   },
   {
-    title: 'AI chatbot workspaces',
+    title: 'AI Support Chatbot Workspace',
     tag: 'AI + Support',
+    desc: 'A customer support assistant trained on business content, built to answer common questions, collect leads, and hand off complex chats.',
+    details: ['FAQ replies', 'Lead routing', 'Human handoff'],
     image:
       'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80&auto=format&fit=crop',
   },
   {
-    title: 'UI/UX design systems',
+    title: 'Product UI/UX Design',
     tag: 'Design + Prototype',
+    desc: 'Screen flows, wireframes, prototypes, and reusable UI rules that help teams understand the product before development starts.',
+    details: ['User flows', 'Prototype screens', 'Design handoff'],
     image:
       'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&q=80&auto=format&fit=crop',
   },
   {
-    title: 'Mobile app builds',
+    title: 'Mobile App Development',
     tag: 'iOS + Android',
+    desc: 'Mobile app planning and development for Android and iOS, covering core user journeys, launch support, updates, and maintenance.',
+    details: ['App screens', 'API integration', 'Launch support'],
     image:
       'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80&auto=format&fit=crop',
   },
   {
-    title: 'Digital marketing funnels',
+    title: 'Digital Growth Funnel',
     tag: 'SEO + PPC',
+    desc: 'Landing pages, campaign tracking, SEO improvements, and paid ad funnels shaped around better leads and clearer reporting.',
+    details: ['Campaign pages', 'Analytics setup', 'Lead tracking'],
     image:
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop',
   },

@@ -76,7 +76,7 @@ export default function FAQ() {
       <div className="grid lg:grid-cols-[1fr_2fr] gap-2xl items-start">
         <div className="lg:sticky lg:top-28">
           <Reveal>
-            <p className="text-label-sm uppercase tracking-widest text-primary font-semibold mb-2">
+            <p className="section-eyebrow mb-2">
               Questions
             </p>
           </Reveal>

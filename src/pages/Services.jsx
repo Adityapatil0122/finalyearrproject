@@ -4,6 +4,7 @@ import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import SiteCta from '@/components/ui/SiteCta';
+import Icon from '@/components/ui/Icon';
 import { ArrowRight } from 'lucide-react';
 import { services } from '@/data/services';
 
@@ -33,7 +34,7 @@ export default function Services() {
         <div className="container-page relative grid items-center gap-xl py-xl md:py-[84px] lg:grid-cols-[1fr_0.78fr]">
           <div className="max-w-2xl">
             <Reveal>
-              <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
+              <p className="section-eyebrow">
                 What we do
               </p>
             </Reveal>
@@ -73,7 +74,7 @@ export default function Services() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/35 via-transparent to-transparent" />
               <div className="absolute bottom-md left-md rounded-2xl border border-white/20 bg-white/90 px-md py-sm shadow-high backdrop-blur-md">
-                <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
+                <p className="section-eyebrow-sm">
                   Strategy to launch
                 </p>
               </div>
@@ -123,17 +124,13 @@ export default function Services() {
                 </Reveal>
                 <Reveal delay={0.1}>
                   <div>
-                    <span className="material-symbols-outlined text-[40px] text-primary">
-                      {s.icon}
-                    </span>
+                    <Icon name={s.icon} size={40} className="text-primary" />
                     <h2 className="mb-md mt-2 text-h1 text-balance">{s.title}</h2>
                     <p className="text-body-lg text-on-surface-variant">{s.summary}</p>
                     <ul className="mt-md space-y-2">
                       {s.features.map((f) => (
                         <li key={f} className="flex items-start gap-2">
-                          <span className="material-symbols-outlined mt-1 text-[20px] text-primary">
-                            check_circle
-                          </span>
+                          <Icon name="check_circle" size={20} className="mt-1 shrink-0 text-primary" />
                           <span>{f}</span>
                         </li>
                       ))}

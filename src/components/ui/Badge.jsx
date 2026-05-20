@@ -1,3 +1,5 @@
+import Icon from './Icon';
+
 export default function Badge({ children, icon, variant = 'primary', className = '' }) {
   const variants = {
     primary: 'bg-primary/10 text-primary',
@@ -13,7 +15,7 @@ export default function Badge({ children, icon, variant = 'primary', className =
         className,
       ].join(' ')}
     >
-      {icon ? <span className="material-symbols-outlined text-[19px]">{icon}</span> : null}
+      {icon ? <Icon name={icon} size={19} /> : null}
       {children}
     </span>
   );

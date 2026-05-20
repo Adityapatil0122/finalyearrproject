@@ -11,7 +11,7 @@ export default function CtaForm() {
         <div className="grid lg:grid-cols-2 gap-2xl p-xl md:p-2xl relative">
           <div className="space-y-md">
             <Reveal>
-              <p className="text-label-sm uppercase tracking-widest text-white/70">
+              <p className="section-eyebrow section-eyebrow-on-dark">
                 Build with us
               </p>
             </Reveal>

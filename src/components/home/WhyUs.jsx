@@ -1,5 +1,6 @@
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
+import Icon from '@/components/ui/Icon';
 import { usefulHighlights } from '@/data/home';
 
 export default function WhyUs() {
@@ -8,7 +9,7 @@ export default function WhyUs() {
       <div className="grid lg:grid-cols-[1fr_2fr] gap-2xl items-start">
         <div className="lg:sticky lg:top-28">
           <Reveal>
-            <p className="text-label-sm uppercase tracking-widest text-primary font-semibold mb-2">
+            <p className="section-eyebrow mb-2">
               Useful coverage
             </p>
           </Reveal>
@@ -28,7 +29,7 @@ export default function WhyUs() {
             <Reveal key={p.title} delay={i * 0.06}>
               <div className="group interactive-surface surface-lift h-full rounded-3xl border border-outline-variant bg-surface-container-lowest p-xl shadow-low">
                 <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary mb-md transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-105">
-                  <span className="material-symbols-outlined">{p.icon}</span>
+                  <Icon name={p.icon} size={24} />
                 </div>
                 <h3 className="text-h3">{p.title}</h3>
                 <p className="mt-2 text-body-md text-on-surface-variant">{p.desc}</p>

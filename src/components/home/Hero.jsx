@@ -109,6 +109,41 @@ export default function Hero() {
                   'radial-gradient(ellipse at 25% 20%, rgba(100,200,255,0.14), transparent 50%), radial-gradient(ellipse at 75% 80%, rgba(0,200,240,0.08), transparent 45%)',
               }}
             />
+            <svg
+              className="hero-blueprint-lines absolute inset-0 h-full w-full opacity-45"
+              viewBox="0 0 1440 760"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path d="M120 180H360L470 250H705" stroke="white" strokeOpacity="0.18" strokeWidth="1" />
+              <path d="M830 145H1090L1215 235H1330" stroke="white" strokeOpacity="0.16" strokeWidth="1" />
+              <path d="M170 565H420L535 490H725" stroke="white" strokeOpacity="0.14" strokeWidth="1" />
+              <path d="M810 600H1020L1160 505H1350" stroke="white" strokeOpacity="0.14" strokeWidth="1" />
+              <path d="M85 420C245 392 356 406 492 450C636 496 760 496 915 448C1072 400 1210 386 1380 430" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+              <rect x="88" y="150" width="112" height="42" rx="8" stroke="white" strokeOpacity="0.14" />
+              <rect x="1172" y="198" width="132" height="48" rx="8" stroke="white" strokeOpacity="0.13" />
+              <rect x="246" y="536" width="150" height="50" rx="8" stroke="white" strokeOpacity="0.12" />
+              <rect x="1064" y="548" width="118" height="42" rx="8" stroke="white" strokeOpacity="0.12" />
+              {[190, 235, 280, 325, 370].map((x) => (
+                <path key={`top-${x}`} d={`M${x} 208V232`} stroke="white" strokeOpacity="0.16" strokeWidth="1" />
+              ))}
+              {[965, 1010, 1055, 1100, 1145].map((x) => (
+                <path key={`bottom-${x}`} d={`M${x} 617V645`} stroke="white" strokeOpacity="0.13" strokeWidth="1" />
+              ))}
+            </svg>
+            <div className="hero-scan-band absolute left-[-10%] top-[18%] h-24 w-[120%] -rotate-6 bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+            <div className="hero-bg-rail hero-bg-rail-one absolute left-[20%] top-[14%] hidden h-px w-44 bg-white/20 lg:block" />
+            <div className="hero-bg-rail hero-bg-rail-two absolute right-[20%] top-[16%] hidden h-px w-52 bg-white/18 lg:block" />
+            <div className="hero-bg-stack absolute left-[23%] bottom-[25%] hidden items-end gap-1.5 lg:flex">
+              {[18, 28, 15, 36, 24, 42, 20, 32].map((height, index) => (
+                <span key={index} className="w-2 rounded-sm bg-white/16" style={{ height }} />
+              ))}
+            </div>
+            <div className="hero-bg-stack absolute right-[24%] bottom-[29%] hidden items-end gap-1.5 lg:flex">
+              {[34, 22, 44, 28, 18, 38, 26, 48].map((height, index) => (
+                <span key={index} className="w-2 rounded-sm bg-white/14" style={{ height }} />
+              ))}
+            </div>
           </div>
 
           <span className="hero-plus-icon absolute left-[7%] top-[22%] hidden text-white/25 lg:block">
@@ -137,10 +172,10 @@ export default function Hero() {
                 <Code2 size={20} className="text-white/80" />
               </span>
               <div>
-                <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-white/45">
+                <p className="section-eyebrow-sm text-[0.65rem] text-white/45">
                   Lead growth
                 </p>
-                <p className="text-[0.7rem] text-emerald-300">
+                <p className="text-[0.7rem] text-white">
                   <TrendingUp size={12} className="mb-0.5 mr-1 inline" />
                   Up 40%
                 </p>
@@ -158,7 +193,7 @@ export default function Hero() {
             </div>
             <div className="mt-3 flex items-center justify-between text-[0.7rem]">
               <span className="text-white/40">Last month</span>
-              <span className="font-bold text-emerald-300">This month</span>
+              <span className="font-bold text-white">This month</span>
             </div>
           </div>
 
@@ -168,10 +203,10 @@ export default function Hero() {
                 <Bot size={20} className="text-white/80" />
               </span>
               <div>
-                <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-white/45">
+                <p className="section-eyebrow-sm text-[0.65rem] text-white/45">
                   Support chats
                 </p>
-                <p className="text-[0.7rem] text-emerald-300">
+                <p className="text-[0.7rem] text-white">
                   <TrendingUp size={12} className="mb-0.5 mr-1 inline" />
                   Faster replies
                 </p>
@@ -189,18 +224,11 @@ export default function Hero() {
             </div>
             <div className="mt-3 flex items-center justify-between text-[0.7rem]">
               <span className="text-white/40">Manual</span>
-              <span className="font-bold text-emerald-300">Assisted</span>
+              <span className="font-bold text-white">Assisted</span>
             </div>
           </div>
 
-          <div className="relative z-20 mx-auto max-w-3xl px-4 pb-12 pt-14 text-center text-white sm:pb-14 sm:pt-16 md:pb-16 md:pt-20 lg:pb-20 lg:pt-24">
-            <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/20 px-5 py-2.5 text-[0.85rem] font-semibold backdrop-blur-md">
-              <span>Digital services for growing businesses</span>
-              <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-white">
-                <Sparkles size={13} />
-              </span>
-            </div>
-
+          <div className="relative z-20 mx-auto max-w-3xl px-4 pb-12 pt-14 text-center text-white sm:pb-14 sm:pt-16 md:pb-16 md:pt-20 lg:pb-20 lg:pt-28">
             <AnimatedHeading as="h1" className="text-display text-balance leading-[1.06]">
               Build better websites, apps, AI tools, and{' '}
               <span className="hero-highlight-wrap relative inline-block">
@@ -259,7 +287,7 @@ export default function Hero() {
                   ))}
                 </div>
                 <div className="text-white">
-                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/50">
+                  <p className="section-eyebrow-sm text-[0.7rem] text-white/50">
                     Clients
                   </p>
                   <p className="text-xl font-extrabold leading-none">100+</p>
@@ -272,7 +300,7 @@ export default function Hero() {
                     <p className="text-2xl font-extrabold leading-none md:text-[1.85rem]">
                       <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                     </p>
-                    <p className="mt-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-white/45">
+                    <p className="section-eyebrow-sm mt-1.5 text-[0.68rem] text-white/45">
                       {stat.label}
                     </p>
                   </div>
@@ -288,18 +316,18 @@ export default function Hero() {
           />
         </div>
 
-        <div className="bg-surface pb-6 pt-4 md:pb-8 md:pt-6">
+        <div className="bg-surface pb-7 pt-5 md:pb-10 md:pt-8">
           <Marquee speed={42}>
             {clientLogos.map((c) => (
               <div
                 key={c.name}
-                className="grid h-16 w-36 place-items-center px-4"
+                className="grid h-[5.4rem] w-[12.6rem] place-items-center px-5 md:h-[6.3rem] md:w-[14.4rem]"
               >
                 <img
                   src={c.logo}
                   alt={`${c.name} logo`}
                   loading="lazy"
-                  className="max-h-10 w-full object-contain opacity-90 saturate-[1.06] transition-opacity duration-300 hover:opacity-100"
+                  className="max-h-[3.6rem] w-full object-contain opacity-95 saturate-[1.06] transition-opacity duration-300 hover:opacity-100 md:max-h-[4.5rem]"
                 />
               </div>
             ))}

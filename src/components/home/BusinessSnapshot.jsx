@@ -15,8 +15,8 @@ const channels = [
     href: phoneHref,
     note: null,
     Icon: PhoneCall,
-    tint: 'bg-emerald-50 border-emerald-100 text-emerald-600',
-    iconTint: 'bg-emerald-100 text-emerald-600',
+    tint: 'bg-white border-primary/15 text-primary',
+    iconTint: 'bg-primary/10 text-primary',
   },
   {
     label: 'Email us',
@@ -24,8 +24,8 @@ const channels = [
     href: `mailto:${siteConfig.email}`,
     note: null,
     Icon: Mail,
-    tint: 'bg-blue-50 border-blue-100 text-blue-600',
-    iconTint: 'bg-blue-100 text-blue-600',
+    tint: 'bg-white border-secondary/20 text-secondary',
+    iconTint: 'bg-secondary/10 text-secondary',
   },
   {
     label: 'WhatsApp',
@@ -33,8 +33,8 @@ const channels = [
     href: whatsappHref,
     note: siteConfig.whatsapp,
     Icon: MessageCircleMore,
-    tint: 'bg-teal-50 border-teal-100 text-teal-600',
-    iconTint: 'bg-teal-100 text-teal-600',
+    tint: 'bg-white border-primary/15 text-primary',
+    iconTint: 'bg-primary/10 text-primary',
   },
   {
     label: 'Visit us',
@@ -42,8 +42,8 @@ const channels = [
     to: '/contact',
     note: null,
     Icon: MapPin,
-    tint: 'bg-amber-50 border-amber-100 text-amber-600',
-    iconTint: 'bg-amber-100 text-amber-600',
+    tint: 'bg-white border-secondary/20 text-secondary',
+    iconTint: 'bg-secondary/10 text-secondary',
   },
 ];
 
@@ -84,7 +84,7 @@ export default function BusinessSnapshot({ embedded = false, className = '' }) {
                       <Icon size={embedded ? 19 : 22} />
                     </span>
                     <div className="min-w-0">
-                      <p className="text-label-sm font-semibold uppercase tracking-widest">{label}</p>
+                      <p className="section-eyebrow-sm">{label}</p>
                       <p className={[
                         'mt-1 font-semibold leading-snug text-on-surface [overflow-wrap:anywhere]',
                         embedded ? 'text-[1.05rem]' : 'text-h3',
@@ -113,7 +113,7 @@ export default function BusinessSnapshot({ embedded = false, className = '' }) {
                       <Icon size={embedded ? 19 : 22} />
                     </span>
                     <div className="min-w-0">
-                      <p className="text-label-sm font-semibold uppercase tracking-widest">{label}</p>
+                      <p className="section-eyebrow-sm">{label}</p>
                       <p className={[
                         'mt-1 font-semibold leading-snug text-on-surface [overflow-wrap:anywhere]',
                         embedded ? 'text-[1.05rem]' : 'text-h3',
@@ -131,25 +131,25 @@ export default function BusinessSnapshot({ embedded = false, className = '' }) {
           <Reveal delay={0.28} className={embedded ? 'sm:col-span-2' : ''}>
             <div
               className={[
-                'border border-slate-200 bg-slate-50',
+                'border border-primary/15 bg-white',
                 embedded ? 'h-full rounded-2xl px-md py-md' : 'rounded-[1.75rem] px-lg py-lg',
               ].join(' ')}
             >
               <div className="flex items-start gap-sm">
                 <span className={[
-                  'grid shrink-0 place-items-center bg-slate-200 text-slate-700 transition-transform duration-300 hover:scale-110',
+                  'grid shrink-0 place-items-center bg-primary/10 text-primary transition-transform duration-300 hover:scale-110',
                   embedded ? 'h-10 w-10 rounded-xl' : 'h-12 w-12 rounded-2xl',
                 ].join(' ')}>
                   <Clock3 size={embedded ? 19 : 22} />
                 </span>
                 <div>
-                  <p className="text-label-sm font-semibold uppercase tracking-widest text-slate-600">
+                  <p className="section-eyebrow-sm">
                     Business hours
                   </p>
                 </div>
               </div>
 
-              <div className={embedded ? 'mt-md grid gap-sm border-t border-slate-200 pt-md sm:grid-cols-2' : 'mt-md space-y-3 border-t border-slate-200 pt-md'}>
+              <div className={embedded ? 'mt-md grid gap-sm border-t border-primary/10 pt-md sm:grid-cols-2' : 'mt-md space-y-3 border-t border-primary/10 pt-md'}>
                 {hours.map((entry) => (
                   <div key={entry.day} className={embedded ? 'flex items-center justify-between gap-sm text-body-md' : 'flex items-center justify-between gap-md text-body-lg'}>
                     <span className="text-on-surface">{entry.day}</span>

@@ -78,32 +78,46 @@ Typical tech/tools: Brand Identity, Social Graphics, Print Design, Campaign Crea
 
 ## AI Solutions
 ### AI-Powered Chatbots
-Chatbots that answer questions, collect leads, and hand off to your team when needed.
-- 24/7 support
-- Multi-language replies
-- Training on your content
-- Chat reports
+Intelligent conversational agents for enhanced customer engagement.
+- Natural Language Understanding
+- Continuous Learning
+- 24/7 Automated Support
+- Advanced Analytics
+- Knowledge Base Integration
+- Easy Integration
+- Instant Deployment
+- Multi-Language Support
+- Enterprise Security
 
 ### Custom AI Solutions
-AI tools built around your daily work, data, and business goals.
-- Task automation
-- ML model development
-- Solution planning
-- System integration
+Tailored AI development for your specific business needs.
+- Custom AI Development
+- Predictive Analytics
+- Process Automation
+- Custom Machine Learning
+- AI Model Integration
+- API Integrations
+- Scalable Infrastructure
+- Security & Compliance
+- Dashboarding & Visualization
 
 ### AI Integration & API
-Connect AI with your website, app, CRM, support system, or internal tools.
-- Third-party integration
-- Custom API development
-- Clean data flow
-- Real-time processing
+Seamless integration of AI technologies into your systems.
+- Seamless API Connectivity
+- Real-time Data Processing
+- Multi-environment Support
+- Enterprise Security
+- AI Model Integration
+- Scalable Infrastructure
 
 ### Data Analytics & Insights
-Dashboards and reports that make business data easier to understand.
-- Predictive analytics
-- Business reports
-- Performance metrics
-- Data visualization
+Advanced AI-driven analytics for better business decisions.
+- Predictive Analytics
+- Business Intelligence
+- Pattern Recognition
+- Custom Reporting
+- Natural Language Processing
+- Real-time Analytics
 
 Industries served by AI pages: Enterprise, E-commerce, Healthcare, Financial Services, Education, Travel & Hospitality, Real Estate, Logistics, Insurance, Government
 
@@ -118,14 +132,24 @@ Highlights:
 - Student profiles, attendance, and performance notes
 - Fee collection, receipts, payment history, and renewals
 - Seat allocation, reminders, notifications, and admin dashboard views
-Headline capabilities:
-- Student Management: Profiles, attendance, notes, and study hall records kept in one place.
-- Fee Management: Fee collection, receipts, due tracking, and renewals with fewer manual steps.
-- Seat Management: Seat allocation, availability, reservations, and capacity planning in one dashboard.
+Product-first startup focus:
+Finlec Technologies is a growing startup with a product-first mindset. Along with client work, we keep building reusable digital products so every new platform benefits from stronger architecture, cleaner UX, and real operational learning.
+Product focus points:
+- Live product portfolio: Study Room Management, ITROOTS LMS, ITROOTS website + CMS, WhatsApp Business Suite, Insurance Majha, and Quick Print Technology are shaped as working products, not just static pages.
+- High-skill technology team: Our developers, designers, AI specialists, and automation builders work together from planning to launch so the product feels connected across frontend, backend, content, and operations.
+- Reusable product systems: We focus on dashboards, APIs, admin panels, CMS flows, campaign tools, learning portals, and e-commerce foundations that can improve with every release.
+- Long-term ownership: Each product is built for future upgrades, performance, analytics, security, and support instead of stopping at a one-time delivery.
 Product tracks:
 - Study Room Management App: A study hall app for students, seats, fees, renewals, reminders, and admin control.
 - AI support products: AI assistants for support, lead capture, and internal work.
 - Analytics platforms: Dashboards, forecasts, and simple business reports.
+Live products:
+- Study Room Management App (Study Hall Software): A study hall management app for Abhyasika and study rooms to manage students, seats, fees, renewals, reminders, and daily admin work. Live URL: /contact
+- ITROOTS LMS System (Learning Management System): A dedicated learning portal for ITROOTS students, faculty, and administrators to access courses, classes, tests, and progress in one place. Live URL: https://lms.itroots.co.in
+- ITROOTS Public Website + CMS (Website and CMS): A public training institute website for ITROOTS, presenting industry-ready programs, counselling, placements, partner signals, and course discovery. Live URL: https://itroots.co.in
+- WhatsApp Business Suite (WhatsApp API Platform): A WhatsApp Business dashboard for real-time chat, contacts, templates, quick replies, campaigns, drip campaigns, automation flows, and analytics. Live URL: https://whatsapp.itroots.co.in
+- Insurance Majha (Insurance Website): A Marathi-first insurance information website covering vehicle insurance topics such as comprehensive cover, third-party insurance, NCB, IDV, add-ons, and roadside assistance. Live URL: https://insurancemajha.com
+- Quick Print Technology (E-commerce Website): A custom printing e-commerce website for visiting cards, brochures, t-shirts, mugs, packaging, design uploads, carts, checkout, and order tracking. Live URL: https://quickprinttechnology.in/
 
 ## How we work
 01. **Discover:** We understand your goals, users, and current problems before we build.
@@ -134,7 +158,7 @@ Product tracks:
 04. **Iterate:** We use feedback and data to improve the product after launch.
 
 ## Trusted clients
-Rightspot, Media, Majha, Alpha Trekkers, IAS, Spyra Exim, Shivraj, Tested OK, Guru Properties, Digital, Quick Print, AM, Launchpadd, Technomania, Gromax
+ITROOTS, Rightspot, Media, Majha, Alpha Trekkers, IAS, Spyra Exim, Tested OK, Guru Properties, Digital, Quick Print, AM, Launchpadd, Technomania, Gromax
 
 ## Client impact
 - 100+ Happy clients

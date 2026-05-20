@@ -17,7 +17,7 @@ export default function PortfolioRail() {
       <div className="flex flex-wrap items-end justify-between gap-md mb-xl">
         <div className="max-w-2xl">
           <Reveal>
-            <p className="text-label-sm uppercase tracking-widest text-primary font-semibold mb-2">
+            <p className="section-eyebrow mb-2">
               Selected work
             </p>
           </Reveal>
@@ -53,21 +53,36 @@ export default function PortfolioRail() {
             key={p.title}
             className="group flex-shrink-0 w-[85vw] sm:w-[378px] snap-center"
           >
-            <div className="interactive-surface media-reveal relative aspect-[4/5] rounded-3xl border border-transparent shadow-low group-hover:shadow-high transition-all duration-500">
+            <div className="portfolio-work-card interactive-surface media-reveal relative aspect-[4/5] rounded-3xl border border-transparent shadow-low group-hover:shadow-high transition-all duration-500">
               <img
                 src={p.image}
                 alt={p.title}
                 loading="lazy"
                 className="portfolio-card-img absolute inset-0 h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-on-secondary-fixed/85 via-on-secondary-fixed/10 to-transparent" />
-              <div className="absolute inset-0 p-lg flex flex-col justify-end text-white">
-                <p className="text-label-sm uppercase tracking-widest opacity-80 mb-1 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  {p.tag}
-                </p>
-                <p className="text-h2 font-semibold leading-tight translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  {p.title}
-                </p>
+              <div className="portfolio-card-overlay absolute inset-0" />
+              <div className="absolute inset-0 flex flex-col justify-end p-md text-white sm:p-lg">
+                <div className="portfolio-card-copy">
+                  <p className="section-eyebrow-sm section-eyebrow-on-dark mb-2">
+                    {p.tag}
+                  </p>
+                  <p className="text-h3 font-semibold leading-tight">
+                    {p.title}
+                  </p>
+                  <p className="portfolio-card-description mt-md text-body-md font-medium leading-relaxed text-white/90">
+                    {p.desc}
+                  </p>
+                  <div className="portfolio-card-details mt-md flex flex-wrap gap-2">
+                    {p.details?.map((detail) => (
+                      <span
+                        key={detail}
+                        className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.72rem] font-semibold text-white/90"
+                      >
+                        {detail}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

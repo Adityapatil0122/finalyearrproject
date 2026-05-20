@@ -1,6 +1,6 @@
 import BlobBackground from './BlobBackground';
-import Badge from './Badge';
 import AnimatedHeading from './AnimatedHeading';
+import Icon from './Icon';
 import Reveal from './Reveal';
 
 export default function PageHero({ eyebrow, title, description, badge, children, media }) {
@@ -8,13 +8,14 @@ export default function PageHero({ eyebrow, title, description, badge, children,
     <>
       {badge ? (
         <Reveal>
-          <Badge icon={badge.icon} variant={badge.variant || 'primary'}>
+          <span className="section-eyebrow inline-flex items-center gap-2">
+            {badge.icon ? <Icon name={badge.icon} size={22} /> : null}
             {badge.label}
-          </Badge>
+          </span>
         </Reveal>
       ) : eyebrow ? (
         <Reveal>
-          <p className="text-label-sm uppercase tracking-widest text-primary font-semibold mb-2">
+          <p className="section-eyebrow mb-2">
             {eyebrow}
           </p>
         </Reveal>

@@ -97,10 +97,22 @@ async function main() {
   out.push(products.featured.description);
   out.push('Highlights:');
   for (const b of products.featured.bullets) out.push(`- ${b}`);
-  out.push('Headline capabilities:');
-  for (const f of products.features) out.push(`- ${f.title}: ${f.desc}`);
+  if (products.focusOverview) {
+    out.push('Product-first startup focus:');
+    out.push(products.focusOverview);
+  }
+  if (products.focusPoints?.length) {
+    out.push('Product focus points:');
+    for (const f of products.focusPoints) out.push(`- ${f.title}: ${f.desc}`);
+  }
   out.push('Product tracks:');
   for (const r of products.roadmap) out.push(`- ${r.title}: ${r.desc}`);
+  if (products.live?.length) {
+    out.push('Live products:');
+    for (const p of products.live) {
+      out.push(`- ${p.title} (${p.category}): ${p.desc} Live URL: ${p.url}`);
+    }
+  }
   out.push('');
 
   out.push('## How we work');

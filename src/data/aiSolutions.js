@@ -4,32 +4,63 @@ export const aiSolutions = [
     icon: 'smart_toy',
     title: 'AI-Powered Chatbots',
     summary:
-      'Chatbots that answer questions, collect leads, and hand off to your team when needed.',
-    features: ['24/7 support', 'Multi-language replies', 'Training on your content', 'Chat reports'],
+      'Intelligent conversational agents for enhanced customer engagement.',
+    features: [
+      '24/7 Automated Support',
+      'Advanced Analytics',
+      'Knowledge Base Integration',
+      'Easy Integration',
+      'Multi-Language Support',
+    ],
+    link: 'https://finlectechnologies.com/ai/chatbots',
   },
   {
     id: 'custom',
     icon: 'auto_awesome',
     title: 'Custom AI Solutions',
     summary:
-      'AI tools built around your daily work, data, and business goals.',
-    features: ['Task automation', 'ML model development', 'Solution planning', 'System integration'],
+      'Tailored AI development for your specific business needs.',
+    features: [
+      'Predictive Analytics',
+      'Process Automation',
+      'Custom Machine Learning',
+      'AI Model Integration',
+      'API Integrations',
+      'Performance Monitoring',
+    ],
+    link: 'https://finlectechnologies.com/ai/custom-solutions',
   },
   {
     id: 'integration',
     icon: 'integration_instructions',
     title: 'AI Integration & API',
     summary:
-      'Connect AI with your website, app, CRM, support system, or internal tools.',
-    features: ['Third-party integration', 'Custom API development', 'Clean data flow', 'Real-time processing'],
+      'Seamless integration of AI technologies into your systems.',
+    features: [
+      'Seamless API Connectivity',
+      'Real-time Data Processing',
+      'Multi-environment Support',
+      'AI Model Integration',
+      'REST API',
+      'Webhooks',
+    ],
+    link: 'https://finlectechnologies.com/ai/integration',
   },
   {
     id: 'analytics',
     icon: 'monitoring',
     title: 'Data Analytics & Insights',
     summary:
-      'Dashboards and reports that make business data easier to understand.',
-    features: ['Predictive analytics', 'Business reports', 'Performance metrics', 'Data visualization'],
+      'Advanced AI-driven analytics for better business decisions.',
+    features: [
+      'Predictive Analytics',
+      'Business Intelligence',
+      'Pattern Recognition',
+      'Custom Reporting',
+      'Text Analytics',
+      'Real-time Analytics',
+    ],
+    link: 'https://finlectechnologies.com/ai/analytics',
   },
 ];
 

@@ -5,6 +5,7 @@ import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import SiteCta from '@/components/ui/SiteCta';
+import Icon from '@/components/ui/Icon';
 import { aiIndustries, aiSolutions } from '@/data/aiSolutions';
 
 const aiHeroImage =
@@ -56,16 +57,14 @@ export default function AiSolutions() {
                 className="group interactive-surface surface-lift h-full scroll-mt-28 rounded-3xl bg-surface-container-lowest border border-outline-variant p-xl shadow-low transition-all duration-300"
               >
                 <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 mb-md group-hover:scale-105">
-                  <span className="material-symbols-outlined text-[28px]">{s.icon}</span>
+                  <Icon name={s.icon} size={28} />
                 </div>
                 <h3 className="text-h2 mb-2">{s.title}</h3>
                 <p className="text-body-lg text-on-surface-variant">{s.summary}</p>
                 <ul className="mt-md space-y-2">
                   {s.features.map((f) => (
                     <li key={f} className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-primary text-[20px] mt-1">
-                        check_circle
-                      </span>
+                      <Icon name="check_circle" size={20} className="mt-1 shrink-0 text-primary" />
                       <span>{f}</span>
                     </li>
                   ))}
@@ -79,7 +78,7 @@ export default function AiSolutions() {
       <Section className="bg-surface-container-low">
         <div className="max-w-2xl mb-xl">
           <Reveal>
-            <p className="text-label-sm uppercase tracking-widest text-primary font-semibold mb-2">
+            <p className="section-eyebrow mb-2">
               Industries
             </p>
           </Reveal>
@@ -95,12 +94,12 @@ export default function AiSolutions() {
                 <div className="flex min-h-[96px] flex-col items-center justify-center gap-3 text-center">
                   <span
                     className={[
-                      'grid h-12 w-12 place-items-center rounded-2xl transition-all duration-300 group-hover:scale-110',
+                      'ai-industry-icon grid h-12 w-12 place-items-center rounded-2xl transition-all duration-300 group-hover:scale-110',
                       industryToneClasses[industry.tone],
                     ].join(' ')}
                     aria-hidden
                   >
-                    <span className="material-symbols-outlined text-[26px]">{industry.icon}</span>
+                    <Icon name={industry.icon} size={26} />
                   </span>
                   <span className="text-label-sm font-semibold text-on-surface">
                     {industry.label}

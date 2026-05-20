@@ -1,15 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import {
+  ArrowRight,
   CheckCircle2,
   ChevronDown,
   ExternalLink,
   Loader2,
   MapPin,
+  MessageCircleMore,
   Send,
 } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import Reveal from '@/components/ui/Reveal';
+import VisualHero from '@/components/ui/VisualHero';
 import BusinessSnapshot from '@/components/home/BusinessSnapshot';
+import Icon from '@/components/ui/Icon';
 import { siteConfig } from '@/data/siteConfig';
 import { sendContactForm } from '@/lib/emailjs';
 
@@ -39,6 +43,8 @@ const officeLatitude = 18.4567815;
 const officeLongitude = 73.8496193;
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${officeLatitude},${officeLongitude}`;
 const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=73.82%2C18.43%2C73.88%2C18.48&layer=mapnik&marker=${officeLatitude}%2C${officeLongitude}`;
+const whatsappHref = `https://wa.me/${siteConfig.whatsapp.replace(/\D/g, '')}`;
+const contactHeroImage = '/contact-hero-team.jpg';
 
 export default function Contact() {
   useSEO({
@@ -85,28 +91,36 @@ export default function Contact() {
 
   return (
     <div className="bg-surface">
-      <section className="relative overflow-hidden border-b border-outline-variant bg-surface-container-low">
-        <div className="absolute inset-0 signal-grid opacity-50" aria-hidden />
-        <div className="container-page relative py-lg text-center md:py-xl">
-          <Reveal>
-            <div className="mx-auto max-w-3xl">
-              <p className="text-label-sm font-semibold uppercase tracking-widest text-primary">
-                Let&apos;s talk
-              </p>
-              <h1 className="mt-2 text-h1 leading-tight text-balance text-on-surface">
-                Tell us what you want to build.
-              </h1>
-              <p className="mx-auto mt-sm max-w-2xl text-body-md text-on-surface-variant">
-                Share your goals, timing, and the kind of support you need.
-                We will reply with a clear next step.
-              </p>
-            </div>
-          </Reveal>
-        </div>
+      <VisualHero
+        eyebrow="Let's talk"
+        title="Tell us what you want to build."
+        description="Share your goals, timing, and the kind of support you need. We will reply with a clear next step for your website, app, AI, WhatsApp, design, or growth project."
+        media={{
+          src: contactHeroImage,
+          alt: 'Team planning a digital project on laptops',
+          eyebrow: 'Project clarity',
+          title: 'Start with a short brief. We will shape the next step.',
+        }}
+      >
+        <a
+          href="#contact-form"
+          className="btn-sheen inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-[0.95rem] font-semibold text-primary shadow-high transition-all hover:bg-surface-container-low"
+        >
+          Send project inquiry
+          <ArrowRight size={18} />
+        </a>
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-white/24 px-6 py-3 text-[0.95rem] font-semibold text-white transition-all hover:bg-white/10"
+        >
+          <MessageCircleMore size={18} />
+          WhatsApp us
+        </a>
+      </VisualHero>
 
-      </section>
-
-      <section className="container-page py-lg md:py-xl">
+      <section id="contact-form" className="container-page py-lg md:py-xl">
         <div className="mx-auto grid max-w-[1440px] gap-lg lg:grid-cols-[1.05fr_1.1fr] lg:items-stretch">
           <BusinessSnapshot embedded />
 
@@ -293,7 +307,7 @@ function ServiceDropdown({ value, onChange }) {
       >
         <span className="flex min-w-0 items-center gap-2">
           <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
-            <span className="material-symbols-outlined text-[18px]">{serviceIcons[value]}</span>
+            <Icon name={serviceIcons[value]} size={18} />
           </span>
           <span className="truncate text-on-surface">{value}</span>
         </span>
@@ -341,9 +355,7 @@ function ServiceDropdown({ value, onChange }) {
                     selected ? 'bg-white/15 text-white' : 'bg-primary/10 text-primary',
                   ].join(' ')}
                 >
-                  <span className="material-symbols-outlined text-[18px]">
-                    {serviceIcons[service]}
-                  </span>
+                  <Icon name={serviceIcons[service]} size={18} />
                 </span>
                 <span className="font-medium">{service}</span>
               </button>

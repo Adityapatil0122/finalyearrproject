@@ -23,7 +23,7 @@ export const siteConfig = {
 export const navLinks = [
   { label: 'Home', to: '/' },
   {
-    label: 'Services',
+    label: 'Web Services',
     to: '/services',
     children: [
       {
@@ -89,6 +89,31 @@ export const navLinks = [
     to: '/products',
     children: [
       {
+        label: 'ITROOTS LMS System',
+        description: 'Courses, classes, tests, progress',
+        to: '/products#itroots-lms',
+      },
+      {
+        label: 'ITROOTS Website + CMS',
+        description: 'Training institute website and CMS',
+        to: '/products#itroots-cms',
+      },
+      {
+        label: 'WhatsApp Business Suite',
+        description: 'Chat, campaigns, templates, flows',
+        to: '/products#whatsapp-business-suite',
+      },
+      {
+        label: 'Insurance Majha',
+        description: 'Marathi insurance information website',
+        to: '/products#insurance-majha',
+      },
+      {
+        label: 'Quick Print Technology',
+        description: 'Custom printing e-commerce website',
+        to: '/products#quick-print',
+      },
+      {
         label: 'Study Room Management App',
         description: 'For Abhyasika and study halls (Coming Soon)',
         to: '/products#study-room',
@@ -104,6 +129,9 @@ export const footerColumns = [
   {
     title: 'Features',
     links: [
+      { label: 'ITROOTS LMS System', to: '/products#itroots-lms' },
+      { label: 'WhatsApp Business Suite', to: '/products#whatsapp-business-suite' },
+      { label: 'Quick Print Technology', to: '/products#quick-print' },
       { label: 'Study Room Management App', to: '/products#study-room' },
       { label: 'Privacy Policy', to: '/privacy-policy' },
       { label: 'Terms of Service', to: '/terms-of-service' },

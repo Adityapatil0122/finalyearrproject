@@ -176,7 +176,7 @@ export default function TechStack() {
       <div className="grid gap-2xl lg:grid-cols-[0.72fr_1.6fr] lg:items-center">
         <div>
           <Reveal>
-            <p className="mb-2 text-label-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="section-eyebrow-sm mb-2">
               Technology
             </p>
           </Reveal>
@@ -219,7 +219,7 @@ export default function TechStack() {
               <div className="tech-core mx-auto grid h-32 w-32 place-items-center rounded-full border border-primary/20 bg-white shadow-high">
                 <Rocket size={42} className="text-primary" />
               </div>
-              <p className="tech-core-label mx-auto mt-sm w-fit rounded-full border border-outline-variant bg-white/95 px-md py-2 text-label-sm font-semibold uppercase tracking-widest text-on-surface-variant shadow-low backdrop-blur-sm">
+              <p className="tech-core-label section-eyebrow-sm mx-auto mt-sm w-fit rounded-full border border-outline-variant bg-white/95 px-md py-2 text-on-surface-variant shadow-low backdrop-blur-sm">
                 Build tools
               </p>
             </div>

@@ -17,7 +17,7 @@ export default function StatsBand() {
                 <p className="text-h1 font-bold text-on-surface">
                   <AnimatedNumber value={s.value} suffix={s.suffix} />
                 </p>
-                <p className="text-label-sm uppercase tracking-widest text-on-surface-variant mt-1">
+                <p className="section-eyebrow-sm mt-1 text-on-surface-variant">
                   {s.label}
                 </p>
               </div>

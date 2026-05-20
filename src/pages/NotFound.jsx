@@ -13,7 +13,7 @@ export default function NotFound() {
     <section className="relative min-h-[80vh] grid place-items-center overflow-hidden">
       <BlobBackground />
       <div className="container-page relative text-center">
-        <p className="text-label-sm uppercase tracking-widest text-primary font-semibold">
+        <p className="section-eyebrow">
           Page not found
         </p>
         <h1 className="mt-2 text-display font-bold">404</h1>

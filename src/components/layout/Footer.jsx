@@ -30,7 +30,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="mt-2xl bg-on-secondary-fixed text-white">
+    <footer className="mt-2xl bg-primary text-white">
       <div className="container-page py-2xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-xl">
           <div>
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {footerColumns.map((col) => (
             <div key={col.title}>
-              <h4 className="text-label-sm uppercase tracking-widest text-white/50 mb-md">
+              <h4 className="section-eyebrow-sm section-eyebrow-on-dark mb-md">
                 {col.title}
               </h4>
               <ul className="space-y-2">

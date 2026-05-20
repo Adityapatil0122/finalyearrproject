@@ -35,7 +35,7 @@ export default function Methodology() {
       <div ref={sectionRef} className="grid lg:grid-cols-2 gap-2xl items-start">
         <div className="space-y-md">
           <Reveal>
-            <p className="text-label-sm uppercase tracking-widest text-primary font-semibold">
+            <p className="section-eyebrow">
               How we work
             </p>
           </Reveal>
@@ -90,7 +90,7 @@ export default function Methodology() {
             />
           ))}
           <div className="absolute -bottom-6 -right-6 bg-primary text-white px-lg py-md rounded-2xl shadow-high z-10">
-            <p className="text-label-sm uppercase tracking-widest opacity-80">Step</p>
+            <p className="section-eyebrow-sm section-eyebrow-on-dark opacity-80">Step</p>
             <p className="text-h1 font-bold leading-none">{methodology[active].step}</p>
           </div>
         </div>
