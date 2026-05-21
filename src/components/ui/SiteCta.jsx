@@ -28,9 +28,9 @@ export default function SiteCta({
   buttonLabel = 'Start a project',
 }) {
   return (
-    <Section className="bg-surface !pt-0 !pb-lg md:!pb-xl">
+    <Section className="bg-surface !py-lg md:!py-xl">
       <Reveal>
-        <div className="client-cta relative mx-[-0.35rem] overflow-hidden border border-outline-variant bg-primary px-[2.875rem] py-[2.625rem] text-center text-white shadow-high sm:mx-[-0.55rem] md:mx-[-0.85rem] md:px-[4.6rem] md:py-[4.2rem] lg:mx-[-1rem]">
+        <div className="client-cta relative overflow-hidden bg-primary px-lg py-xl text-center text-white shadow-high md:px-[4.6rem] md:py-[4.6rem]">
           <div className="client-cta-logos" aria-hidden>
             {clientLogos.map((logo, index) => {
               const placement = ctaLogoPlacements[index % ctaLogoPlacements.length];
@@ -52,17 +52,18 @@ export default function SiteCta({
               );
             })}
           </div>
-          <div className="relative z-10">
+          <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center">
             <h2 className="mx-auto max-w-3xl text-h1 text-balance">{title}</h2>
             <p className="mx-auto mt-md max-w-xl text-body-lg text-white/85">
               {description}
             </p>
-            <div className="mt-lg flex justify-center">
+            <div className="mt-xl flex justify-center">
               <Button
                 to="/contact"
                 variant="white"
                 size="lg"
                 magnetic
+                className="min-w-[220px] px-10"
                 iconRight={<ArrowRight size={18} />}
               >
                 {buttonLabel}

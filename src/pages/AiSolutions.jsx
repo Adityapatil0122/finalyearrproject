@@ -9,7 +9,7 @@ import Icon from '@/components/ui/Icon';
 import { aiIndustries, aiSolutions } from '@/data/aiSolutions';
 
 const aiHeroImage =
-  'https://images.pexels.com/photos/12969403/pexels-photo-12969403.jpeg?auto=compress&cs=tinysrgb&w=1200';
+  '/ai-solutions-hero.jpg';
 
 const industryToneClasses = {
   primary: 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white',
@@ -43,7 +43,13 @@ export default function AiSolutions() {
           alt: 'Laptop displaying an analytics dashboard for AI business workflows',
         }}
       >
-        <Button to="/contact" size="lg" magnetic iconRight={<ArrowRight size={18} />}>
+        <Button
+          to="/contact"
+          size="lg"
+          variant="white"
+          magnetic
+          iconRight={<ArrowRight size={18} />}
+        >
           Plan an AI project
         </Button>
       </PageHero>
@@ -54,7 +60,7 @@ export default function AiSolutions() {
             <Reveal key={s.id} delay={i * 0.06}>
               <div
                 id={s.id}
-                className="group interactive-surface surface-lift h-full scroll-mt-28 rounded-3xl bg-surface-container-lowest border border-outline-variant p-xl shadow-low transition-all duration-300"
+                className="group interactive-surface surface-lift flex h-full flex-col scroll-mt-28 rounded-3xl bg-surface-container-lowest border border-outline-variant p-xl shadow-low transition-all duration-300"
               >
                 <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 mb-md group-hover:scale-105">
                   <Icon name={s.icon} size={28} />
@@ -69,6 +75,16 @@ export default function AiSolutions() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-auto pt-lg">
+                  <Button
+                    to={s.link}
+                    variant="outline"
+                    iconRight={<ArrowRight size={16} />}
+                    aria-label={`Open ${s.title} details`}
+                  >
+                    More Details
+                  </Button>
+                </div>
               </div>
             </Reveal>
           ))}

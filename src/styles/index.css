@@ -591,11 +591,14 @@
   }
 
   .client-cta {
-    border-radius: 0.9rem;
+    min-height: 340px;
+    display: grid;
+    place-items: center;
+    border-radius: 0.5rem;
     background:
-      radial-gradient(circle at 18% 30%, rgba(255, 255, 255, 0.22), transparent 30%),
-      radial-gradient(circle at 84% 18%, rgba(30, 137, 254, 0.32), transparent 28%),
-      #005fc6;
+      radial-gradient(circle at 18% 30%, rgba(255, 255, 255, 0.2), transparent 28%),
+      radial-gradient(circle at 84% 18%, rgba(30, 137, 254, 0.38), transparent 30%),
+      linear-gradient(135deg, #1679d7 0%, #0068d6 45%, #0052b8 100%);
   }
 
   .client-cta-logos {
@@ -615,6 +618,7 @@
     object-fit: contain;
     filter: grayscale(1) brightness(0) invert(1);
     opacity: var(--cta-o, 0.18);
+    mix-blend-mode: screen;
     animation: client-cta-drift 14s ease-in-out infinite;
     animation-delay: var(--cta-delay, 0s);
     transform: translate3d(-50%, -50%, 0) rotate(var(--cta-r, -2deg));
@@ -629,6 +633,10 @@
   }
 
   @media (max-width: 767px) {
+    .client-cta {
+      min-height: 380px;
+    }
+
     .client-cta-logo {
       width: min(var(--cta-w, 128px), 128px);
       max-height: 52px;
@@ -1678,6 +1686,42 @@
 
   .page-hero .container-page {
     text-align: center;
+  }
+
+  .page-hero .text-display,
+  .visual-hero .text-display {
+    font-size: clamp(2.05rem, 8.8vw, 2.5rem) !important;
+    line-height: 1.08 !important;
+    max-width: 12ch;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-wrap: anywhere;
+    text-wrap: wrap !important;
+  }
+
+  .page-hero .text-body-lg,
+  .visual-hero .text-body-lg {
+    max-width: 32ch;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-wrap: anywhere;
+  }
+
+  .visual-hero .container-page {
+    text-align: center;
+  }
+
+  .visual-hero .container-page > *,
+  .visual-hero .reveal-init {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .visual-hero .visual-hero-media-wrap {
+    width: 100%;
+    max-width: 18.5rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .page-hero .max-w-3xl,

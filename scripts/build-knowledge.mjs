@@ -18,6 +18,7 @@ async function main() {
   const { siteConfig } = await readJsModule('data/siteConfig.js');
   const { services } = await readJsModule('data/services.js');
   const { aiIndustries, aiSolutions } = await readJsModule('data/aiSolutions.js');
+  const { aiSolutionPageList } = await readJsModule('data/aiDetailPages.js');
   const { products } = await readJsModule('data/products.js');
   const { caseStudies, clientImpact, clientLogos, clientSignals } = await readJsModule('data/clients.js');
   const { expertise, methodology, stats, techStack } = await readJsModule('data/home.js');
@@ -86,6 +87,38 @@ async function main() {
   }
   out.push(`Industries served by AI pages: ${aiIndustries.map((industry) => industry.label).join(', ')}`);
   out.push('');
+
+  out.push('## AI Solution Detail Pages');
+  for (const page of aiSolutionPageList) {
+    out.push(`### ${page.navLabel}`);
+    out.push(`URL: ${page.path}`);
+    out.push(page.title);
+    out.push(page.description);
+    const sections = [
+      page.capabilitySection,
+      page.secondarySection,
+      page.technicalSection,
+      page.industrySection,
+      page.benefitSection,
+    ].filter(Boolean);
+    for (const section of sections) {
+      out.push(`${section.title}:`);
+      for (const item of section.items) {
+        if (typeof item === 'string') {
+          out.push(`- ${item}`);
+        } else {
+          out.push(`- ${item.title}: ${item.description || ''}`.trim());
+        }
+      }
+    }
+    if (page.processSection?.steps?.length) {
+      out.push(`${page.processSection.title}:`);
+      for (const step of page.processSection.steps) {
+        out.push(`- ${step.title}: ${step.description}`);
+      }
+    }
+    out.push('');
+  }
 
   out.push('## Tech stack');
   out.push(techStack.join(', '));

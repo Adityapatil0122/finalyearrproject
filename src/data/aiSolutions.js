@@ -6,13 +6,12 @@ export const aiSolutions = [
     summary:
       'Intelligent conversational agents for enhanced customer engagement.',
     features: [
-      '24/7 Automated Support',
-      'Advanced Analytics',
-      'Knowledge Base Integration',
-      'Easy Integration',
-      'Multi-Language Support',
+      'Virtual Support 24/7',
+      'Multi-language Support',
+      'Custom Training',
+      'Analytics Dashboard',
     ],
-    link: 'https://finlectechnologies.com/ai/chatbots',
+    link: '/ai/chatbots',
   },
   {
     id: 'custom',
@@ -21,14 +20,12 @@ export const aiSolutions = [
     summary:
       'Tailored AI development for your specific business needs.',
     features: [
-      'Predictive Analytics',
       'Process Automation',
-      'Custom Machine Learning',
-      'AI Model Integration',
-      'API Integrations',
-      'Performance Monitoring',
+      'ML Model Development',
+      'Solution Architecture',
+      'Integration Services',
     ],
-    link: 'https://finlectechnologies.com/ai/custom-solutions',
+    link: '/ai/custom-solutions',
   },
   {
     id: 'integration',
@@ -37,14 +34,12 @@ export const aiSolutions = [
     summary:
       'Seamless integration of AI technologies into your systems.',
     features: [
-      'Seamless API Connectivity',
-      'Real-time Data Processing',
-      'Multi-environment Support',
-      'AI Model Integration',
-      'REST API',
-      'Webhooks',
+      'Third-party Integration',
+      'Custom API Development',
+      'Seamless Connectivity',
+      'Real-time Processing',
     ],
-    link: 'https://finlectechnologies.com/ai/integration',
+    link: '/ai/integration',
   },
   {
     id: 'analytics',
@@ -55,12 +50,10 @@ export const aiSolutions = [
     features: [
       'Predictive Analytics',
       'Business Intelligence',
-      'Pattern Recognition',
-      'Custom Reporting',
-      'Text Analytics',
-      'Real-time Analytics',
+      'Performance Metrics',
+      'Data Visualization',
     ],
-    link: 'https://finlectechnologies.com/ai/analytics',
+    link: '/ai/analytics',
   },
 ];
 

@@ -91,8 +91,8 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="home-hero hero-outer-frame relative overflow-hidden">
-      <div className="bg-surface px-3 pb-0 pt-3 sm:px-4 sm:pt-4 md:px-6 md:pt-6">
-        <div className="hero-blue-card relative overflow-hidden rounded-t-[1.5rem] rounded-b-none bg-gradient-to-br from-[#0068d6] via-primary to-[#003ea8] sm:rounded-t-[2rem] md:rounded-t-[2.5rem]">
+      <div className="bg-surface">
+        <div className="hero-blue-card relative overflow-hidden bg-gradient-to-br from-[#0068d6] via-primary to-[#003ea8]">
           <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]" aria-hidden>
             <div
               className="absolute inset-0 opacity-[0.06]"

@@ -1,6 +1,6 @@
 import { ArrowLeft } from 'lucide-react';
 import Button from '@/components/ui/Button';
-import BlobBackground from '@/components/ui/BlobBackground';
+import PageHero from '@/components/ui/PageHero';
 import { useSEO } from '@/hooks/useSEO';
 
 export default function NotFound() {
@@ -10,25 +10,21 @@ export default function NotFound() {
     robots: 'noindex, follow',
   });
   return (
-    <section className="relative min-h-[80vh] grid place-items-center overflow-hidden">
-      <BlobBackground />
-      <div className="container-page relative text-center">
-        <p className="section-eyebrow">
-          Page not found
-        </p>
-        <h1 className="mt-2 text-display font-bold">404</h1>
-        <p className="mt-md text-body-lg text-on-surface-variant max-w-lg mx-auto">
-          The page you are looking for may have moved or no longer exists.
-        </p>
-        <div className="mt-lg flex justify-center gap-3">
-          <Button to="/" magnetic iconLeft={<ArrowLeft size={18} />}>
-            Take me home
-          </Button>
-          <Button to="/contact" variant="outline">
-            Talk to us
-          </Button>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Page not found"
+      title="404"
+      description="The page you are looking for may have moved or no longer exists."
+    >
+      <Button to="/" variant="white" magnetic iconLeft={<ArrowLeft size={18} />}>
+        Take me home
+      </Button>
+      <Button
+        to="/contact"
+        variant="ghost"
+        className="border border-white/28 text-white hover:bg-white/12"
+      >
+        Talk to us
+      </Button>
+    </PageHero>
   );
 }

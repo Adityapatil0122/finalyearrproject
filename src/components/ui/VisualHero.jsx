@@ -5,10 +5,11 @@ export default function VisualHero({
   title,
   description,
   media,
+  mediaSlot,
   children,
 }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#0068d6] via-primary to-[#00336b] text-white">
+    <section className="visual-hero relative overflow-hidden bg-gradient-to-br from-[#0068d6] via-primary to-[#00336b] text-white">
       <div
         className="absolute inset-0 opacity-[0.1]"
         style={{
@@ -20,7 +21,7 @@ export default function VisualHero({
       />
 
       <div className="container-page relative grid grid-cols-1 gap-xl py-xl md:py-[92px] lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-        <div className="min-w-0 w-full max-w-[calc(100vw-2rem)] md:max-w-3xl">
+        <div className="min-w-0 w-full md:max-w-3xl">
           {eyebrow ? (
             <Reveal>
               <p className="section-eyebrow section-eyebrow-on-dark">{eyebrow}</p>
@@ -28,14 +29,14 @@ export default function VisualHero({
           ) : null}
 
           <Reveal delay={0.08}>
-            <h1 className="mt-md w-full max-w-[calc(100vw-2rem)] break-normal text-display text-balance md:max-w-full">
+            <h1 className="mt-md w-full break-words text-display text-balance [overflow-wrap:anywhere]">
               {title}
             </h1>
           </Reveal>
 
           {description ? (
             <Reveal delay={0.14}>
-              <p className="mt-md w-full max-w-[calc(100vw-2rem)] break-normal text-body-lg text-white/82 md:max-w-2xl">
+              <p className="mt-md w-full break-words text-body-lg text-white/82 [overflow-wrap:anywhere] md:max-w-2xl">
                 {description}
               </p>
             </Reveal>
@@ -43,16 +44,22 @@ export default function VisualHero({
 
           {children ? (
             <Reveal delay={0.2}>
-              <div className="mt-lg flex w-full max-w-[calc(100vw-2rem)] flex-col gap-sm sm:flex-row sm:flex-wrap md:max-w-full">
+              <div className="mt-lg flex w-full flex-col gap-sm sm:flex-row sm:flex-wrap">
                 {children}
               </div>
             </Reveal>
           ) : null}
         </div>
 
-        {media ? (
-          <Reveal delay={0.12}>
-            <div className="relative mx-auto aspect-[4/3] w-full max-w-[calc(100vw-2rem)] min-w-0 overflow-hidden rounded-3xl border border-white/18 shadow-high sm:max-w-[560px]">
+        {mediaSlot ? (
+          <Reveal delay={0.12} className="visual-hero-media-wrap">
+            <div className="relative mx-auto w-full min-w-0 sm:max-w-[560px]">
+              {mediaSlot}
+            </div>
+          </Reveal>
+        ) : media ? (
+          <Reveal delay={0.12} className="visual-hero-media-wrap">
+            <div className="relative mx-auto aspect-[4/3] w-full min-w-0 overflow-hidden rounded-3xl border border-white/18 shadow-high sm:max-w-[560px]">
               <img
                 src={media.src}
                 alt={media.alt}
@@ -67,7 +74,7 @@ export default function VisualHero({
                     <p className="section-eyebrow-sm !text-white/80">{media.eyebrow}</p>
                   ) : null}
                   {media.title ? (
-                    <p className="mt-1 max-w-sm break-normal text-h3 text-white">
+                    <p className="mt-1 max-w-sm break-words text-h3 text-white [overflow-wrap:anywhere]">
                       {media.title}
                     </p>
                   ) : null}

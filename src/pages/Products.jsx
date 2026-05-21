@@ -5,10 +5,8 @@ import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import SiteCta from '@/components/ui/SiteCta';
 import Icon from '@/components/ui/Icon';
+import VisualHero from '@/components/ui/VisualHero';
 import { products } from '@/data/products';
-
-const productHeroImage =
-  'https://images.pexels.com/photos/5940705/pexels-photo-5940705.jpeg?auto=compress&cs=tinysrgb&w=1600';
 
 const previewStats = [
   ['Seats', '84%'],
@@ -39,63 +37,30 @@ export default function Products() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-outline-variant bg-surface-container-low">
-        <img
-          src={productHeroImage}
-          alt="Students studying with laptops in a modern library"
-          className="absolute inset-0 h-full w-full object-cover"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/82 to-primary/22" aria-hidden />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:32px_32px] opacity-55" aria-hidden />
-
-        <div className="container-page relative grid min-h-[calc(100svh-82px)] items-center gap-2xl py-2xl lg:grid-cols-[0.82fr_1.18fr]">
-          <div className="max-w-3xl text-white">
-            <Reveal>
-              <p className="section-eyebrow section-eyebrow-on-dark">Product platform</p>
-            </Reveal>
-
-            <Reveal delay={0.08}>
-              <h1 className="mt-md text-display text-balance">
-                {products.featured.name}
-              </h1>
-            </Reveal>
-
-            <Reveal delay={0.16}>
-              <p className="mt-md max-w-xl text-body-lg text-white/84">
-                A simple dashboard for study halls to manage students, seats, fees,
-                renewals, and reminders in one place.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.22}>
-              <div className="mt-xl flex flex-col gap-sm sm:flex-row sm:flex-wrap">
-                <Button
-                  to="/contact"
-                  size="lg"
-                  variant="white"
-                  magnetic
-                  iconRight={<ArrowRight size={18} />}
-                >
-                  Plan the app
-                </Button>
-                <Button
-                  href="#live-products"
-                  size="lg"
-                  variant="ghost"
-                  className="border border-white/28 text-white hover:bg-white/12"
-                >
-                  View products
-                </Button>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.12}>
-            <ProductPreview />
-          </Reveal>
-        </div>
-      </section>
+      <VisualHero
+        eyebrow="Product platform"
+        title={products.featured.name}
+        description="A simple dashboard for study halls to manage students, seats, fees, renewals, and reminders in one place."
+        mediaSlot={<ProductPreview />}
+      >
+        <Button
+          to="/contact"
+          size="lg"
+          variant="white"
+          magnetic
+          iconRight={<ArrowRight size={18} />}
+        >
+          Plan the app
+        </Button>
+        <Button
+          href="#live-products"
+          size="lg"
+          variant="ghost"
+          className="border border-white/28 text-white hover:bg-white/12"
+        >
+          View products
+        </Button>
+      </VisualHero>
 
       <Section id="live-products" className="bg-surface">
         <div className="mb-xl flex flex-col justify-between gap-lg lg:flex-row lg:items-end">
@@ -251,21 +216,21 @@ function ProductCard({ product }) {
 
 function ProductPreview() {
   return (
-    <div className="product-dashboard-shell interactive-surface relative mx-auto w-full max-w-[560px] overflow-hidden rounded-3xl border border-white/20 bg-white/90 p-sm shadow-high backdrop-blur-md">
+    <div className="product-dashboard-shell interactive-surface relative mx-auto w-full max-w-[560px] overflow-hidden rounded-3xl border border-white/20 bg-white/90 p-1.5 shadow-high backdrop-blur-md sm:p-sm">
       <div className="absolute inset-x-10 top-0 h-28 rounded-full bg-primary/[0.12] blur-3xl" aria-hidden />
       <div className="relative overflow-hidden rounded-2xl border border-outline-variant bg-white">
-        <div className="flex items-center justify-between border-b border-outline-variant bg-surface-container-low px-md py-sm">
+        <div className="flex items-center justify-between gap-2 border-b border-outline-variant bg-surface-container-low px-sm py-sm sm:px-md">
           <div className="flex items-center gap-2">
             <span className="h-3 w-3 rounded-full bg-tertiary/70" />
             <span className="h-3 w-3 rounded-full bg-primary/40" />
             <span className="h-3 w-3 rounded-full bg-secondary/70" />
           </div>
-          <p className="section-eyebrow-sm text-on-surface-variant">
+          <p className="section-eyebrow-sm truncate text-[0.66rem] text-on-surface-variant sm:text-[0.72rem]">
             Study Room OS
           </p>
         </div>
 
-        <div className="p-md md:p-lg">
+        <div className="p-sm sm:p-md md:p-lg">
           <div className="mb-md flex flex-col justify-between gap-sm sm:flex-row sm:items-center">
             <div>
               <p className="section-eyebrow-sm">
@@ -278,21 +243,21 @@ function ProductPreview() {
             </span>
           </div>
 
-          <div className="grid grid-cols-3 gap-sm">
+          <div className="grid grid-cols-3 gap-1.5 sm:gap-sm">
             {previewStats.map(([label, value]) => (
-              <div key={label} className="rounded-2xl border border-outline-variant bg-surface p-sm">
-                <p className="section-eyebrow-sm text-[0.72rem] text-on-surface-variant">
+              <div key={label} className="rounded-xl border border-outline-variant bg-surface p-2 sm:rounded-2xl sm:p-sm">
+                <p className="section-eyebrow-sm truncate text-[0.58rem] text-on-surface-variant sm:text-[0.72rem]">
                   {label}
                 </p>
-                <p className="mt-1 text-h3 leading-none text-on-surface">{value}</p>
+                <p className="mt-1 text-[1.22rem] font-semibold leading-none text-on-surface sm:text-h3">{value}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-md overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-lowest p-md">
-            <div className="flex items-center justify-between gap-md">
+          <div className="mt-md overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-lowest p-sm sm:p-md">
+            <div className="flex items-center justify-between gap-2">
               <p className="text-body-md font-semibold text-on-surface">Daily operations</p>
-              <span className="text-label-sm font-semibold text-primary">Organized</span>
+              <span className="shrink-0 text-label-sm font-semibold text-primary">Organized</span>
             </div>
             <div className="mt-md h-3 overflow-hidden rounded-full bg-primary/10">
               <span className="block h-full w-[84%] rounded-full bg-primary" />

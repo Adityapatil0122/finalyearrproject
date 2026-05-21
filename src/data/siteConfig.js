@@ -65,22 +65,22 @@ export const navLinks = [
       {
         label: 'AI-Powered Chatbots',
         description: 'Support and lead chatbots',
-        to: '/ai-solutions#chatbots',
+        to: '/ai/chatbots',
       },
       {
         label: 'Custom AI Solutions',
         description: 'AI tools for your workflow',
-        to: '/ai-solutions#custom',
+        to: '/ai/custom-solutions',
       },
       {
         label: 'AI Integration & API',
         description: 'Connect AI with your systems',
-        to: '/ai-solutions#integration',
+        to: '/ai/integration',
       },
       {
         label: 'Data Analytics & Insights',
         description: 'Dashboards and clear reports',
-        to: '/ai-solutions#analytics',
+        to: '/ai/analytics',
       },
     ],
   },
@@ -151,10 +151,10 @@ export const footerColumns = [
   {
     title: 'AI Solutions',
     links: [
-      { label: 'AI-Powered Chatbots', to: '/ai-solutions#chatbots' },
-      { label: 'Custom AI Solutions', to: '/ai-solutions#custom' },
-      { label: 'AI Integration & API', to: '/ai-solutions#integration' },
-      { label: 'Data Analytics & Insights', to: '/ai-solutions#analytics' },
+      { label: 'AI-Powered Chatbots', to: '/ai/chatbots' },
+      { label: 'Custom AI Solutions', to: '/ai/custom-solutions' },
+      { label: 'AI Integration & API', to: '/ai/integration' },
+      { label: 'Data Analytics & Insights', to: '/ai/analytics' },
     ],
   },
 ];

@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Calendar, Clock3, UserRound } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 import SiteCta from '@/components/ui/SiteCta';
+import VisualHero from '@/components/ui/VisualHero';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
 import { getPost } from '@/data/posts';
 
@@ -55,47 +56,45 @@ export default function BlogPost() {
         ref={progressRef}
         className="fixed left-0 right-0 top-[70px] z-40 h-[3px] origin-left scale-x-0 bg-primary md:top-[82px]"
       />
-      <div className="container-page pt-xl">
+      <VisualHero
+        eyebrow={post.category}
+        title={post.title}
+        description={post.excerpt}
+        media={
+          post.cover
+            ? {
+                src: post.cover,
+                alt: post.title,
+                eyebrow: post.readTime,
+                title: post.featuredStat || post.author,
+              }
+            : undefined
+        }
+      >
         <Link
           to="/blogs"
-          className="inline-flex items-center gap-2 text-label-sm font-semibold text-primary hover:underline"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-white/24 px-6 py-3 text-[0.95rem] font-semibold text-white transition-all hover:bg-white/10"
         >
-          <ArrowLeft size={16} /> All posts
+          <ArrowLeft size={18} /> All posts
         </Link>
-      </div>
-
-      <header className="container-page mt-md">
-        <div className="flex flex-wrap items-center gap-sm text-label-sm text-on-surface-variant">
-          <span className="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary">
-            {post.category}
-          </span>
-          <span className="inline-flex items-center gap-1">
+        <div className="flex flex-wrap items-center gap-2 text-label-sm text-white/82">
+          <span className="inline-flex items-center gap-1 rounded-full bg-white/12 px-3 py-2 font-semibold">
             <Calendar size={14} /> {formatDate(post.date)}
           </span>
-          <span className="inline-flex items-center gap-1">
+          <span className="inline-flex items-center gap-1 rounded-full bg-white/12 px-3 py-2 font-semibold">
             <Clock3 size={14} /> {post.readTime}
           </span>
-          <span className="inline-flex items-center gap-1">
+          <span className="inline-flex items-center gap-1 rounded-full bg-white/12 px-3 py-2 font-semibold">
             <UserRound size={14} /> {post.author}
           </span>
+          {post.featuredStat ? (
+            <span className="inline-flex max-w-2xl items-center gap-2 rounded-full bg-white px-3 py-2 font-semibold text-primary">
+              <BookOpen size={16} className="shrink-0" />
+              {post.featuredStat}
+            </span>
+          ) : null}
         </div>
-        <h1 className="mt-md max-w-4xl text-display text-balance">{post.title}</h1>
-        <p className="mt-md max-w-3xl text-body-lg text-on-surface-variant">{post.excerpt}</p>
-        {post.featuredStat ? (
-          <div className="mt-lg inline-flex max-w-2xl items-center gap-sm rounded-2xl border border-outline-variant bg-surface-container-lowest px-md py-sm text-body-md font-semibold text-on-surface shadow-low">
-            <BookOpen size={18} className="shrink-0 text-primary" />
-            {post.featuredStat}
-          </div>
-        ) : null}
-      </header>
-
-      {post.cover ? (
-        <div className="container-page mt-xl">
-          <div className="interactive-surface media-reveal aspect-[16/9] overflow-hidden rounded-3xl border border-outline-variant shadow-high">
-            <img src={post.cover} alt={post.title} className="h-full w-full object-cover" />
-          </div>
-        </div>
-      ) : null}
+      </VisualHero>
 
       <div className="container-page my-2xl">
         <div className="grid gap-2xl lg:grid-cols-[minmax(0,1fr)_280px]">

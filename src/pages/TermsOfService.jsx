@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
+import PageHero from '@/components/ui/PageHero';
 
 const responsibilityItems = [
   'Share accurate and complete information',
@@ -19,22 +20,23 @@ export default function TermsOfService() {
 
   return (
     <div className="bg-surface">
+      <PageHero
+        eyebrow="Terms of Service"
+        title="Terms of Service"
+        description="Last Updated: April 25, 2025"
+      >
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 rounded-full border border-white/24 px-md py-sm text-label-sm font-semibold text-white transition-colors hover:bg-white/10"
+        >
+          <ArrowLeft size={16} />
+          Back to Home
+        </Link>
+      </PageHero>
+
       <section className="container-page py-xl md:py-[88px]">
-        <div className="mb-lg">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container-lowest px-md py-sm text-label-sm font-semibold text-on-surface transition-colors hover:border-primary hover:text-primary"
-          >
-            <ArrowLeft size={16} />
-            Back to Home
-          </Link>
-        </div>
-
         <div className="mx-auto max-w-3xl rounded-[1.75rem] border border-outline-variant bg-surface-container-lowest p-lg shadow-low md:p-xl">
-          <h1 className="text-h1 text-on-surface">Terms of Service</h1>
-          <p className="mt-sm text-body-lg text-on-surface-variant">Last Updated: April 25, 2025</p>
-
-          <div className="prose prose-slate mt-xl max-w-none">
+          <div className="prose prose-slate max-w-none">
             <h2>1. Acceptance of Terms</h2>
             <p>
               By using Finlec Technologies services or website, you agree to these

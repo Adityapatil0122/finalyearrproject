@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import {
   ArrowRight,
   BarChart3,
@@ -52,6 +52,7 @@ const dropdownIconColors = [
 ];
 
 export default function Navbar() {
+  const location = useLocation();
   const [open, setOpen] = useState(false);
   const [mobileGroup, setMobileGroup] = useState(null);
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -142,14 +143,17 @@ export default function Navbar() {
                 onClick={() => {
                   setOpenDropdown(l.children?.length ? l.to : null);
                 }}
-                className={({ isActive }) =>
-                  [
+                className={({ isActive }) => {
+                  const isGroupActive =
+                    isActive || (l.to === '/ai-solutions' && location.pathname.startsWith('/ai/'));
+
+                  return [
                     'relative inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-[0.95rem] font-medium transition-all',
-                    isActive
+                    isGroupActive
                       ? 'text-primary'
                       : 'text-on-surface-variant hover:bg-primary/5 hover:text-on-surface',
-                  ].join(' ')
-                }
+                  ].join(' ');
+                }}
               >
                 {({ isActive }) => (
                   <>
@@ -166,7 +170,9 @@ export default function Navbar() {
                     <span
                       className={[
                         'absolute left-5 right-5 -bottom-0.5 h-0.5 rounded-full bg-primary transition-transform origin-left',
-                        isActive ? 'scale-x-100' : 'scale-x-0',
+                        isActive || (l.to === '/ai-solutions' && location.pathname.startsWith('/ai/'))
+                          ? 'scale-x-100'
+                          : 'scale-x-0',
                       ].join(' ')}
                     />
                   </>
@@ -297,14 +303,18 @@ export default function Navbar() {
                         to={l.to}
                         end={l.to === '/'}
                         onClick={closeMobileMenu}
-                        className={({ isActive }) =>
-                          [
+                        className={({ isActive }) => {
+                          const isGroupActive =
+                            isActive ||
+                            (l.to === '/ai-solutions' && location.pathname.startsWith('/ai/'));
+
+                          return [
                             'mobile-nav-link flex min-h-12 flex-1 items-center rounded-xl px-4 text-body-md font-semibold',
-                            isActive
+                            isGroupActive
                               ? 'bg-primary/10 text-primary'
                               : 'text-on-surface hover:bg-surface-container',
-                          ].join(' ')
-                        }
+                          ].join(' ');
+                        }}
                       >
                         {l.label}
                       </NavLink>

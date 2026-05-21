@@ -5,11 +5,12 @@ import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import SiteCta from '@/components/ui/SiteCta';
 import Icon from '@/components/ui/Icon';
+import VisualHero from '@/components/ui/VisualHero';
 import { ArrowRight } from 'lucide-react';
 import { services } from '@/data/services';
 
 const serviceHeroImage =
-  'https://images.pexels.com/photos/4308091/pexels-photo-4308091.jpeg?auto=compress&cs=tinysrgb&w=1200';
+  '/services-hero-indian.jpg';
 
 export default function Services() {
   useSEO({
@@ -29,59 +30,26 @@ export default function Services() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-outline-variant bg-surface-container-low">
-        <div className="absolute inset-0 signal-grid opacity-60" aria-hidden />
-        <div className="container-page relative grid items-center gap-xl py-xl md:py-[84px] lg:grid-cols-[1fr_0.78fr]">
-          <div className="max-w-2xl">
-            <Reveal>
-              <p className="section-eyebrow">
-                What we do
-              </p>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <h1 className="mt-4 text-h1 text-balance text-on-surface md:text-[3.35rem] md:leading-[1.04]">
-                Build the digital work your business needs.
-              </h1>
-            </Reveal>
-            <Reveal delay={0.16}>
-              <p className="mt-md text-body-lg text-on-surface-variant">
-                Websites, apps, AI tools, WhatsApp automation, marketing, and
-                design support planned around one clear goal.
-              </p>
-            </Reveal>
-            <Reveal delay={0.24}>
-              <div className="mt-xl flex flex-wrap gap-sm">
-                {services.slice(0, 4).map((service) => (
-                  <a
-                    key={service.id}
-                    href={`#${service.id}`}
-                    className="rounded-full border border-outline-variant bg-surface-container-lowest px-md py-sm text-label-sm font-semibold text-on-surface shadow-low transition-all hover:border-primary hover:text-primary"
-                  >
-                    {service.title}
-                  </a>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.12}>
-            <div className="media-reveal relative mx-auto aspect-[4/3] w-full max-w-[520px] overflow-hidden rounded-3xl border border-outline-variant bg-surface-container-lowest shadow-high lg:ml-auto">
-              <img
-                src={serviceHeroImage}
-                alt="Team collaborating on a digital project around a laptop"
-                loading="eager"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/35 via-transparent to-transparent" />
-              <div className="absolute bottom-md left-md rounded-2xl border border-white/20 bg-white/90 px-md py-sm shadow-high backdrop-blur-md">
-                <p className="section-eyebrow-sm">
-                  Strategy to launch
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <VisualHero
+        eyebrow="What we do"
+        title="Build the digital work your business needs."
+        description="Websites, apps, AI tools, WhatsApp automation, marketing, and design support planned around one clear goal."
+        media={{
+          src: serviceHeroImage,
+          alt: 'Indian professionals collaborating on a digital project around a laptop',
+          eyebrow: 'Strategy to launch',
+        }}
+      >
+        {services.slice(0, 4).map((service) => (
+          <a
+            key={service.id}
+            href={`#${service.id}`}
+            className="inline-flex items-center justify-center rounded-full border border-white/24 bg-white/10 px-md py-sm text-label-sm font-semibold text-white shadow-low transition-all hover:bg-white/16"
+          >
+            {service.title}
+          </a>
+        ))}
+      </VisualHero>
 
       <Section className="bg-surface !pt-md">
         <div className="grid gap-2xl lg:grid-cols-[260px_1fr]">
