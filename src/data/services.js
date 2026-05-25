@@ -2,6 +2,7 @@ export const services = [
   {
     id: 'web',
     title: 'Website Development',
+    path: '/services/website-development',
     icon: 'code',
     accent: 'primary',
     image:
@@ -18,6 +19,7 @@ export const services = [
   {
     id: 'app',
     title: 'App Development',
+    path: '/services/app-development',
     icon: 'phone_iphone',
     accent: 'secondary',
     image:
@@ -34,6 +36,7 @@ export const services = [
   {
     id: 'marketing',
     title: 'Digital Marketing',
+    path: '/services/digital-marketing',
     icon: 'campaign',
     accent: 'tertiary',
     image:
@@ -50,6 +53,7 @@ export const services = [
   {
     id: 'whatsapp',
     title: 'WhatsApp Business API',
+    path: '/services/whatsapp-business',
     icon: 'chat',
     accent: 'primary',
     image:
@@ -66,6 +70,7 @@ export const services = [
   {
     id: 'uiux',
     title: 'UI / UX Design',
+    path: '/services/ui-ux-design',
     icon: 'design_services',
     accent: 'secondary',
     image:
@@ -82,6 +87,7 @@ export const services = [
   {
     id: 'graphics',
     title: 'Graphics Design',
+    path: '/services/graphics-designing',
     icon: 'palette',
     accent: 'tertiary',
     image:

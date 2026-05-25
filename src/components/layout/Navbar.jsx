@@ -112,7 +112,7 @@ export default function Navbar() {
         className="fixed inset-x-0 top-0 z-50 overflow-visible border-b border-outline-variant/70 bg-surface/95 shadow-low backdrop-blur-md"
       >
         <nav className="container-page flex min-h-[70px] items-center justify-between py-2 md:min-h-[82px] md:py-3">
-        <Logo height={42} />
+        <Logo height={48} />
 
         <ul className="hidden lg:flex items-center gap-1">
           {navLinks.map((l) => (
@@ -272,7 +272,7 @@ export default function Navbar() {
           aria-label="Mobile navigation"
         >
           <div className="flex min-h-[70px] shrink-0 items-center justify-between gap-3 border-b border-outline-variant/70 px-4 py-3">
-            <Logo height={38} />
+            <Logo height={42} />
             <button
               type="button"
               className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-outline-variant bg-white text-on-surface transition-all hover:bg-surface-container active:scale-95"

@@ -6,6 +6,7 @@ import App from './App.jsx';
 import { LenisProvider } from '@/lib/lenis';
 import Home from '@/pages/Home';
 import Services from '@/pages/Services';
+import ServiceDetail from '@/pages/ServiceDetail';
 import AiSolutions from '@/pages/AiSolutions';
 import AiSolutionDetail from '@/pages/AiSolutionDetail';
 import Products from '@/pages/Products';
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')).render(
           <Route element={<App />}>
             <Route index element={<Home />} />
             <Route path="services" element={<Services />} />
+            <Route path="services/:slug" element={<ServiceDetail />} />
             <Route path="ai-solutions" element={<AiSolutions />} />
             <Route path="ai/:slug" element={<AiSolutionDetail />} />
             <Route path="products" element={<Products />} />

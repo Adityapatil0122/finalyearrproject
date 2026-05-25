@@ -30,11 +30,11 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="mt-2xl bg-primary text-white">
+    <footer className="mt-2xl bg-[#040c2c] text-white">
       <div className="container-page py-2xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-xl">
           <div>
-            <Logo variant="dark" height={44} />
+            <Logo variant="dark" height={52} />
             <p className="mt-md text-body-md text-white/70 max-w-xs">
               {siteConfig.description}
             </p>

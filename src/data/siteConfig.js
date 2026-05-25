@@ -29,32 +29,32 @@ export const navLinks = [
       {
         label: 'Website Development',
         description: 'Custom sites, eCommerce, WordPress',
-        to: '/services#web',
+        to: '/services/website-development',
       },
       {
         label: 'App Development',
         description: 'Mobile apps for Android and iOS',
-        to: '/services#app',
+        to: '/services/app-development',
       },
       {
         label: 'Digital Marketing',
         description: 'SEO, social media, paid campaigns',
-        to: '/services#marketing',
+        to: '/services/digital-marketing',
       },
       {
         label: 'WhatsApp Business API',
         description: 'API setup, chatbots, broadcasts',
-        to: '/services#whatsapp',
+        to: '/services/whatsapp-business',
       },
       {
         label: 'UI/UX Design',
         description: 'Research, wireframes, screen design',
-        to: '/services#uiux',
+        to: '/services/ui-ux-design',
       },
       {
         label: 'Graphics Designing',
         description: 'Logos, social media, print assets',
-        to: '/services#graphics',
+        to: '/services/graphics-designing',
       },
     ],
   },

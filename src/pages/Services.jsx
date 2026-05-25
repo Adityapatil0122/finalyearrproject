@@ -114,7 +114,7 @@ export default function Services() {
                       ))}
                     </div>
                     <div className="mt-lg">
-                      <Button to="/contact" magnetic iconRight={<ArrowRight size={18} />}>
+                      <Button to={s.path} magnetic iconRight={<ArrowRight size={18} />}>
                         Talk about {s.title.toLowerCase()}
                       </Button>
                     </div>

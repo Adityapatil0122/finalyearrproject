@@ -1,7 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
-import { ArrowUp, Home } from 'lucide-react';
 import { siteConfig } from '@/data/siteConfig';
-import { scrollToTop } from '@/lib/lenis';
 import ChatLauncher from '@/components/ai/ChatLauncher';
 
 const WHATSAPP_NUMBER = (siteConfig.whatsapp || siteConfig.phone || '')
@@ -25,54 +22,27 @@ function WhatsAppIcon({ size = 28 }) {
 }
 
 export default function FloatingActions() {
-  const { pathname } = useLocation();
-  const isHome = pathname === '/';
-
   const waHref = WHATSAPP_NUMBER
     ? `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_PREFILL}`
     : '#';
 
   return (
-    <>
-      <div className="floating-left-actions fixed bottom-4 left-4 z-[60] flex flex-col gap-2 print:hidden sm:bottom-6 sm:left-6 sm:gap-3">
-        {!isHome && (
-          <Link
-            to="/"
-            onClick={() => scrollToTop({ smooth: true })}
-            aria-label="Go to home"
-            className="interactive-surface grid h-12 w-12 place-items-center rounded-full border border-primary/15 bg-white/95 text-primary shadow-[0_14px_34px_rgba(15,40,90,0.16)] backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:bg-primary hover:text-white active:scale-95 sm:h-14 sm:w-14"
-          >
-            <Home size={22} strokeWidth={2.2} />
-          </Link>
-        )}
+    <div className="floating-actions fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 print:hidden sm:bottom-6 sm:right-6 sm:gap-3">
+      <ChatLauncher />
 
-        <button
-          type="button"
-          onClick={() => scrollToTop({ smooth: true })}
-          aria-label="Back to top"
-          className="interactive-surface grid h-12 w-12 place-items-center rounded-full border border-primary/15 bg-white/95 text-primary shadow-[0_14px_34px_rgba(15,40,90,0.16)] backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:bg-primary hover:text-white active:scale-95 sm:h-14 sm:w-14"
-        >
-          <ArrowUp size={23} strokeWidth={2.2} />
-        </button>
-      </div>
-
-      <div className="floating-actions fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 print:hidden sm:bottom-6 sm:right-6 sm:gap-3">
-        <ChatLauncher />
-
-        <a
-          href={waHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
-          className="group interactive-surface relative grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-high transition-transform hover:scale-105 active:scale-95 sm:h-14 sm:w-14"
-        >
-          <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" aria-hidden />
-          <WhatsAppIcon size={28} />
-          <span className="absolute right-full mr-3 whitespace-nowrap rounded-full bg-on-surface text-white text-label-sm font-semibold px-3 py-1.5 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
-            Chat with us
-          </span>
-        </a>
-      </div>
-    </>
+      <a
+        href={waHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="group interactive-surface relative grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-high transition-transform hover:scale-105 active:scale-95 sm:h-14 sm:w-14"
+      >
+        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" aria-hidden />
+        <WhatsAppIcon size={28} />
+        <span className="absolute right-full mr-3 whitespace-nowrap rounded-full bg-on-surface px-3 py-1.5 text-label-sm font-semibold text-white opacity-0 translate-x-2 transition-all duration-300 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0">
+          Chat with us
+        </span>
+      </a>
+    </div>
   );
 }

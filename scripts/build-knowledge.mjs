@@ -17,6 +17,7 @@ async function readJsModule(rel) {
 async function main() {
   const { siteConfig } = await readJsModule('data/siteConfig.js');
   const { services } = await readJsModule('data/services.js');
+  const { serviceDetailPages } = await readJsModule('data/serviceDetails.js');
   const { aiIndustries, aiSolutions } = await readJsModule('data/aiSolutions.js');
   const { aiSolutionPageList } = await readJsModule('data/aiDetailPages.js');
   const { products } = await readJsModule('data/products.js');
@@ -71,10 +72,36 @@ async function main() {
   out.push('## Services');
   for (const s of services) {
     out.push(`### ${s.title}`);
+    if (s.path) out.push(`URL: ${s.path}`);
     out.push(s.summary);
     out.push("What's included:");
     for (const f of s.features) out.push(`- ${f}`);
     out.push(`Typical tech/tools: ${s.tech.join(', ')}`);
+    out.push('');
+  }
+
+  out.push('## Service Detail Pages');
+  for (const page of serviceDetailPages) {
+    out.push(`### ${page.navLabel}`);
+    out.push(`URL: ${page.path}`);
+    out.push(page.title);
+    out.push(page.description);
+    out.push(`${page.offerSection.title}:`);
+    for (const item of page.offerings) {
+      out.push(`- ${item.title}: ${item.description}`);
+      for (const feature of item.features) out.push(`  - ${feature}`);
+    }
+    if (page.showcase?.items?.length) {
+      out.push(`${page.showcase.title}:`);
+      for (const item of page.showcase.items) out.push(`- ${item.title}: ${item.description}`);
+    }
+    out.push(`${page.processSection.title}:`);
+    for (const step of page.process) {
+      out.push(`- ${step.title}: ${step.description}`);
+      for (const detail of step.steps) out.push(`  - ${detail}`);
+    }
+    out.push('FAQs:');
+    for (const faq of page.faqs) out.push(`- ${faq.question} ${faq.answer}`);
     out.push('');
   }
 
