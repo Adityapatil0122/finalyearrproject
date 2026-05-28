@@ -14,12 +14,12 @@ This is the site knowledge base. If a question is not covered here, say so and o
 - **Business hours:** Sunday: Closed
 
 ## Public service areas
-- **Website Development:** Fast, responsive websites that are easy to use and ready for search.
-- **App Development:** Android and iOS apps planned, designed, built, and supported after launch.
-- **Digital Marketing:** SEO, content, social media, and ad campaigns focused on better leads.
-- **WhatsApp Business API:** WhatsApp API setup, chat flows, broadcasts, and customer support handoff.
-- **UI / UX Design:** Clear screens, simple user journeys, and prototypes your team can review.
-- **Graphics Design:** Brand graphics for logos, campaigns, social media, print, and ads.
+- **Website Development:** Custom websites built for performance and user experience.
+- **App Development:** Mobile applications for iOS and Android platforms.
+- **Digital Marketing:** Strategic campaigns to boost your online presence.
+- **WhatsApp Business API:** Enterprise-grade WhatsApp solutions for business communication.
+- **UI / UX Design:** Creative and intuitive user interface design.
+- **Graphics Design:** Eye-catching visual designs for your brand.
 
 ## Stats / track record
 - 150+ Projects completed
