@@ -3,6 +3,8 @@ import Icon from './Icon';
 import Reveal from './Reveal';
 
 export default function PageHero({ eyebrow, title, description, badge, children, media }) {
+  const customMedia = media?.node;
+
   const content = (
     <>
       {badge ? (
@@ -50,15 +52,21 @@ export default function PageHero({ eyebrow, title, description, badge, children,
         <div className="container-page relative grid items-center gap-xl pt-xl pb-xl md:pt-[108px] md:pb-[72px] lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.72fr)]">
           <div className="min-w-0">{content}</div>
           <Reveal delay={0.12}>
-            <div className="page-hero-image relative mx-auto aspect-[4/3] w-full max-w-[520px] overflow-hidden rounded-3xl border border-white/18 bg-white/10 shadow-high lg:ml-auto">
-              <img
-                src={media.src}
-                alt={media.alt}
-                loading={media.loading || 'eager'}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-900/72 via-primary/10 to-transparent" />
-            </div>
+            {customMedia ? (
+              <div className="page-hero-custom-media relative mx-auto w-full max-w-[520px] lg:ml-auto">
+                {customMedia}
+              </div>
+            ) : (
+              <div className="page-hero-image relative mx-auto aspect-[4/3] w-full max-w-[520px] overflow-hidden rounded-3xl border border-white/18 bg-white/10 shadow-high lg:ml-auto">
+                <img
+                  src={media.src}
+                  alt={media.alt}
+                  loading={media.loading || 'eager'}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/72 via-primary/10 to-transparent" />
+              </div>
+            )}
           </Reveal>
         </div>
       ) : (

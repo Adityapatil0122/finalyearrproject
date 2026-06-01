@@ -6,17 +6,17 @@ import Icon from '@/components/ui/Icon';
 import { expertise } from '@/data/home';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
 
-/* ── accent palette per card ── */
-const cardAccents = [
-  { gradient: 'linear-gradient(135deg, #005fc6, #1e89fe)', glow: 'rgba(0, 95, 198, 0.35)', tint: 'rgba(0, 95, 198, 0.08)' },
-  { gradient: 'linear-gradient(135deg, #0ea5e9, #38bdf8)', glow: 'rgba(14, 165, 233, 0.35)', tint: 'rgba(14, 165, 233, 0.08)' },
-  { gradient: 'linear-gradient(135deg, #7c3aed, #a78bfa)', glow: 'rgba(124, 58, 237, 0.35)', tint: 'rgba(124, 58, 237, 0.08)' },
-  { gradient: 'linear-gradient(135deg, #059669, #34d399)', glow: 'rgba(5, 150, 105, 0.35)', tint: 'rgba(5, 150, 105, 0.08)' },
-  { gradient: 'linear-gradient(135deg, #ea580c, #fb923c)', glow: 'rgba(234, 88, 12, 0.35)', tint: 'rgba(234, 88, 12, 0.08)' },
-  { gradient: 'linear-gradient(135deg, #dc2626, #f87171)', glow: 'rgba(220, 38, 38, 0.35)', tint: 'rgba(220, 38, 38, 0.08)' },
+/* Per-card config: image path + accent colour for text/icon tinting */
+const cardConfig = [
+  { img: '/services/svc-web-dev.png',   accentColor: '#1e89fe' },
+  { img: '/services/svc-app-dev.png',   accentColor: '#38bdf8' },
+  { img: '/services/svc-marketing.png', accentColor: '#34d399' },
+  { img: '/services/svc-whatsapp.png',  accentColor: '#4ade80' },
+  { img: '/services/svc-uiux.png',      accentColor: '#a78bfa' },
+  { img: '/services/svc-graphics.png',  accentColor: '#f87171' },
 ];
 
-/* ── bento grid span classes ── */
+/* Bento grid span classes */
 const cardLayout = [
   'lg:col-span-4',
   'lg:col-span-4',
@@ -26,7 +26,25 @@ const cardLayout = [
   'lg:col-span-3',
 ];
 
-/* ── tilt handler (vanilla, no deps) ── */
+const floatingDots = Array.from({ length: 18 }, (_, index) => {
+  const x = 8 + ((index * 37) % 84);
+  const y = 5 + ((index * 53) % 90);
+  const size = 3 + ((index * 7) % 5);
+  const delay = ((index * 11) % 60) / 10;
+  const duration = 4 + ((index * 13) % 50) / 10;
+  const opacity = 0.12 + ((index * 17) % 20) / 100;
+
+  return {
+    x: `${x}%`,
+    y: `${y}%`,
+    size: `${size}px`,
+    delay: `${delay}s`,
+    duration: `${duration}s`,
+    opacity: opacity.toFixed(2),
+  };
+});
+
+/* Tilt handler */
 function useTilt() {
   const onMove = useCallback((e) => {
     const card = e.currentTarget;
@@ -35,8 +53,6 @@ function useTilt() {
     const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
     card.style.setProperty('--rx', `${-y * 5}deg`);
     card.style.setProperty('--ry', `${x * 5}deg`);
-    card.style.setProperty('--mx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
-    card.style.setProperty('--my', `${((e.clientY - rect.top) / rect.height) * 100}%`);
   }, []);
 
   const onLeave = useCallback((e) => {
@@ -48,21 +64,21 @@ function useTilt() {
   return { onMove, onLeave };
 }
 
-/* ── floating dots decoration ── */
+/* Floating dots decoration */
 function FloatingDots() {
   return (
     <div className="expertise-floating-dots" aria-hidden>
-      {Array.from({ length: 18 }).map((_, i) => (
+      {floatingDots.map((dot, i) => (
         <span
           key={i}
           className="expertise-dot"
           style={{
-            '--dot-x': `${8 + Math.random() * 84}%`,
-            '--dot-y': `${5 + Math.random() * 90}%`,
-            '--dot-size': `${3 + Math.random() * 5}px`,
-            '--dot-delay': `${Math.random() * 6}s`,
-            '--dot-dur': `${4 + Math.random() * 5}s`,
-            '--dot-opacity': `${0.12 + Math.random() * 0.2}`,
+            '--dot-x': dot.x,
+            '--dot-y': dot.y,
+            '--dot-size': dot.size,
+            '--dot-delay': dot.delay,
+            '--dot-dur': dot.duration,
+            '--dot-opacity': dot.opacity,
           }}
         />
       ))}
@@ -70,10 +86,10 @@ function FloatingDots() {
   );
 }
 
-/* ── service card component ── */
+/* Service card component */
 function ServiceCard({ item, index }) {
   const { onMove, onLeave } = useTilt();
-  const accent = cardAccents[index] || cardAccents[0];
+  const config = cardConfig[index] || cardConfig[0];
 
   return (
     <Reveal delay={index * 0.08} className={cardLayout[index]}>
@@ -83,15 +99,17 @@ function ServiceCard({ item, index }) {
         onMouseMove={!prefersReducedMotion ? onMove : undefined}
         onMouseLeave={!prefersReducedMotion ? onLeave : undefined}
         style={{
-          '--card-accent': accent.gradient,
-          '--card-glow': accent.glow,
-          '--card-tint': accent.tint,
+          '--card-accent-color': config.accentColor,
           '--card-delay': `${index * 0.55}s`,
         }}
         aria-label={`Learn more about ${item.title}`}
       >
-        {/* animated border glow */}
-        <div className="svc-card-glow" aria-hidden />
+        {/* card bg image — revealed on hover */}
+        <div
+          className="svc-card-bg-img"
+          style={{ backgroundImage: `url(${config.img})` }}
+          aria-hidden
+        />
 
         {/* sheen sweep */}
         <div className="svc-card-sheen" aria-hidden />
@@ -137,7 +155,7 @@ function ServiceCard({ item, index }) {
   );
 }
 
-/* ── main section ── */
+/* Main section */
 export default function BentoExpertise() {
   const sectionRef = useRef(null);
 

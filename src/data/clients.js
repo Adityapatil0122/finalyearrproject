@@ -46,6 +46,7 @@ export const clientReviews = [
     name: 'Rohan Kulkarni',
     role: 'Operations Lead',
     company: 'ITROOTS',
+    rating: 5,
     avatar:
       'https://images.pexels.com/photos/7580766/pexels-photo-7580766.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop',
     review:
@@ -55,6 +56,7 @@ export const clientReviews = [
     name: 'Sameer Deshmukh',
     role: 'Founder',
     company: 'Rightspot',
+    rating: 4.5,
     avatar:
       'https://images.pexels.com/photos/7580640/pexels-photo-7580640.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop',
     review:
@@ -64,6 +66,7 @@ export const clientReviews = [
     name: 'Pranav Shah',
     role: 'Director',
     company: 'Quick Print Technology',
+    rating: 5,
     avatar:
       'https://images.pexels.com/photos/7580761/pexels-photo-7580761.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop',
     review:
@@ -73,6 +76,7 @@ export const clientReviews = [
     name: 'Amit Patil',
     role: 'Managing Partner',
     company: 'Guru Properties',
+    rating: 4,
     avatar:
       'https://images.pexels.com/photos/7581112/pexels-photo-7581112.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop',
     review:
@@ -82,6 +86,7 @@ export const clientReviews = [
     name: 'Karan Bhosale',
     role: 'Growth Manager',
     company: 'Alpha Trekkers',
+    rating: 4.5,
     avatar:
       'https://images.pexels.com/photos/7581116/pexels-photo-7581116.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop',
     review:
@@ -91,6 +96,7 @@ export const clientReviews = [
     name: 'Nikhil Jain',
     role: 'Export Coordinator',
     company: 'Spyra Exim',
+    rating: 5,
     avatar:
       'https://images.pexels.com/photos/35964702/pexels-photo-35964702.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop',
     review:
@@ -100,6 +106,7 @@ export const clientReviews = [
     name: 'Sandeep Joshi',
     role: 'Product Lead',
     company: 'Launchpadd',
+    rating: 4.5,
     avatar:
       'https://images.pexels.com/photos/15073761/pexels-photo-15073761.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop',
     review:
@@ -109,6 +116,7 @@ export const clientReviews = [
     name: 'Vivek Menon',
     role: 'Marketing Head',
     company: 'Technomania',
+    rating: 5,
     avatar:
       'https://images.pexels.com/photos/7580991/pexels-photo-7580991.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop',
     review:
@@ -118,6 +126,7 @@ export const clientReviews = [
     name: 'Harshad Pawar',
     role: 'Founder',
     company: 'Gromax',
+    rating: 4,
     avatar:
       'https://images.pexels.com/photos/7580997/pexels-photo-7580997.jpeg?auto=compress&cs=tinysrgb&w=240&h=240&fit=crop',
     review:

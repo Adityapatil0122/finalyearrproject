@@ -6,10 +6,8 @@ import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import SiteCta from '@/components/ui/SiteCta';
 import Icon from '@/components/ui/Icon';
+import AiHeroAssistant from '@/components/ai/AiHeroAssistant';
 import { aiIndustries, aiSolutions } from '@/data/aiSolutions';
-
-const aiHeroImage =
-  '/ai-solutions-hero.jpg';
 
 const industryToneClasses = {
   primary: 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white',
@@ -39,8 +37,7 @@ export default function AiSolutions() {
         title="AI tools that solve real business tasks."
         description="We build chatbots, custom AI tools, API integrations, and dashboards that fit your daily work."
         media={{
-          src: aiHeroImage,
-          alt: 'Laptop displaying an analytics dashboard for AI business workflows',
+          node: <AiHeroAssistant />,
         }}
       >
         <Button
