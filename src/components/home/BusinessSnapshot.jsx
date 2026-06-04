@@ -1,7 +1,9 @@
 import { Clock3, Mail, MapPin, MessageCircleMore, PhoneCall } from 'lucide-react';
+
 import { Link } from 'react-router-dom';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
+import ColorIcon from '@/components/ui/ColorIcon';
 import { siteConfig } from '@/data/siteConfig';
 
 const phoneHref = `tel:${siteConfig.phone.replace(/\s/g, '')}`;
@@ -15,8 +17,9 @@ const channels = [
     href: phoneHref,
     note: null,
     Icon: PhoneCall,
+    iconName: 'phone_iphone',
+    color: 'blue',
     tint: 'bg-white border-primary/15 text-primary',
-    iconTint: 'bg-primary/10 text-primary',
   },
   {
     label: 'Email us',
@@ -24,8 +27,9 @@ const channels = [
     href: `mailto:${siteConfig.email}`,
     note: null,
     Icon: Mail,
+    iconName: 'campaign',
+    color: 'violet',
     tint: 'bg-white border-secondary/20 text-secondary',
-    iconTint: 'bg-secondary/10 text-secondary',
   },
   {
     label: 'WhatsApp',
@@ -33,8 +37,9 @@ const channels = [
     href: whatsappHref,
     note: siteConfig.whatsapp,
     Icon: MessageCircleMore,
+    iconName: 'chat',
+    color: 'green',
     tint: 'bg-white border-primary/15 text-primary',
-    iconTint: 'bg-primary/10 text-primary',
   },
   {
     label: 'Visit us',
@@ -42,8 +47,9 @@ const channels = [
     to: '/contact',
     note: null,
     Icon: MapPin,
+    iconName: 'domain',
+    color: 'amber',
     tint: 'bg-white border-secondary/20 text-secondary',
-    iconTint: 'bg-secondary/10 text-secondary',
   },
 ];
 
@@ -64,7 +70,7 @@ export default function BusinessSnapshot({ embedded = false, className = '' }) {
         </Reveal>
 
         <div className={embedded ? 'grid flex-1 gap-md sm:grid-cols-2' : 'space-y-md'}>
-          {channels.map(({ label, value, href, to, note, Icon, tint, iconTint }, index) => (
+          {channels.map(({ label, value, href, to, note, Icon, iconName, color, tint }, index) => (
             <Reveal key={label} delay={index * 0.06}>
               {to ? (
                 <Link
@@ -76,13 +82,13 @@ export default function BusinessSnapshot({ embedded = false, className = '' }) {
                   ].join(' ')}
                 >
                   <div className={embedded ? 'flex items-start gap-sm' : 'flex items-start gap-md sm:items-center'}>
-                    <span className={[
-                      'grid shrink-0 place-items-center transition-transform duration-300 group-hover:scale-110',
-                      embedded ? 'h-10 w-10 rounded-xl' : 'h-12 w-12 rounded-2xl',
-                      iconTint,
-                    ].join(' ')}>
-                      <Icon size={embedded ? 19 : 22} />
-                    </span>
+                    <ColorIcon
+                      name={iconName}
+                      color={color}
+                      size={embedded ? 18 : 21}
+                      boxSize={embedded ? 'h-10 w-10' : 'h-12 w-12'}
+                      radius={embedded ? 'rounded-xl' : 'rounded-2xl'}
+                    />
                     <div className="min-w-0">
                       <p className="section-eyebrow-sm">{label}</p>
                       <p className={[
@@ -105,13 +111,13 @@ export default function BusinessSnapshot({ embedded = false, className = '' }) {
                   ].join(' ')}
                 >
                   <div className={embedded ? 'flex items-start gap-sm' : 'flex items-start gap-md sm:items-center'}>
-                    <span className={[
-                      'grid shrink-0 place-items-center transition-transform duration-300 group-hover:scale-110',
-                      embedded ? 'h-10 w-10 rounded-xl' : 'h-12 w-12 rounded-2xl',
-                      iconTint,
-                    ].join(' ')}>
-                      <Icon size={embedded ? 19 : 22} />
-                    </span>
+                    <ColorIcon
+                      name={iconName}
+                      color={color}
+                      size={embedded ? 18 : 21}
+                      boxSize={embedded ? 'h-10 w-10' : 'h-12 w-12'}
+                      radius={embedded ? 'rounded-xl' : 'rounded-2xl'}
+                    />
                     <div className="min-w-0">
                       <p className="section-eyebrow-sm">{label}</p>
                       <p className={[
@@ -136,12 +142,13 @@ export default function BusinessSnapshot({ embedded = false, className = '' }) {
               ].join(' ')}
             >
               <div className="flex items-start gap-sm">
-                <span className={[
-                  'grid shrink-0 place-items-center bg-primary/10 text-primary transition-transform duration-300 hover:scale-110',
-                  embedded ? 'h-10 w-10 rounded-xl' : 'h-12 w-12 rounded-2xl',
-                ].join(' ')}>
-                  <Clock3 size={embedded ? 19 : 22} />
-                </span>
+                <ColorIcon
+                  name="monitoring"
+                  color="teal"
+                  size={embedded ? 18 : 21}
+                  boxSize={embedded ? 'h-10 w-10' : 'h-12 w-12'}
+                  radius={embedded ? 'rounded-xl' : 'rounded-2xl'}
+                />
                 <div>
                   <p className="section-eyebrow-sm">
                     Business hours

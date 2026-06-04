@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { X, Send, Sparkles, Loader2, RotateCcw } from 'lucide-react';
 import { streamChat } from '@/lib/chatClient';
+import { getQuickChatAnswer } from '@/data/quickChatAnswers';
 import ChatMessage from './ChatMessage';
 import SuggestedPrompts from './SuggestedPrompts';
 
@@ -37,6 +38,15 @@ export default function ChatPanel({ open, onClose }) {
     setInput('');
     setError('');
     const next = [...messages, { role: 'user', content: text }];
+    const quickAnswer = getQuickChatAnswer(text);
+
+    if (quickAnswer) {
+      abortRef.current?.abort();
+      setMessages([...next, { role: 'assistant', content: quickAnswer, streaming: false }]);
+      setBusy(false);
+      return;
+    }
+
     // Append empty assistant placeholder we'll fill in via stream.
     setMessages([...next, { role: 'assistant', content: '', streaming: true }]);
     setBusy(true);

@@ -6,6 +6,7 @@ import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
+import ColorIcon from '@/components/ui/ColorIcon';
 import SiteCta from '@/components/ui/SiteCta';
 import NotFound from '@/pages/NotFound';
 import { aiSolutionPageList, aiSolutionPages } from '@/data/aiDetailPages';
@@ -180,9 +181,7 @@ function DetailListSection({ section, className = 'bg-surface' }) {
               delay={index * 0.05}
               className="group grid gap-md border-b border-outline-variant py-lg last:border-b-0 md:grid-cols-[auto_minmax(0,1fr)]"
             >
-              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                <Icon name={item.icon || 'auto_awesome'} size={24} />
-              </div>
+              <ColorIcon name={item.icon || 'auto_awesome'} color={item.color || 'blue'} size={22} boxSize="h-12 w-12" radius="rounded-2xl" />
               <div>
                 <h3 className="text-h3 text-on-surface">{item.title}</h3>
                 <p className="mt-sm max-w-3xl text-body-md text-on-surface-variant">
@@ -219,9 +218,7 @@ function CardGrid({ section, className = 'bg-surface' }) {
         {section.items.map((item, index) => (
           <Reveal key={item.title} delay={index * 0.05}>
             <article className="interactive-surface surface-lift flex h-full flex-col rounded-3xl border border-outline-variant bg-surface-container-lowest p-lg shadow-low">
-              <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary/10 text-primary">
-                <Icon name={item.icon || 'auto_awesome'} size={28} />
-              </div>
+              <ColorIcon name={item.icon || 'auto_awesome'} color={item.color || 'blue'} size={24} boxSize="h-14 w-14" radius="rounded-2xl" className="mb-0" />
               <h3 className="mt-md text-h3 text-on-surface">{item.title}</h3>
               <p className="mt-sm text-body-md text-on-surface-variant">{item.description}</p>
               {item.points?.length ? (
@@ -362,7 +359,7 @@ function RelatedSolutions({ currentSlug }) {
           >
             <div className="flex items-start justify-between gap-md">
               <div>
-                <Icon name={page.icon} size={28} className="text-primary" />
+                <ColorIcon name={page.icon} color={page.color || 'violet'} size={22} boxSize="h-12 w-12" radius="rounded-2xl" className="mb-sm" />
                 <h3 className="mt-sm text-lg font-bold text-on-surface">{page.navLabel}</h3>
                 <p className="mt-1 text-body-sm text-on-surface-variant">{page.title}</p>
               </div>

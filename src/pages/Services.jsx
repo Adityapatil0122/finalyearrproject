@@ -5,6 +5,7 @@ import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import SiteCta from '@/components/ui/SiteCta';
 import Icon from '@/components/ui/Icon';
+import ColorIcon from '@/components/ui/ColorIcon';
 import VisualHero from '@/components/ui/VisualHero';
 import { ArrowRight } from 'lucide-react';
 import { services } from '@/data/services';
@@ -92,7 +93,7 @@ export default function Services() {
                 </Reveal>
                 <Reveal delay={0.1}>
                   <div>
-                    <Icon name={s.icon} size={40} className="text-primary" />
+                    <ColorIcon name={s.icon} color={s.color || 'blue'} boxSize="h-14 w-14" radius="rounded-2xl" className="mb-md" />
                     <h2 className="mb-md mt-2 text-h1 text-balance">{s.title}</h2>
                     <p className="text-body-lg text-on-surface-variant">{s.summary}</p>
                     <ul className="mt-md space-y-2">

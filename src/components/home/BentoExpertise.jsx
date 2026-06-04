@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Icon from '@/components/ui/Icon';
+import ColorIcon from '@/components/ui/ColorIcon';
 import { expertise } from '@/data/home';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
 
@@ -117,12 +118,14 @@ function ServiceCard({ item, index }) {
         {/* card body */}
         <div className="svc-card-body">
           {/* icon */}
-          <div className="svc-icon-wrap">
-            <div className="svc-icon-bg" aria-hidden />
-            <div className="svc-icon">
-              <Icon name={item.icon} size={24} strokeWidth={1.8} />
-            </div>
-          </div>
+          <ColorIcon
+            name={item.icon}
+            color={item.color || 'blue'}
+            size={22}
+            boxSize="h-12 w-12"
+            radius="rounded-2xl"
+            className="svc-color-icon"
+          />
 
           {/* text */}
           <div className="svc-card-text">

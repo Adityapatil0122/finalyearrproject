@@ -67,7 +67,7 @@ export default function Clients() {
       </VisualHero>
 
       <Section id="brand-wall" className="bg-surface">
-        <div className="grid gap-xl lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+        <div className="grid gap-xl lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div>
             <Reveal>
               <p className="section-eyebrow">

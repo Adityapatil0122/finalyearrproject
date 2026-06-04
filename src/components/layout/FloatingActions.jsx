@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom';
+import { ArrowUp, Home } from 'lucide-react';
 import { siteConfig } from '@/data/siteConfig';
 import ChatLauncher from '@/components/ai/ChatLauncher';
+import { scrollToTop } from '@/lib/lenis';
 
 const WHATSAPP_NUMBER = (siteConfig.whatsapp || siteConfig.phone || '')
   .replace(/[^\d]/g, '');
@@ -27,22 +30,43 @@ export default function FloatingActions() {
     : '#';
 
   return (
-    <div className="floating-actions fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 print:hidden sm:bottom-6 sm:right-6 sm:gap-3">
-      <ChatLauncher />
+    <>
+      <div className="fixed bottom-4 left-4 z-40 flex flex-col items-start gap-2 print:hidden sm:bottom-6 sm:left-6">
+        <Link
+          to="/"
+          aria-label="Go to home"
+          className="grid h-12 w-12 place-items-center rounded-full border border-outline-variant bg-surface-container-lowest text-primary shadow-low transition-all hover:border-primary hover:bg-primary hover:text-white hover:shadow-high active:scale-95"
+        >
+          <Home size={21} />
+        </Link>
 
-      <a
-        href={waHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-        className="group interactive-surface relative grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-high transition-transform hover:scale-105 active:scale-95 sm:h-14 sm:w-14"
-      >
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" aria-hidden />
-        <WhatsAppIcon size={28} />
-        <span className="absolute right-full mr-3 whitespace-nowrap rounded-full bg-on-surface px-3 py-1.5 text-label-sm font-semibold text-white opacity-0 translate-x-2 transition-all duration-300 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0">
-          Chat with us
-        </span>
-      </a>
-    </div>
+        <button
+          type="button"
+          aria-label="Scroll to top"
+          onClick={() => scrollToTop()}
+          className="grid h-12 w-12 place-items-center rounded-full border border-outline-variant bg-surface-container-lowest text-primary shadow-low transition-all hover:border-primary hover:bg-primary hover:text-white hover:shadow-high active:scale-95"
+        >
+          <ArrowUp size={21} />
+        </button>
+      </div>
+
+      <div className="floating-actions fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 print:hidden sm:bottom-6 sm:right-6 sm:gap-3">
+        <ChatLauncher />
+
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+          className="group interactive-surface relative grid h-12 w-12 place-items-center rounded-full bg-[#25D366] text-white shadow-high transition-transform hover:scale-105 active:scale-95 sm:h-14 sm:w-14"
+        >
+          <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" aria-hidden />
+          <WhatsAppIcon size={28} />
+          <span className="absolute right-full mr-3 whitespace-nowrap rounded-full bg-on-surface px-3 py-1.5 text-label-sm font-semibold text-white opacity-0 translate-x-2 transition-all duration-300 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0">
+            Chat with us
+          </span>
+        </a>
+      </div>
+    </>
   );
 }

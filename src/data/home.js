@@ -1,6 +1,7 @@
 export const expertise = [
   {
     icon: 'code',
+    color: 'blue',
     title: 'Website Development',
     desc: 'Custom websites built for performance and user experience.',
     accent: 'primary',
@@ -9,6 +10,7 @@ export const expertise = [
   },
   {
     icon: 'phone_iphone',
+    color: 'sky',
     title: 'App Development',
     desc: 'Mobile applications for iOS and Android platforms.',
     accent: 'secondary',
@@ -17,6 +19,7 @@ export const expertise = [
   },
   {
     icon: 'campaign',
+    color: 'emerald',
     title: 'Digital Marketing',
     desc: 'Strategic campaigns to boost your online presence.',
     accent: 'tertiary',
@@ -25,6 +28,7 @@ export const expertise = [
   },
   {
     icon: 'chat',
+    color: 'green',
     title: 'WhatsApp Business API',
     desc: 'Enterprise-grade WhatsApp solutions for business communication.',
     accent: 'primary',
@@ -33,6 +37,7 @@ export const expertise = [
   },
   {
     icon: 'design_services',
+    color: 'violet',
     title: 'UI / UX Design',
     desc: 'Creative and intuitive user interface design.',
     accent: 'secondary',
@@ -41,6 +46,7 @@ export const expertise = [
   },
   {
     icon: 'palette',
+    color: 'pink',
     title: 'Graphics Design',
     desc: 'Eye-catching visual designs for your brand.',
     accent: 'tertiary',
@@ -146,21 +152,25 @@ export const techStack = [
 export const usefulHighlights = [
   {
     icon: 'public',
+    color: 'blue',
     title: 'Web platforms',
     desc: 'Responsive websites, eCommerce stores, WordPress sites, and SEO-ready web apps.',
   },
   {
     icon: 'phone_iphone',
+    color: 'sky',
     title: 'Mobile apps',
     desc: 'Native and cross-platform apps with clear design and long-term support.',
   },
   {
     icon: 'smart_toy',
+    color: 'violet',
     title: 'AI enablement',
     desc: 'Chatbots, AI integrations, automation, analytics dashboards, and reports.',
   },
   {
     icon: 'campaign',
+    color: 'emerald',
     title: 'Growth systems',
     desc: 'SEO, social media, paid ads, content, and WhatsApp Business API support.',
   },

@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
-import { Code2, Layers3, Rocket } from 'lucide-react';
+import { Rocket } from 'lucide-react';
+import ColorIcon from '@/components/ui/ColorIcon';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import { gsap } from '@/lib/gsap';
@@ -28,9 +29,9 @@ const techLogos = {
 };
 
 const featured = [
-  { icon: Code2, label: 'Frontend' },
-  { icon: Layers3, label: 'Cloud and data' },
-  { icon: Rocket, label: 'Launch support' },
+  { iconName: 'code', color: 'blue', label: 'Frontend' },
+  { iconName: 'monitoring', color: 'emerald', label: 'Cloud and data' },
+  { iconName: 'phone_iphone', color: 'violet', label: 'Launch support' },
 ];
 
 const orbitRings = [
@@ -192,14 +193,12 @@ export default function TechStack() {
 
           <Reveal delay={0.28}>
             <div className="mt-xl grid gap-sm">
-              {featured.map(({ icon: Icon, label }) => (
+              {featured.map(({ iconName, color, label }) => (
                 <div
                   key={label}
                   className="flex items-center gap-sm rounded-2xl border border-outline-variant bg-surface-container-lowest p-md shadow-low"
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
-                    <Icon size={21} />
-                  </span>
+                  <ColorIcon name={iconName} color={color} size={21} boxSize="h-11 w-11" radius="rounded-xl" />
                   <span className="text-body-md font-semibold text-on-surface">{label}</span>
                 </div>
               ))}

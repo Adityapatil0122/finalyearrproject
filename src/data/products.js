@@ -36,6 +36,7 @@ export const products = {
     {
       id: 'study-room',
       icon: 'school',
+      color: 'amber',
       title: 'Study Room Management App',
       category: 'Study Hall Software',
       url: '/contact',
@@ -48,6 +49,7 @@ export const products = {
     {
       id: 'itroots-lms',
       icon: 'school',
+      color: 'blue',
       title: 'ITROOTS LMS System',
       category: 'Learning Management System',
       url: 'https://lms.itroots.co.in',
@@ -59,6 +61,7 @@ export const products = {
     {
       id: 'itroots-cms',
       icon: 'language',
+      color: 'indigo',
       title: 'ITROOTS Public Website + CMS',
       category: 'Website and CMS',
       url: 'https://itroots.co.in',
@@ -70,6 +73,7 @@ export const products = {
     {
       id: 'whatsapp-business-suite',
       icon: 'forum',
+      color: 'green',
       title: 'WhatsApp Business Suite',
       category: 'WhatsApp API Platform',
       url: 'https://whatsapp.itroots.co.in',
@@ -81,6 +85,7 @@ export const products = {
     {
       id: 'insurance-majha',
       icon: 'shield',
+      color: 'teal',
       title: 'Insurance Majha',
       category: 'Insurance Website',
       url: 'https://insurancemajha.com',
@@ -92,6 +97,7 @@ export const products = {
     {
       id: 'quick-print',
       icon: 'print',
+      color: 'orange',
       title: 'Quick Print Technology',
       category: 'E-commerce Website',
       url: 'https://quickprinttechnology.in/',
@@ -104,16 +110,19 @@ export const products = {
   features: [
     {
       icon: 'groups',
+      color: 'blue',
       title: 'Student Management',
       desc: 'Profiles, attendance, notes, and study hall records kept in one place.',
     },
     {
       icon: 'payments',
+      color: 'emerald',
       title: 'Fee Management',
       desc: 'Fee collection, receipts, due tracking, and renewals with fewer manual steps.',
     },
     {
       icon: 'event_seat',
+      color: 'violet',
       title: 'Seat Management',
       desc: 'Seat allocation, availability, reservations, and capacity planning in one dashboard.',
     },

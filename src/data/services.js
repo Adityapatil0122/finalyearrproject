@@ -5,6 +5,7 @@ export const services = [
     path: '/services/website-development',
     icon: 'code',
     accent: 'primary',
+    color: 'blue',
     image:
       'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80&auto=format&fit=crop',
     summary:
@@ -22,6 +23,7 @@ export const services = [
     path: '/services/app-development',
     icon: 'phone_iphone',
     accent: 'secondary',
+    color: 'sky',
     image:
       'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80&auto=format&fit=crop',
     summary:
@@ -39,6 +41,7 @@ export const services = [
     path: '/services/digital-marketing',
     icon: 'campaign',
     accent: 'tertiary',
+    color: 'emerald',
     image:
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop',
     summary:
@@ -56,6 +59,7 @@ export const services = [
     path: '/services/whatsapp-business',
     icon: 'chat',
     accent: 'primary',
+    color: 'green',
     image:
       'https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=1200&q=80&auto=format&fit=crop',
     summary:
@@ -73,6 +77,7 @@ export const services = [
     path: '/services/ui-ux-design',
     icon: 'design_services',
     accent: 'secondary',
+    color: 'violet',
     image:
       'https://images.unsplash.com/photo-1772272935464-2e90d8218987?w=1200&q=80&auto=format&fit=crop',
     summary:
@@ -90,6 +95,7 @@ export const services = [
     path: '/services/graphics-designing',
     icon: 'palette',
     accent: 'tertiary',
+    color: 'pink',
     image:
       'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&q=80&auto=format&fit=crop',
     summary:

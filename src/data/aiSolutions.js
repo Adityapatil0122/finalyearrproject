@@ -2,6 +2,7 @@ export const aiSolutions = [
   {
     id: 'chatbots',
     icon: 'smart_toy',
+    color: 'violet',
     title: 'AI-Powered Chatbots',
     summary:
       'Intelligent conversational agents for enhanced customer engagement.',
@@ -16,6 +17,7 @@ export const aiSolutions = [
   {
     id: 'custom',
     icon: 'auto_awesome',
+    color: 'amber',
     title: 'Custom AI Solutions',
     summary:
       'Tailored AI development for your specific business needs.',
@@ -30,6 +32,7 @@ export const aiSolutions = [
   {
     id: 'integration',
     icon: 'integration_instructions',
+    color: 'teal',
     title: 'AI Integration & API',
     summary:
       'Seamless integration of AI technologies into your systems.',
@@ -44,6 +47,7 @@ export const aiSolutions = [
   {
     id: 'analytics',
     icon: 'monitoring',
+    color: 'blue',
     title: 'Data Analytics & Insights',
     summary:
       'Advanced AI-driven analytics for better business decisions.',
@@ -58,14 +62,14 @@ export const aiSolutions = [
 ];
 
 export const aiIndustries = [
-  { label: 'Enterprise', icon: 'domain', tone: 'primary' },
-  { label: 'E-commerce', icon: 'shopping_bag', tone: 'secondary' },
-  { label: 'Healthcare', icon: 'local_hospital', tone: 'tertiary' },
-  { label: 'Financial Services', icon: 'account_balance', tone: 'primary' },
-  { label: 'Education', icon: 'school', tone: 'secondary' },
-  { label: 'Travel & Hospitality', icon: 'travel_explore', tone: 'tertiary' },
-  { label: 'Real Estate', icon: 'real_estate_agent', tone: 'primary' },
-  { label: 'Logistics', icon: 'local_shipping', tone: 'secondary' },
-  { label: 'Insurance', icon: 'verified_user', tone: 'tertiary' },
-  { label: 'Government', icon: 'gavel', tone: 'primary' },
+  { label: 'Enterprise', icon: 'domain', tone: 'primary', color: 'blue' },
+  { label: 'E-commerce', icon: 'shopping_bag', tone: 'secondary', color: 'emerald' },
+  { label: 'Healthcare', icon: 'local_hospital', tone: 'tertiary', color: 'rose' },
+  { label: 'Financial Services', icon: 'account_balance', tone: 'primary', color: 'indigo' },
+  { label: 'Education', icon: 'school', tone: 'secondary', color: 'amber' },
+  { label: 'Travel & Hospitality', icon: 'travel_explore', tone: 'tertiary', color: 'sky' },
+  { label: 'Real Estate', icon: 'real_estate_agent', tone: 'primary', color: 'violet' },
+  { label: 'Logistics', icon: 'local_shipping', tone: 'secondary', color: 'orange' },
+  { label: 'Insurance', icon: 'verified_user', tone: 'tertiary', color: 'teal' },
+  { label: 'Government', icon: 'gavel', tone: 'primary', color: 'slate' },
 ];

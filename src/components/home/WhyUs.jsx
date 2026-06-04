@@ -1,6 +1,6 @@
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
-import Icon from '@/components/ui/Icon';
+import ColorIcon from '@/components/ui/ColorIcon';
 import { usefulHighlights } from '@/data/home';
 
 export default function WhyUs() {
@@ -28,9 +28,7 @@ export default function WhyUs() {
           {usefulHighlights.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.06}>
               <div className="group interactive-surface surface-lift h-full rounded-3xl border border-outline-variant bg-surface-container-lowest p-xl shadow-low">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary mb-md transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-105">
-                  <Icon name={p.icon} size={24} />
-                </div>
+                <ColorIcon name={p.icon} color={p.color || 'blue'} boxSize="h-12 w-12" radius="rounded-2xl" className="mb-md" />
                 <h3 className="text-h3">{p.title}</h3>
                 <p className="mt-2 text-body-md text-on-surface-variant">{p.desc}</p>
               </div>

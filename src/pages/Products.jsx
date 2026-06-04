@@ -4,7 +4,7 @@ import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import SiteCta from '@/components/ui/SiteCta';
-import Icon from '@/components/ui/Icon';
+import ColorIcon from '@/components/ui/ColorIcon';
 import VisualHero from '@/components/ui/VisualHero';
 import { products } from '@/data/products';
 
@@ -12,6 +12,13 @@ const previewStats = [
   ['Seats', '84%'],
   ['Fees', '72k'],
   ['Renewals', '24'],
+];
+
+const focusCardVisuals = [
+  { icon: 'public', color: 'blue' },
+  { icon: 'groups', color: 'rose' },
+  { icon: 'integration_instructions', color: 'emerald' },
+  { icon: 'verified_user', color: 'amber' },
 ];
 
 export default function Products() {
@@ -93,42 +100,48 @@ export default function Products() {
       </Section>
 
       <Section id="product-focus" className="bg-surface">
-        <div className="grid gap-2xl lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          <div className="max-w-2xl">
+        <div className="grid gap-xl lg:grid-cols-[0.58fr_minmax(0,1fr)] lg:items-stretch">
+          <div className="flex flex-col justify-center border-outline-variant lg:border-r lg:border-dashed lg:pr-2xl">
             <Reveal>
               <p className="section-eyebrow">
                 Product mindset
               </p>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="mt-3 text-h1 text-balance">
+              <h2 className="mt-md max-w-xl text-h1 text-balance">
                 We are a startup, but we build like a product company.
               </h2>
             </Reveal>
-          </div>
-
-          <div>
-            <Reveal delay={0.1}>
-              <p className="text-body-lg leading-relaxed text-on-surface-variant">
+            <Reveal delay={0.12}>
+              <p className="mt-md max-w-xl text-body-lg leading-relaxed text-on-surface-variant">
                 {products.focusOverview}
               </p>
             </Reveal>
+          </div>
 
-            <div className="mt-xl grid gap-lg sm:grid-cols-2">
-              {products.focusPoints.map((point, index) => (
+          <div className="grid gap-lg md:grid-cols-2 lg:pl-lg">
+            {products.focusPoints.map((point, index) => {
+              const visual = focusCardVisuals[index % focusCardVisuals.length];
+
+              return (
                 <Reveal key={point.title} delay={0.16 + index * 0.06}>
-                  <div className="flex gap-md">
-                    <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-primary" aria-hidden />
-                    <div>
-                      <h3 className="text-lg font-semibold leading-snug text-on-surface">{point.title}</h3>
-                      <p className="mt-xs text-body-md leading-relaxed text-on-surface-variant">
-                        {point.desc}
-                      </p>
-                    </div>
-                  </div>
+                  <article className="interactive-surface surface-lift group flex h-full min-h-[13.25rem] flex-col items-center justify-center rounded-2xl border border-outline-variant bg-surface-container-lowest px-lg py-lg text-center shadow-low">
+                    <ColorIcon
+                      name={visual.icon}
+                      color={visual.color}
+                      size={24}
+                      boxSize="h-14 w-14"
+                      radius="rounded-2xl"
+                      strokeWidth={1.75}
+                    />
+                    <h3 className="mt-md text-h3 text-on-surface">{point.title}</h3>
+                    <p className="mt-sm max-w-sm text-body-md leading-relaxed text-on-surface-variant">
+                      {point.desc}
+                    </p>
+                  </article>
                 </Reveal>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </Section>
@@ -167,7 +180,7 @@ function ProductCard({ product }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
           <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/90 px-3 py-1 text-label-sm font-bold text-primary shadow-low backdrop-blur">
-            <Icon name={product.icon} size={18} />
+            <ColorIcon name={product.icon} color={product.color || 'blue'} size={15} boxSize="h-6 w-6" radius="rounded-lg" />
             {product.category}
           </span>
         </div>

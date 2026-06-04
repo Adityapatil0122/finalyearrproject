@@ -20,7 +20,9 @@ import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
+import ColorIcon from '@/components/ui/ColorIcon';
 import SiteCta from '@/components/ui/SiteCta';
+import TechPill from '@/components/ui/TechPill';
 import NotFound from '@/pages/NotFound';
 
 export default function ServiceDetail() {
@@ -140,13 +142,16 @@ function ServiceStatsStrip({ metrics = [], chips = [], fallbackItems = [] }) {
 
   if (!items.length) return null;
 
-  const columnClass = items.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-3';
+  const displayItems = items.slice(0, 4);
+  const mobileColumnClass =
+    displayItems.length === 4 ? 'grid-cols-4' : displayItems.length === 2 ? 'grid-cols-2' : 'grid-cols-3';
+  const desktopColumnClass = displayItems.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-3';
 
   return (
     <section className="service-stats-strip border-y border-outline-variant bg-[#f4f5fb]">
       <div className="container-page">
-        <div className={`service-stats-grid grid divide-y divide-outline-variant ${columnClass} md:divide-x md:divide-y-0`}>
-          {items.map((item, index) => {
+        <div className={`service-stats-grid grid ${mobileColumnClass} ${desktopColumnClass} divide-x divide-outline-variant`}>
+          {displayItems.map((item, index) => {
             const hasValue = Boolean(item.value);
 
             return (
@@ -438,8 +443,8 @@ function OfferSection({ page }) {
         {page.offerings.map((item, index) => (
           <Reveal key={item.title} delay={(index % 3) * 0.04}>
             <article className="interactive-surface h-full rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 shadow-low transition-all duration-300 hover:-translate-y-1 hover:shadow-med">
-              <Icon name={item.icon} size={34} className="text-primary" />
-              <h3 className="mt-md text-h3 text-on-surface">{item.title}</h3>
+              <ColorIcon name={item.icon} color={item.color || 'blue'} size={26} boxSize="h-14 w-14" radius="rounded-2xl" className="mb-sm" />
+              <h3 className="text-h3 text-on-surface">{item.title}</h3>
               <p className="mt-sm text-body-md text-on-surface-variant">{item.description}</p>
               <ul className="mt-md space-y-2">
                 {item.features.map((feature) => (
@@ -464,10 +469,9 @@ function ShowcaseSection({ showcase }) {
       <div className="mt-xl grid gap-md sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {showcase.items.map((item, index) => (
           <Reveal key={item.title} delay={(index % 4) * 0.035}>
-            <article className="interactive-surface h-full rounded-2xl border border-outline-variant bg-surface-container-lowest p-5 shadow-low transition-all duration-300 hover:border-primary/30 hover:shadow-med">
-              <p className="text-label-sm font-semibold text-primary">0{(index % 9) + 1}</p>
-              <h3 className="mt-2 text-h3 text-on-surface">{item.title}</h3>
-              <p className="mt-sm text-body-md text-on-surface-variant">{item.description}</p>
+            <article className="interactive-surface flex h-full flex-col items-start rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 shadow-low transition-all duration-300 hover:border-primary/30 hover:shadow-med">
+              <TechPill tech={item.title} className="mb-4" />
+              <p className="text-body-md text-on-surface-variant">{item.description}</p>
             </article>
           </Reveal>
         ))}
@@ -557,8 +561,8 @@ function RelatedServices({ services }) {
             to={service.path || `/services#${service.id}`}
             className="interactive-surface rounded-2xl border border-outline-variant bg-surface-container-lowest p-5 shadow-low transition-all hover:-translate-y-1 hover:shadow-med"
           >
-            <Icon name={service.icon} size={30} className="text-primary" />
-            <h3 className="mt-md text-h3 text-on-surface">{service.title}</h3>
+            <ColorIcon name={service.icon} color={service.color || 'blue'} size={22} boxSize="h-11 w-11" radius="rounded-xl" className="mb-sm" />
+            <h3 className="text-h3 text-on-surface">{service.title}</h3>
             <p className="mt-sm text-body-md text-on-surface-variant">{service.summary}</p>
           </Link>
         ))}
