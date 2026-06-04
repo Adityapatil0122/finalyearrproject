@@ -1746,37 +1746,6 @@
     animation: svc-dot-pulse var(--dot-dur) ease-in-out var(--dot-delay) infinite;
   }
 
-  /* ── eyebrow ── */
-  .svc-eyebrow-wrap {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.85rem;
-  }
-
-  .svc-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1px solid rgba(0, 95, 198, 0.18);
-    border-radius: 999px;
-    padding: 0.42rem 1rem;
-    background: rgba(0, 95, 198, 0.06);
-    color: #005fc6;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .svc-eyebrow-dot {
-    display: block;
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: #005fc6;
-    animation: svc-eyebrow-blink 2.4s ease-in-out infinite;
-  }
-
   /* ── heading ── */
   .svc-heading {
     color: #191b23;
@@ -1876,7 +1845,7 @@
   }
 
   .svc-card:hover .svc-card-bg-img {
-    opacity: 0.18;
+    opacity: 0;
   }
 
   /* -- card body -- */
@@ -3402,11 +3371,6 @@
 @keyframes svc-dot-pulse {
   0%, 100% { transform: scale(1); opacity: 0.15; }
   50% { transform: scale(1.6); opacity: 0.35; }
-}
-
-@keyframes svc-eyebrow-blink {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
 }
 
 @keyframes hero-holo-float {

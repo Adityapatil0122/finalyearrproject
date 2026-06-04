@@ -21,7 +21,6 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  { label: 'Home', to: '/' },
   {
     label: 'Web Services',
     to: '/services',

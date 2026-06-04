@@ -10,7 +10,7 @@ import { ArrowRight } from 'lucide-react';
 import { services } from '@/data/services';
 
 const serviceHeroImage =
-  '/services-hero-indian.jpg';
+  '/services-hero-digital-services.png';
 
 export default function Services() {
   useSEO({
@@ -36,7 +36,7 @@ export default function Services() {
         description="Websites, apps, AI tools, WhatsApp automation, marketing, and design support planned around one clear goal."
         media={{
           src: serviceHeroImage,
-          alt: 'Indian professionals collaborating on a digital project around a laptop',
+          alt: 'Digital services dashboard with web, app, AI, automation, marketing, and UI design screens',
           eyebrow: 'Strategy to launch',
         }}
       >

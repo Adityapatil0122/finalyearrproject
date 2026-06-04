@@ -202,12 +202,7 @@ export default function BentoExpertise() {
         {/* heading */}
         <div className="relative mx-auto max-w-4xl text-center">
           <Reveal>
-            <div className="svc-eyebrow-wrap">
-              <span className="svc-eyebrow">
-                <span className="svc-eyebrow-dot" aria-hidden />
-                Our Services
-              </span>
-            </div>
+            <p className="section-eyebrow mb-2">Our Services</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="text-h1 text-balance svc-heading">
